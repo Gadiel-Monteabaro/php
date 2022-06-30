@@ -16,8 +16,7 @@
     echo date("d/m/y");
 
     ?>
-
-    <p></p>
+    
 </body>
 
 </html>
