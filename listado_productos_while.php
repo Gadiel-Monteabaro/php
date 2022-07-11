@@ -65,6 +65,7 @@ $aProductos[] = array(
                             <tbody>
                                 <?php
                                 $contador = 0;
+                                $subTotal = 0;
                                 while ($contador <= 2) { ?>
                                     <tr class="fil-datos">
                                         <td><?php echo $aProductos[$contador]["nombre"]; ?></td>
@@ -74,13 +75,21 @@ $aProductos[] = array(
                                         <td><?php echo $aProductos[$contador]["precio"]; ?></td>
                                     </tr>
                                 <?php
+                                    $subTotal += $aProductos[$contador]["precio"];
                                     $contador++;
                                 } ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="container my-5 text-center">
+                        <p>Total de Compra: <?php echo "$$subTotal. " ?></p>
+                    </div>
+                </div>
             </div>
+        </div>
     </main>
 </body>
 

@@ -40,7 +40,7 @@ $aProductos[] = array(
 </head>
 
 <body>
-    <main>
+    <main class="container">
         <div class="container">
             <div class="row">
                 <div class="col-12 py-5 text-center">
@@ -80,7 +80,6 @@ $aProductos[] = array(
                             <?php
                             }
                             ?>
-
                         </tbody>
                     </table>
                 </div>
