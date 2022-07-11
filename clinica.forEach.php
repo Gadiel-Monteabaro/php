@@ -54,7 +54,7 @@ $aPacientes[] = array(
         <div class="container">
             <div class="row">
                 <div class="col-12 border text-center">
-                    <table class="table table-hover">
+                    <table class="table table-hover">                        
                         <thead>
                             <tr class="fil-datos">
                                 <th>DNI</th>
@@ -63,6 +63,7 @@ $aPacientes[] = array(
                                 <th>Peso</th>
                             </tr>
                         </thead>
+                        
                         <tbody>
                             <?php
                             foreach ($aPacientes as $paciente) { ?>
