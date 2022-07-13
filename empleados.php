@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 $aEmpleados = array();
 $aEmpleados[] = array(
     "dni" => 33300123,
-    "nombre" => "David Garcia",
+    "nombre" => "David García",
     "sueldo" => 70550.25,
 );
 $aEmpleados[] = array(
@@ -16,7 +16,7 @@ $aEmpleados[] = array(
 );
 $aEmpleados[] = array(
     "dni" => 67567565,
-    "nombre" => "Andres Perez",
+    "nombre" => "Andrés Perez",
     "sueldo" => 83000.00,
 );
 $aEmpleados[] = array(
@@ -71,13 +71,18 @@ function calcularNeto($bruto)
                             foreach ($aEmpleados as $empleado) { ?>
                                 <tr class="fil-datos">
                                     <td><?php echo $empleado["dni"]; ?></td>
-                                    <td><?php echo strtoupper($empleado["nombre"]); ?></td>
+                                    <td><?php echo mb_strtoupper($empleado["nombre"]); ?></td>
                                     <td><?php echo "$" . number_format(calcularNeto($empleado["sueldo"]), 2, ",", "."); ?></td>
                                 </tr>
                             <?php
                             } ?>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p>Cantidad de Empleados Activos: <?php echo count($aEmpleados);  ?></p>
                 </div>
             </div>
         </div>
