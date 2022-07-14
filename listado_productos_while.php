@@ -37,6 +37,8 @@ $aProductos[] = array(
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Productos</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -45,7 +47,6 @@ $aProductos[] = array(
             <div class="row">
                 <div class="col-12 py-5 text-center">
                     <h1>Listado de Productos</h1>
-                    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
                 </div>
             </div>
 
