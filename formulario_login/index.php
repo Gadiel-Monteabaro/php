@@ -2,20 +2,6 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-/*
-if (isset($_POST["txtPassword"]) && isset($_POST["txtUsuario"])) {
-    $msg = "Valido solo para Usuarios registrados";
-} else {
-    header("Location:http://localhost/php/formulario_login/acceso-confirmado.php");
-}
-*/
-
-if (isset($_POST["txtUsername"]) == "") {
-    $msg = "Valido Para Usuarios Registrados";
-} else {
-    header("Location:http://localhost/php/formulario_login/acceso-confirmado.php");
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +14,7 @@ if (isset($_POST["txtUsername"]) == "") {
     <title>Formulario de Ingreso</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -52,11 +39,9 @@ if (isset($_POST["txtUsername"]) == "") {
                             <label for="txtPassword">Clave:</label>
                             <input type="password" name=txtPassword id=txtPassword class="shadow form-control">
                         </div>
-                        <div class="col-12 alert alert-danger">
-                            <p><?php echo $msg ?></p>
-                        </div>
+
                         <div>
-                            <button type="submit" class="btn btn-primary px-5">Enviar</button>
+                            <button type="submit" name="enviar" class="btn btn-primary px-5">Enviar</button>
                         </div>
                     </form>
                 </div>
