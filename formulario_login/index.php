@@ -2,6 +2,17 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+if ($_POST) {
+    $username = $_POST["txtUsername"];
+    $password = $_POST["txtPassword"];
+
+    if ($username != "" && $password != "") {
+        header("Location: ./acceso-confirmado.php");
+    } else {
+        $msg = "Valido solo para Usuarios Registrados.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +29,6 @@ error_reporting(E_ALL);
 </head>
 
 <body>
-
     <main>
         <div class="container">
             <div class="row">
@@ -30,7 +40,7 @@ error_reporting(E_ALL);
 
             <div class="row">
                 <div class="col-12">
-                    <form method="POST" action="">
+                    <form method="POST" action="./index.php">
                         <div class="pb-4">
                             <label for="txtUsername">Usuario:</label>
                             <input type="text" name=txtUsername id=txtUsername class="shadow form-control">
@@ -40,6 +50,17 @@ error_reporting(E_ALL);
                             <input type="password" name=txtPassword id=txtPassword class="shadow form-control">
                         </div>
 
+                        <div class=".col-12 py-4">
+                            <?php
+                            if (isset($msg)) {
+                            ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?php echo $msg; ?>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
                         <div>
                             <button type="submit" name="enviar" class="btn btn-primary px-5">Enviar</button>
                         </div>
@@ -48,7 +69,6 @@ error_reporting(E_ALL);
             </div>
         </div>
     </main>
-
 </body>
 
 </html>
