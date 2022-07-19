@@ -80,7 +80,7 @@ $aAlumnos[] = array(
                         <?php
                         }
                         ?>
-                    </tbody>                    
+                    </tbody>
                 </table>
             </div>
         </div>
