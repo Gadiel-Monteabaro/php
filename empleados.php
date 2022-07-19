@@ -52,7 +52,6 @@ function calcularNeto($bruto)
             <div class="row">
                 <div class="col-12 py-5 text-center">
                     <h1>Listado de Pacientes.</h1>
-                    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
                 </div>
             </div>
         </div>

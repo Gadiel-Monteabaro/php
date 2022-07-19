@@ -23,7 +23,6 @@ error_reporting(E_ALL);
         <div class="row">
             <div class="col-12 py-5 ">
                 <h1>Bienvenid@ al Sistema</h1>
-                <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
             </div>
         </div>
         <div class="row">

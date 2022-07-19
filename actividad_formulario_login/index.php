@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 if ($_POST) {
-    $username = $_POST["txtUsername"];
+    $username = $_POST["txtUsername"]; //Podemos usar $_REQUEST, nos permite leer tanto POST como GET.
     $password = $_POST["txtPassword"];
 
     if ($username != "" && $password != "") {
@@ -34,7 +34,6 @@ if ($_POST) {
             <div class="row">
                 <div class="col-12 py-5 ">
                     <h1>Formulario</h1>
-                    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
                 </div>
             </div>
 
