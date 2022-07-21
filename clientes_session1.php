@@ -21,7 +21,6 @@ if ($_POST) {
     $telefonoCliente = $_POST["txtTelefono"];
     $edadCliente = $_POST["txtEdad"];
 
-
     $aCliente[] = array(
         "nombreCliente" => $nombreCliente,
         "dniCliente" => $dniCliente,
