@@ -42,7 +42,8 @@ if ($_POST) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado De Clientes</title>
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <!-- CSS only -->   
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">    
 </head>
 
 <body>
@@ -83,7 +84,7 @@ if ($_POST) {
             <div class="col-8">
                 <table class="shadow table table-hover">
                     <thead>
-                        <tr>
+                        <tr class="fil-datos">
                             <th>Nombre:</th>
                             <th>DNI:</th>
                             <th>Telefono:</th>
