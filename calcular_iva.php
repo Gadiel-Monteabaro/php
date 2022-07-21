@@ -57,8 +57,10 @@ if ($_POST) {
                     <div class="pb-4">
                         <label for="txtUsername">IVA:</label>
                         <select name="lstIva" id="lstIva">
-                            <option name="21" value="21">21</option>
+                            <option name="10.5" value="10.5">10.5</option>
                             <option name="19" value="19">19</option>
+                            <option name="21" value="21">21</option>
+                            <option name="27" value="27">27</option>
                         </select>
                     </div>
                     <div class="pb-4">
