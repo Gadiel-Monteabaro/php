@@ -13,7 +13,7 @@ if (isset($_SESSION["listadoClientes"])) {
     $aCliente = array();
 }
 
-
+hola
 if ($_POST) {
 
     $nombreCliente = $_POST["txtNombre"];
