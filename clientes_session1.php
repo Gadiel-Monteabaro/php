@@ -41,8 +41,8 @@ if ($_POST) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado De Clientes</title>
-    <!-- CSS only -->   
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">    
+    <!-- CSS only -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 </head>
 
 <body>
