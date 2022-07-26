@@ -15,19 +15,35 @@ if (isset($_SESSION["listadoClientes"])) {
 
 if ($_POST) {
 
-    $nombreCliente = $_POST["txtNombre"];
-    $dniCliente = $_POST["txtDni"];
-    $telefonoCliente = $_POST["txtTelefono"];
-    $edadCliente = $_POST["txtEdad"];
+    if (isset($_POST["btnEnviar"])) {
 
-    $aCliente[] = array(
-        "nombreCliente" => $nombreCliente,
-        "dniCliente" => $dniCliente,
-        "telefonoCliente" => $telefonoCliente,
-        "edadCliente" => $edadCliente,
-    );
+        $nombreCliente = $_POST["txtNombre"];
+        $dniCliente = $_POST["txtDni"];
+        $telefonoCliente = $_POST["txtTelefono"];
+        $edadCliente = $_POST["txtEdad"];
 
-    $_SESSION["listadoClientes"] = $aCliente;
+        $aCliente[] = array(
+            "nombreCliente" => $nombreCliente,
+            "dniCliente" => $dniCliente,
+            "telefonoCliente" => $telefonoCliente,
+            "edadCliente" => $edadCliente,
+        );
+
+        $_SESSION["listadoClientes"] = $aCliente;
+    }
+
+    if (isset($_POST["btnEliminar"])) {
+        session_destroy();
+        $aCliente = array();
+    }
+
+    if (isset($_GET["pos"])) {
+        $pos = $_GET["pos"];
+        unset($aCliente[$pos]);
+        //Actualizo l avariable de session con el array actualizado
+        $_SESSION["listadoClientes"] = $aCliente;
+        header("Location: clientes_session1.php");
+    }
 }
 
 ?>
@@ -42,6 +58,7 @@ if ($_POST) {
     <title>Listado De Clientes</title>
     <!-- CSS only -->
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -96,6 +113,11 @@ if ($_POST) {
                                 <td><?php echo $cliente["dniCliente"]; ?></td>
                                 <td><?php echo $cliente["telefonoCliente"]; ?></td>
                                 <td><?php echo $cliente["edadCliente"]; ?></td>
+                                <td>
+                                    <form method="GET" action="">
+                                        <a href="clientes_session1.php?pos=<?php echo $pos; ?>"><i class="bi bi-trash"></i></a>
+                                    </form>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
