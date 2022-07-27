@@ -19,8 +19,9 @@ while ($numeros <= 100) {
 //otra forma .
 
 for ($i = 2; $i <= 100; $i += 2) {
-
+// imprimimos el valor  inicial junto con un salto de linea.
     echo $i . "<br>";
+    //Si el numero llega a  60, realiazamos un break.
     if ($numeros == 60) {
         break;
     }
