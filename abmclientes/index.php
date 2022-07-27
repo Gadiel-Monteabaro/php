@@ -49,12 +49,12 @@ error_reporting(E_ALL);
                         <label for="txtCorreo">Correo:*</label>
                         <input type="number" name="txtCorreo" id="txtCorreo" class="shadow form-control" required>
                     </div>
-                    <div class="pb-2">
+                    <div class="pb-4">
                         <label for="archivo">Archivo Adjunto:</label>
                         <input type="file" name="archivo" id="archivo" accept=".jpg,.jpeg,.png">
                         <small class="d-block">Archivos Admitidos: .jpg, .jpeg, .png</small>
                     </div>
-                    <div class="mt-3">
+                    <div>
                         <button type="submit" name="btnGuardar" class=" btn btn-primary px-3 shadow">Guardar</button>
                         <button type="submit" name="btnNuevo" class="btn btn-danger px-3 shadow">Nuevo</button>
                     </div>
