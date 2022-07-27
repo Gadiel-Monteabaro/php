@@ -36,14 +36,14 @@ if ($_POST) {
         session_destroy();
         $aCliente = array();
     }
+}
 
-    if (isset($_GET["pos"])) {
-        $pos = $_GET["pos"];
-        unset($aCliente[$pos]);
-        //Actualizo l avariable de session con el array actualizado
-        $_SESSION["listadoClientes"] = $aCliente;
-        header("Location: clientes_session1.php");
-    }
+if (isset($_GET["pos"])) {
+    $pos = $_GET["pos"];
+    unset($aCliente[$pos]);
+    //Actualizo l avariable de session con el array actualizado
+    $_SESSION["listadoClientes"] = $aCliente;
+    header("Location: clientes_session1.php");
 }
 
 ?>
@@ -107,17 +107,13 @@ if ($_POST) {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($aCliente as $cliente) : ?>
+                        <?php foreach ($aCliente as $pos => $cliente) : ?>
                             <tr class="fil-datos">
                                 <td><?php echo $cliente["nombreCliente"]; ?></td>
                                 <td><?php echo $cliente["dniCliente"]; ?></td>
                                 <td><?php echo $cliente["telefonoCliente"]; ?></td>
                                 <td><?php echo $cliente["edadCliente"]; ?></td>
-                                <td>
-                                    <form method="GET" action="">
-                                        <a href="clientes_session1.php?pos=<?php echo $pos; ?>"><i class="bi bi-trash"></i></a>
-                                    </form>
-                                </td>
+                                <td><a href="clientes_session1.php?pos=<?php echo $pos; ?>"><i class="bi bi-trash"></i></a></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
