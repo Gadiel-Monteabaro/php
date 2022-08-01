@@ -19,6 +19,8 @@ if (file_exists("archivo.txt")) {
     $aClientes = array();
 }
 
+$pos = isset($_GET["pos"]) && $_GET["pos"] >= 0 ? $_GET["pos"] : "";
+
 if ($_POST) {
     $dni = trim($_POST["txtDni"]);
     $nombre = trim($_POST["txtNombre"]);
@@ -26,12 +28,22 @@ if ($_POST) {
     $correo = trim($_POST["txtCorreo"]);
 
 
-    $aClientes[] = array(
-        "documento" => $dni,
-        "nombre" => $nombre,
-        "telefono" => $telefono,
-        "correo" => $correo,
-    );
+    if ($pos >= 0) {
+        //actualizar
+        $aClientes[$pos] = array(
+            "documento" => $dni,
+            "nombre" => $nombre,
+            "telefono" => $telefono,
+            "correo" => $correo,
+        );
+    } else {
+        $aClientes[] = array(
+            "documento" => $dni,
+            "nombre" => $nombre,
+            "telefono" => $telefono,
+            "correo" => $correo,
+        );
+    }
 
     //tenemos que convertir el array "aClientes a json"
 
@@ -39,6 +51,18 @@ if ($_POST) {
     //Almacenar el string en el archivo.txt
     file_put_contents("archivotxt", $jsonClientes);
 }
+
+if (isset($_GET["do"]) && $_GET["do"] == "eliminar") {
+    //Eliminar del array aClientes la posicion a borrar
+    unset($aClientes[$pos]);
+    //tenemos que convertir el array "aClientes a json" 
+    $jsonClientes = json_encode($aClientes);
+    //Almacenar el string en el archivo.txt
+    file_put_contents("archivotxt", $jsonClientes);
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -71,19 +95,19 @@ if ($_POST) {
                 <form method="POST" action="" enctype="multipart/form-data">
                     <div class="pb-4">
                         <label for="txtDni">DNI:*</label>
-                        <input type="number" name="txtDni" id="txtDni" class="shadow form-control" required>
+                        <input type="number" name="txtDni" id="txtDni" class="shadow form-control" value="<?php echo isset($aClientes[$pos]) ? $aClientes[$pos]["documento"] : ""; ?>" required>
                     </div>
                     <div class="pb-4">
                         <label for="txtNombre">Nombre:*</label>
-                        <input type="text" name="txtNombre" id="txtNombre" class="shadow form-control" placeholder="Ingrese el nombre y apellido" required>
+                        <input type="text" name="txtNombre" id="txtNombre" class="shadow form-control" placeholder="Ingrese el nombre y apellido" value="<?php echo isset($aClientes[$pos]) ? $aClientes[$pos]["nombre"] : ""; ?>" required>
                     </div>
                     <div class="pb-4">
                         <label for="txtTelefono">Telefono:</label>
-                        <input type="number" name="txtTelefono" id="txtTelefono" class="shadow form-control">
+                        <input type="number" name="txtTelefono" id="txtTelefono" class="shadow form-control" value="<?php echo isset($aClientes[$pos]) ? $aClientes[$pos]["telefono"] : ""; ?>">
                     </div>
                     <div class="pb-4">
                         <label for="txtCorreo">Correo:*</label>
-                        <input type="text" name="txtCorreo" id="txtCorreo" class="shadow form-control" required>
+                        <input type="text" name="txtCorreo" id="txtCorreo" class="shadow form-control" required value="<?php echo isset($aClientes[$pos]) ? $aClientes[$pos]["correo"] : ""; ?>">
                     </div>
                     <div class="pb-4">
                         <label for="archivo">Archivo Adjunto:</label>
@@ -118,8 +142,8 @@ if ($_POST) {
                                 <td><?php echo $cliente["nombre"]; ?></td>
                                 <td><?php echo $cliente["correo"]; ?></td>
                                 <td>
-                                    <a href=""><i class="fa-solid fa-pen"></i></a>
-                                    <a href=""><i class="fa-solid fa-trash-can"></i></a>
+                                    <a href="index.php?pos=<?php echo $pos; ?>&do=editar"><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="index.php?pos=<?php echo $pos; ?>&do=eliminar"><i class="fa-solid fa-trash-can"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
