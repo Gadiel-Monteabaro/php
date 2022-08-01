@@ -20,13 +20,13 @@ if (file_exists("archivo.txt")) {
 }
 
 if ($_POST) {
-    $dni = $_POST["txtDni"];
-    $nombre = $_POST["txtNombre"];
-    $telefono = $_POST["txtTelefono"];
-    $correo = $_POST["txtCorreo"];
+    $dni = trim($_POST["txtDni"]);
+    $nombre = trim($_POST["txtNombre"]);
+    $telefono = trim($_POST["txtTelefono"]);
+    $correo = trim($_POST["txtCorreo"]);
 
 
-    $aClientes = array(
+    $aClientes[] = array(
         "documento" => $dni,
         "nombre" => $nombre,
         "telefono" => $telefono,
@@ -111,12 +111,12 @@ if ($_POST) {
                     </thead>
                     <tbody>
 
-                        <?php foreach ($aClientes as  $cliente) : ?>
+                        <?php foreach ($aClientes as $pos => $cliente) : ?>
                             <tr class="fil-datos">
                                 <td></td>
                                 <td><?php echo $cliente["documento"]; ?></td>
                                 <td><?php echo $cliente["nombre"]; ?></td>
-                                <td><?php echo $cliente["edadCliente"]; ?></td>
+                                <td><?php echo $cliente["correo"]; ?></td>
                                 <td>
                                     <a href=""><i class="fa-solid fa-pen"></i></a>
                                     <a href=""><i class="fa-solid fa-trash-can"></i></a>
