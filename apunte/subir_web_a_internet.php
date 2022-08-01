@@ -24,7 +24,3 @@ https://ar.godaddy.com
 descargar winSCP
 */
 
-/*
-https => este protocolo es la version segura de http (hyper text protocol) que todos utilizamos habitualmente. Basicamente, lo que ocurre es que el servidor web codifica la sesion con un certificado digital (SSL).
-De este modo el ususario tiene garanmtia que su informacion no va a poder ser utilizada por terceros o ser interceptada.
-*/
