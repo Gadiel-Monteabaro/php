@@ -30,6 +30,15 @@ while ('condicion') {
 }
 
 /*
+do-while => Es parecido al 'while', nada mas que la exprecion se verifica al final de la ejecucion del programa y no al comienzo.
+*/
+//Syntaxis => solamente hay una sola syntaxis.
+$i = 0;
+do {
+    echo $i;
+} while ($i > 0);
+
+/*
 for => Crea un bucle que consiste en tres expresiones opcionales, encerradas en paréntesis y separadas por puntos y comas, seguidas de una sentencia ejecutada en un bucle.  
 */
 //Syntaxis
@@ -40,6 +49,7 @@ for (['expresion-inicial']; ['condicion']; ['expresion-final']) {
 /*
 foreach => proporciona un modo sencillo de iterar sobre arrays. foreach funciona sólo sobre arrays y objetos, y emitirá un error al intentar usarlo con una variable de un tipo diferente de datos o una variable no inicializada.
 */
+//Syntaxis
 foreach ($array as $valor) {
     //sentencia ;
 }
