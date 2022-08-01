@@ -46,3 +46,11 @@ $nombre = $_REQUEST["txtNombre"]; // El txt es el 'name' de nuestro input.
 /*
 PostBack => nos permite procesar un pedido realizado por un usuario y absorber ese pedido en variables que podremos utilizar para alamacenar datos, que utilizaremos como informacion, donde tambien podremos operar con ellos.
 */
+if ($_POST) { //El pedido puede ser POST, GET O REQUEST, recordar que hay otras formas pero estos son los mas utilizados.
+    //procesa el pedido donde podmeos guardar variables ;
+    $nombre = $_POST["txtNombre"];
+}
+
+/*
+isset => Determina si una variable está definida y no es null. 
+*/

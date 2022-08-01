@@ -42,3 +42,8 @@ Mostrar errores en php.
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+/*
+isset => Determina si una variable está definida y no es null.
+esta funcion esta mas especificada en el archivo 'https.php'
+*/
