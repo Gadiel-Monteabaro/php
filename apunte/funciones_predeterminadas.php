@@ -46,4 +46,7 @@ error_reporting(E_ALL);
 /*
 isset => Determina si una variable está definida y no es null.
 esta funcion esta mas especificada en el archivo 'https.php'
+
+header => Permite redireccionar hacia una direccion que nosotros asignemos ya sea absoluta o local.
+esta funcion esta mas especificada en el archivo 'https.php'
 */

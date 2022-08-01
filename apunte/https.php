@@ -54,3 +54,13 @@ if ($_POST) { //El pedido puede ser POST, GET O REQUEST, recordar que hay otras 
 /*
 isset => Determina si una variable está definida y no es null. 
 */
+if (isset($_POST['txtUsuario'])) {
+    $usuario =  $_POST['txtUsuario'];
+} else {
+    $usuario = 'invitado';
+}
+
+/*
+Redirect => nos permite redireccionar a una pagina que nosotros asignemos como direccion.
+*/
+header('Location: https://google.com.ar');
