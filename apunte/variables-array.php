@@ -29,7 +29,6 @@ Una variable es una espacion reservado en la memoria, resive un nombre, donde es
 /*                                 |==>  [==Comentarios==]
 Esto es un comentario Multilineal. |
 */
-
 $nombre = 'Gadiel'; // Dato tipo String
 $apellido = 'Silva Monteabaro'; // Dato tipo String
 $edad = 25; // Dato tipo Numerico Entero
