@@ -3,6 +3,14 @@
 PHP - brinda funcionmes predeterminadas que nos permite agilizar nuestro codigo.
 */
 
+// count => Cuenta todos los elementos de un array o algo de un objeto
+$a[0] = 1;
+$a[1] = 3;
+$a[2] = 5;
+var_dump(count($a)); // var_dump => muestra informacion sobre una variable
+
+
+
 // number_format => Formatea una expresion numerica en el formato que deseamos.
 $importe = 1050.95;
 
