@@ -33,12 +33,16 @@ Las variables superglobales son variables disponibles siempre, en todos los ambi
 
 $_GET (capturar datos de la query string) => Es una variable superglobal .Es un array asociativo que es generado a partir del query string de un pedido GET.
 */
-$nombre = $_GET["txtNombre"]; // El txt es el 'name' de nuestro input.$nombre = $_GET["txtNombre"]
+$nombre = $_GET["txtNombre"]; // El txt es el 'name' de nuestro input.
 /*
 $_POST (capturar datos del formulario) =>  Es otra variable supergloba. Es un array asociativo que se genera a partir de lquery string de un pedido POST.
 */
-$nombre = $_POST["txtNombre"]; // El txt es el 'name' de nuestro input.$nombre = $_GET["txtNombre"]
-
+$nombre = $_POST["txtNombre"]; // El txt es el 'name' de nuestro input.
 /*
 $_REQUEST (captura get y post a la vez)
+*/
+$nombre = $_REQUEST["txtNombre"]; // El txt es el 'name' de nuestro input.
+
+/*
+PostBack => nos permite procesar un pedido realizado por un usuario y absorber ese pedido en variables que podremos utilizar para alamacenar datos, que utilizaremos como informacion, donde tambien podremos operar con ellos.
 */
