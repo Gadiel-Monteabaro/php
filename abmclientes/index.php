@@ -4,12 +4,48 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+//Preguntar si existe el archivo
+
+if (file_exists("archivo.txt")) {
+    //vamos a leerlo y almacenarlo en jsonClientes
+
+    $jsonClientes = file_get_contents("archivo.txt");
+
+    //jsonClientes, convertirlo en un array llamado "aClientes"
+    $aClientes = json_decode($jsonClientes, true);
+
+    //Sino existe el archivo le damos un "aClientes" como un array vacio.
+} else {
+    $aClientes = array();
+}
+
+if ($_POST) {
+    $dni = $_POST["txtDni"];
+    $nombre = $_POST["txtNombre"];
+    $telefono = $_POST["txtTelefono"];
+    $correo = $_POST["txtCorreo"];
+
+
+    $aClientes = array(
+        "documento" => $dni,
+        "nombre" => $nombre,
+        "telefono" => $telefono,
+        "correo" => $correo,
+    );
+
+    //tenemos que convertir el array "aClientes a json"
+
+    $jsonClientes = json_encode($aClientes);
+    //Almacenar el string en el archivo.txt
+    file_put_contents("archivotxt", $jsonClientes);
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,11 +71,11 @@ error_reporting(E_ALL);
                 <form method="POST" action="" enctype="multipart/form-data">
                     <div class="pb-4">
                         <label for="txtDni">DNI:*</label>
-                        <input type="text" name="txtDni" id="txtDni" class="shadow form-control" placeholder="Ingrese el nombre y apellido" required>
+                        <input type="number" name="txtDni" id="txtDni" class="shadow form-control" required>
                     </div>
                     <div class="pb-4">
                         <label for="txtNombre">Nombre:*</label>
-                        <input type="number" name="txtNombre" id="txtNombre" class="shadow form-control" required>
+                        <input type="text" name="txtNombre" id="txtNombre" class="shadow form-control" placeholder="Ingrese el nombre y apellido" required>
                     </div>
                     <div class="pb-4">
                         <label for="txtTelefono">Telefono:</label>
@@ -47,7 +83,7 @@ error_reporting(E_ALL);
                     </div>
                     <div class="pb-4">
                         <label for="txtCorreo">Correo:*</label>
-                        <input type="number" name="txtCorreo" id="txtCorreo" class="shadow form-control" required>
+                        <input type="text" name="txtCorreo" id="txtCorreo" class="shadow form-control" required>
                     </div>
                     <div class="pb-4">
                         <label for="archivo">Archivo Adjunto:</label>
@@ -69,22 +105,30 @@ error_reporting(E_ALL);
                             <th>Imagen</th>
                             <th>DNI</th>
                             <th>Nombre</th>
-                            <th>Telefono</th>
                             <th>Correo</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
+
+                        <?php foreach ($aClientes as  $cliente) : ?>
+                            <tr class="fil-datos">
+                                <td></td>
+                                <td><?php echo $cliente["documento"]; ?></td>
+                                <td><?php echo $cliente["nombre"]; ?></td>
+                                <td><?php echo $cliente["edadCliente"]; ?></td>
+                                <td>
+                                    <a href=""><i class="fa-solid fa-pen"></i></a>
+                                    <a href=""><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+
                     </tbody>
                 </table>
             </div>
-
         </div>
-
-
     </div>
-
-
 </body>
 
 </html>

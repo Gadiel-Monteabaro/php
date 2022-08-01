@@ -52,3 +52,5 @@ $miArray[3] = 26;
 echo $miArray[0] . '<br>'; // Muestra 'Hola'
 print_r($miArray);
 var_dump($miArray);
+
+
