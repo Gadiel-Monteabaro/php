@@ -33,6 +33,7 @@ while ('condicion') {
 do-while => Es parecido al 'while', nada mas que la exprecion se verifica al final de la ejecucion del programa y no al comienzo.
 */
 //Syntaxis => solamente hay una sola syntaxis.
+/*El bucle de arriba se ejecutaría exactamente una sola vez, ya que después de la primera iteración, cuando la expresión verdadera es verificada, se evalúa como false ($i no es mayor que 0) y termina la ejecución del bucle. */
 $i = 0;
 do {
     echo $i;
