@@ -46,20 +46,12 @@ if ($_POST) {
     }
 
     //tenemos que convertir el array "aClientes a json"
-
     $jsonClientes = json_encode($aClientes);
     //Almacenar el string en el archivo.txt
-    file_put_contents("archivotxt", $jsonClientes);
+    file_put_contents("archivo.txt", $jsonClientes);
 }
 
-if (isset($_GET["do"]) && $_GET["do"] == "eliminar") {
-    //Eliminar del array aClientes la posicion a borrar
-    unset($aClientes[$pos]);
-    //tenemos que convertir el array "aClientes a json" 
-    $jsonClientes = json_encode($aClientes);
-    //Almacenar el string en el archivo.txt
-    file_put_contents("archivotxt", $jsonClientes);
-}
+
 
 
 
