@@ -18,3 +18,8 @@ a => agrega al final
 a+ => agrega al final, si no existe crea el archivo
 */
 
+// fwrite => Escribe en el archivo
+fwrite($archivo1, '1'); // Escribe en el archivo '1'
+
+// fclese => Cierra el archivo
+fclose($archivo1); // Cierra el archivo
