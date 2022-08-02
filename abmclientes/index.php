@@ -3,6 +3,33 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+//preguntamos si existe el archivo
+//vamos a leerlo y almacenarlo en jsonClientes
+//convertir jsonClientes en un array llamado aClientes
+
+//sino existe el archivo
+//creamos un aClientes vacio
+
+if ($_POST) {
+    $documento = trim($_POST["txtDni"]);
+    $nombre = trim($_POST["txtNombre"]);
+    $telefono = trim($_POST["txtTelefono"]);
+    $correo = trim($_POST["txtCorreo"]);
+
+    $aClientes[] = array(
+        "documento" => $documento,
+        "nombre" => $nombre,
+        "telefono" => $telefono,
+        "correo" => $correo,
+    );
+
+    //convertir el array a jsonClientes
+    $jsonClientes = json_encode($aClientes);
+
+    //almacenar el string json en el archivo.txt
+    file_put_contents("archivo.txt", $jsonClientes);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -63,17 +90,25 @@ error_reporting(E_ALL);
             <div class="col-8">
                 <table class="shadow table table-hover">
                     <thead>
-                        <tr class="fil-datos">}
+                        <tr class="fil-datos">
                             <th>Imagen</th>
                             <th>DNI</th>
                             <th>Nombre</th>
                             <th>Telefono</th>
                             <th>Correo</th>
                             <th>Acciones</th>
-                        </tr>                        
+                        </tr>
                     </thead>
                     <tbody>
-                        
+                        <?php foreach ($aClientes as $cliente) : ?>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

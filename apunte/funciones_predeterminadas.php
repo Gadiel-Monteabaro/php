@@ -50,3 +50,6 @@ esta funcion esta mas especificada en el archivo 'https.php'
 header => Permite redireccionar hacia una direccion que nosotros asignemos ya sea absoluta o local.
 esta funcion esta mas especificada en el archivo 'https.php'
 */
+
+// trim => borra lso espacios que puede llegar a generar un usuario dentro del envio de un formulario, tanto al final como al principio
+$variable = trim($_POST["txtName"]);
