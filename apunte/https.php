@@ -57,7 +57,7 @@ isset => Determina si una variable está definida y no es null.
 if (isset($_POST['txtUsuario'])) {
     $usuario =  $_POST['txtUsuario'];
 } else {
-    $usuario = 'invitado';
+    $usuario = 'invitado/a';
 }
 
 /*
