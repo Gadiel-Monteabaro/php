@@ -50,5 +50,14 @@ if ($archivo) {
 }
 fclose($archivo);
 
-//file_exists => permite saber si un archivo existe o no.
+// file_exists => permite saber si un archivo existe o no.
 file_exists($nameFile);
+
+// is_array => Nos permite saber si el contenido de una variable es un array.
+$aArray = array();
+
+if (is_array($aArray)) {
+    echo "Esto es un array.";
+} else {
+    echo "Esto no es un array, es otro tipo de dato.";
+}
