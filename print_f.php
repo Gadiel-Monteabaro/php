@@ -23,10 +23,10 @@ function print_f($var)
 
         //Si no es un array, puede ser cualquier dato como un 'string'
     } else {
-        //Entonces es un string, guardo la variable en le archivo "datos.txt"
+        //Entonces es un string, guardo la variable en el archivo "datos.txt"
         file_put_contents("datos.txt", $var);
     }
-    //Imprimimos un mensaje 
+    //Imprimimos un mensaje para no tener la pantalla vacia
     echo "Archivo Generado.";
 }
 

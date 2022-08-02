@@ -49,3 +49,6 @@ if ($archivo) {
     }
 }
 fclose($archivo);
+
+//file_exists => permite saber si un archivo existe o no.
+file_exists($nameFile);
