@@ -71,3 +71,18 @@ Tamaño   =>   Expresado en Bytes
 2MB      =>         2e+6
 1GB      =>         1e+9
 */
+
+/*
+$_FILES => contendra toda la informacion de los archivos subidos dentro del metodo POST 
+por cada archivo ocntendra un array asociativo 
+*/
+$_FILES["archivo"]['error']; //indica si la imagen se subio correctamente
+if ($FILES["archivo"]['error'] === UPLOAD_ERR_OK) { //UPLOAD_ERR_OK, detalla que no hubo errores
+    // se adjunto correctamente 
+}
+
+$FILES["archivo"]['name'];  //  Indica el nombre del archivo que se subio
+$extension = pathinfo($FILES["archivo"]['name'], PATHINFO_EXTENSION); // extension por la cual fue subido el archivo
+
+$archivoTemporal = $FILES["archivo"]['tmp_name']; // Ubicacion real en el servido del archivo
+move_uploaded_file($archivoTemporal, 'URL'); // move_uploaded_file guardamos el archivo
