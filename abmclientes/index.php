@@ -40,7 +40,7 @@ error_reporting(E_ALL);
                     </div>
                     <div class="pb-4">
                         <label for="txtNombre">Nombre:*</label>
-                        <input type="number" id="txtNombre" name="txtNombre" class="shadow form-control" required>
+                        <input type="text" id="txtNombre" name="txtNombre" class="shadow form-control" required>
                     </div>
                     <div class="pb-4">
                         <label for="txtTelefono">Telefono:</label>
@@ -48,7 +48,7 @@ error_reporting(E_ALL);
                     </div>
                     <div class="pb-4">
                         <label for="txtCorreo">Correo:*</label>
-                        <input type="number" id="txtCorreo" name="txtCorreo" class="shadow form-control" required>
+                        <input type="email" id="txtCorreo" name="txtCorreo" class="shadow form-control" required>
                     </div>
                     <div class="pb-4">
                         <label for="archivo">Archivo Adjunto:</label>
@@ -59,6 +59,23 @@ error_reporting(E_ALL);
                         <button type="submit" name="btnGuardar" class="btn btn-primary px-3 shadow">Guardar</button>
                     </div>
                 </form>
+            </div>
+            <div class="col-8">
+                <table class="shadow table table-hover">
+                    <thead>
+                        <tr class="fil-datos">}
+                            <th>Imagen</th>
+                            <th>DNI</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
+                        </tr>                        
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
