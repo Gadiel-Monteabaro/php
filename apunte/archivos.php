@@ -37,7 +37,6 @@ $contenido = file_get_contents($nameFile); // Equivale a hacer un 'fopen', 'frea
 $nombre = "Gadiel Silva";
 file_put_contents($nameFile, $nombre);
 
-
 /*
 Un archivo de texto pouede ser demasiado grande, entonces lo que hacemos es leerlo linea por linea, ya que puede provocar de memoria.
 */
