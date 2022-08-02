@@ -4,11 +4,16 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 //preguntamos si existe el archivo
-//vamos a leerlo y almacenarlo en jsonClientes
-//convertir jsonClientes en un array llamado aClientes
-
-//sino existe el archivo
-//creamos un aClientes vacio
+if (file_exists("archivo.txt")) {
+    //vamos a leerlo y almacenarlo en jsonClientes
+    $jsonClientes =  file_get_contents("archivo.txt");
+    //convertir jsonClientes en un array llamado aClientes
+    $aClientes = json_decode($jsonClientes, true);
+} else {
+    //sino existe el archivo
+    //creamos un aClientes vacio
+    $aClientes = array();
+}
 
 if ($_POST) {
     $documento = trim($_POST["txtDni"]);
@@ -103,10 +108,14 @@ if ($_POST) {
                         <?php foreach ($aClientes as $cliente) : ?>
                             <tr>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td> <?php echo $cliente["documento"]; ?></td>
+                                <td><?php echo $cliente["nombre"]; ?></td>
+                                <td><?php echo $cliente["telefono"]; ?></td>
+                                <td><?php echo $cliente["correo"]; ?></td>
+                                <td>
+                                    <i class="fa-solid fa-pen"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
