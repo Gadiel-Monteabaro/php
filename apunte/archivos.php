@@ -61,3 +61,13 @@ if (is_array($aArray)) {
 } else {
     echo "Esto no es un array, es otro tipo de dato.";
 }
+
+/*
+Tamaño de archivos
+
+Tamaño   =>   Expresado en Bytes
+1KB      =>         1000
+1MB      =>         1e+6
+2MB      =>         2e+6
+1GB      =>         1e+9
+*/
