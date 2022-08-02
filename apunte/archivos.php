@@ -86,3 +86,9 @@ $extension = pathinfo($FILES["archivo"]['name'], PATHINFO_EXTENSION); // extensi
 
 $archivoTemporal = $FILES["archivo"]['tmp_name']; // Ubicacion real en el servido del archivo
 move_uploaded_file($archivoTemporal, 'URL'); // move_uploaded_file guardamos el archivo
+
+/*
+JSON = Es un formato de textyo sencillo para el intercambio de datos
+*/
+$jsonPersona = json_encode($aPersonas);
+$aPersonas = json_decode($jsonPersona, true);
