@@ -109,8 +109,7 @@ if ($_POST) {
                             <tr>
                                 <td></td>
                                 <td> <?php echo $cliente["documento"]; ?></td>
-                                <td><?php echo $cliente["nombre"]; ?></td>
-                                <td><?php echo $cliente["telefono"]; ?></td>
+                                <td><?php echo $cliente["nombre"]; ?></td>                               
                                 <td><?php echo $cliente["correo"]; ?></td>
                                 <td>
                                     <i class="fa-solid fa-pen"></i>
