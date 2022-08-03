@@ -25,6 +25,27 @@ if ($_POST) {
     $nombreImagen = "";
 
     if ($pos >= 0) {
+        if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
+            $nombreAleatorio = date("Ymdhmsi"); //2021010420453710
+            $archivo_tmp = $_FILES["archivo"]["tmp_name"];
+            $extension = strtolower(pathinfo($_FILES["archivo"]["name"], PATHINFO_EXTENSION));
+            if ($extension == "jpg" || $extension == "jpeg" || $extension == "png") {
+                $nombreImagen = "$nombreAleatorio.$extension";
+                move_uploaded_file($archivo_tmp, "img/$nombreImagen");
+            }
+
+            //Eliminar la imagen anterior
+
+            if ($aClientes[$pos]["imagen"] != "" && file_exists("imagenes/" . $aClientes[$pos]["imagen"])) {
+                unlink("imagenes/" . $aClientes[$pos]["imagen"]);
+            }
+        } else {
+            //Mantener el nombre de la imagen
+        }
+
+
+
+        //Actualizar
         $aClientes[$pos] = array(
             "documento" => $documento,
             "nombre" => $nombre,
@@ -33,12 +54,14 @@ if ($_POST) {
             "imagen" => $nombreImagen
         );
     } else {
-        $nombreAleatorio = date("Ymdhmsi"); //2021010420453710
-        $archivo_tmp = $_FILES["archivo"]["tmp_name"];
-        $extension = pathinfo($_FILES["archivo"]["name"], PATHINFO_EXTENSION);
-        if ($extension == "jpg" || $extension == "jpeg" || $extension == "png") {
-            $nombreImagen = "$nombreAleatorio.$extension";
-            move_uploaded_file($archivo_tmp, "img/$nombreImagen");
+        if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
+            $nombreAleatorio = date("Ymdhmsi"); //2021010420453710
+            $archivo_tmp = $_FILES["archivo"]["tmp_name"];
+            $extension = strtolower(pathinfo($_FILES["archivo"]["name"], PATHINFO_EXTENSION));
+            if ($extension == "jpg" || $extension == "jpeg" || $extension == "png") {
+                $nombreImagen = "$nombreAleatorio.$extension";
+                move_uploaded_file($archivo_tmp, "img/$nombreImagen");
+            }
         }
         //Insertat
         $aClientes[] = array(
@@ -124,7 +147,7 @@ if (isset($_GET["do"]) && $_GET["do"] == "eliminar") {
                     </div>
                     <div class="mt-3">
                         <button type="submit" name="btnGuardar" class="btn btn-primary px-3 shadow">Guardar</button>
-                        <button type="submit" name="btnNuevo" class="btn btn-danger px-3 shadow">Nuevo</button>
+                        <a href="index.php" name="btnNuevo" class="btn btn-danger px-3 shadow">Nuevo</a>
                     </div>
                 </form>
             </div>
@@ -142,14 +165,18 @@ if (isset($_GET["do"]) && $_GET["do"] == "eliminar") {
                     <tbody>
                         <?php foreach ($aClientes as $pos => $cliente) : ?>
                             <tr>
-                                <td></td>
-                                <td> <?php echo $cliente["documento"]; ?></td>
-                                <td><?php echo $cliente["nombre"]; ?></td>
-                                <td><?php echo $cliente["correo"]; ?></td>
                                 <td>
-                                    <a href="index.php?pos=<?php echo $pos; ?>&do=editar"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="index.php?pos=<?php echo $pos; ?>&do=eliminar"><i class="fa-solid fa-trash"></i></a>
+                                    <?php if ($cliente["imagen"] != "") : ?>
+                                        <img src="./img/<?php echo $cliente["imagen"]; ?>" alt="" class="img-thumbnail">
                                 </td>
+                            <?php endif; ?>
+                            <td><?php echo $cliente["documento"]; ?></td>
+                            <td><?php echo $cliente["nombre"]; ?></td>
+                            <td><?php echo $cliente["correo"]; ?></td>
+                            <td>
+                                <a href="index.php?pos=<?php echo $pos; ?>&do=editar"><i class="fa-solid fa-pen"></i></a>
+                                <a href="index.php?pos=<?php echo $pos; ?>&do=eliminar"><i class="fa-solid fa-trash"></i></a>
+                            </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
