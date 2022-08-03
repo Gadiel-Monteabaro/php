@@ -41,6 +41,7 @@ if ($_POST) {
             }
         } else {
             //Mantener el nombre de la imagen
+            $nombreImagen = $aClientes[$pos]["imagen"];
         }
 
 
