@@ -22,7 +22,7 @@ if ($_POST) {
     $nombre = trim($_POST["txtNombre"]);
     $telefono = trim($_POST["txtTelefono"]);
     $correo = trim($_POST["txtCorreo"]);
-
+    $nombreImagen = "";
 
     if ($pos >= 0) {
         $aClientes[$pos] = array(
@@ -30,13 +30,23 @@ if ($_POST) {
             "nombre" => $nombre,
             "telefono" => $telefono,
             "correo" => $correo,
+            "imagen" => $nombreImagen
         );
     } else {
+        $nombreAleatorio = date("Ymdhmsi"); //2021010420453710
+        $archivo_tmp = $_FILES["archivo"]["tmp_name"];
+        $extension = pathinfo($_FILES["archivo"]["name"], PATHINFO_EXTENSION);
+        if ($extension == "jpg" || $extension == "jpeg" || $extension == "png") {
+            $nombreImagen = "$nombreAleatorio.$extension";
+            move_uploaded_file($archivo_tmp, "img/$nombreImagen");
+        }
+        //Insertat
         $aClientes[] = array(
             "documento" => $documento,
             "nombre" => $nombre,
             "telefono" => $telefono,
             "correo" => $correo,
+            "imagen" => $nombreImagen
         );
     }
     //convertir el array a jsonClientes
@@ -125,7 +135,6 @@ if (isset($_GET["do"]) && $_GET["do"] == "eliminar") {
                             <th>Imagen</th>
                             <th>DNI</th>
                             <th>Nombre</th>
-                            <th>Telefono</th>
                             <th>Correo</th>
                             <th>Acciones</th>
                         </tr>
