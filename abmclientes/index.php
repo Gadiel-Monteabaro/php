@@ -49,6 +49,14 @@ if ($_POST) {
 
 
 if (isset($_GET["do"]) && $_GET["do"] == "eliminar") {
+    //Eliminar la linea de codigo con la funcion unsset
+    unset($aClientes[$pos]);
+    //convertir el array a jsonClientes
+    $jsonClientes = json_encode($aClientes);
+    //almacenar el string json en el archivo.txt
+    file_put_contents("archivo.txt", $jsonClientes);
+    //redireccionamos
+    header("Location: index.php");
 }
 
 
@@ -106,6 +114,7 @@ if (isset($_GET["do"]) && $_GET["do"] == "eliminar") {
                     </div>
                     <div class="mt-3">
                         <button type="submit" name="btnGuardar" class="btn btn-primary px-3 shadow">Guardar</button>
+                        <button type="submit" name="btnNuevo" class="btn btn-danger px-3 shadow">Nuevo</button>
                     </div>
                 </form>
             </div>
