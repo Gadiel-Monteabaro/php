@@ -35,6 +35,7 @@ if ($_POST) {
     file_put_contents("archivo.txt", $jsonClientes);
 }
 
+$pos = isset($_GET["pos"]) && $_GET["pos"] >= 0 ? $_GET["pos"] : "";
 
 
 ?>
@@ -70,19 +71,19 @@ if ($_POST) {
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="pb-4">
                         <label for="txtDni">DNI:*</label>
-                        <input type="number" id="txtDni" name="txtDni" class="shadow form-control" required>
+                        <input type="number" id="txtDni" name="txtDni" class="shadow form-control" required value="<?php echo isset($aClientes[$pos]) ? $aClientes[$pos]["documento"] : ""; ?>">
                     </div>
                     <div class="pb-4">
                         <label for="txtNombre">Nombre:*</label>
-                        <input type="text" id="txtNombre" name="txtNombre" class="shadow form-control" required>
+                        <input type="text" id="txtNombre" name="txtNombre" class="shadow form-control" required value="<?php echo isset($aClientes[$pos]) ? $aClientes[$pos]["nombre"] : ""; ?>">
                     </div>
                     <div class="pb-4">
                         <label for="txtTelefono">Telefono:</label>
-                        <input type="number" id="txtTelefono" name="txtTelefono" class="shadow form-control">
+                        <input type="number" id="txtTelefono" name="txtTelefono" class="shadow form-control" value="<?php echo isset($aClientes[$pos]) ? $aClientes[$pos]["telefono"] : ""; ?>">
                     </div>
                     <div class="pb-4">
                         <label for="txtCorreo">Correo:*</label>
-                        <input type="email" id="txtCorreo" name="txtCorreo" class="shadow form-control" required>
+                        <input type="email" id="txtCorreo" name="txtCorreo" class="shadow form-control" required value="<?php echo isset($aClientes[$pos]) ? $aClientes[$pos]["correo"] : ""; ?>">
                     </div>
                     <div class="pb-4">
                         <label for="archivo">Archivo Adjunto:</label>
@@ -114,8 +115,8 @@ if ($_POST) {
                                 <td><?php echo $cliente["nombre"]; ?></td>
                                 <td><?php echo $cliente["correo"]; ?></td>
                                 <td>
-                                    <a href="index.php?pos=<?php echo $pos; ?> &do=editar"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="index.php?pos=<?php echo $pos; ?> &do=eliminar"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="index.php?pos=<?php echo $pos; ?>&do=editar"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="index.php?pos=<?php echo $pos; ?>&do=eliminar"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
