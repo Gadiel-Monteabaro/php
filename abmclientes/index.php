@@ -64,7 +64,7 @@ if ($_POST) {
                 move_uploaded_file($archivo_tmp, "img/$nombreImagen");
             }
         }
-        //Insertat
+        //Insertar
         $aClientes[] = array(
             "documento" => $documento,
             "nombre" => $nombre,
@@ -146,7 +146,7 @@ if (isset($_GET["do"]) && $_GET["do"] == "eliminar") {
                         <input type="file" name="archivo" id="archivo" accept=".jpg, .jpeg, .png">
                         <small class="d-block">Archivos admitidos: .jpg, .jpeg, .png</small>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-3 text-center">
                         <button type="submit" name="btnGuardar" class="btn btn-primary px-3 shadow">Guardar</button>
                         <a href="index.php" name="btnNuevo" class="btn btn-danger px-3 shadow">Nuevo</a>
                     </div>
