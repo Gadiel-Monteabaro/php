@@ -92,3 +92,13 @@ JSON = Es un formato de textyo sencillo para el intercambio de datos
 */
 $jsonPersona = json_encode($aPersonas);
 $aPersonas = json_decode($jsonPersona, true);
+
+
+/*
+Estructura de subida de archivos html
+*/
+?>
+<form action="" method="POST" enctype="multipart/form-data">
+    Archivo adjunto:
+    <input type="file" name="archivo" id="archivo" accept=".doc, .docx, .pdf">
+</form>
