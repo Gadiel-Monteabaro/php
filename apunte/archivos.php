@@ -87,6 +87,8 @@ $extension = pathinfo($FILES["archivo"]['name'], PATHINFO_EXTENSION); // extensi
 $archivoTemporal = $FILES["archivo"]['tmp_name']; // Ubicacion real en el servido del archivo
 move_uploaded_file($archivoTemporal, 'URL'); // move_uploaded_file guardamos el archivo
 
+
+
 /*
 JSON => Es un formato de texto sencillo para el intercambio de datos
 */
@@ -105,10 +107,14 @@ text/plain
 multipart/form-data
 
 */
-?>
 
+?>
 <!--Esto es html, donde le permitimos al usuario subir imagenes o documentos importantes a nuestro sitioF-->
 <form action="" method="POST" enctype="multipart/form-data">
     Archivo adjunto:
     <input type="file" name="archivo" id="archivo" accept=".doc, .docx, .pdf">
 </form>
+
+<?php
+
+?>
