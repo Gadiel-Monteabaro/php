@@ -74,7 +74,7 @@ Tamaño   =>   Expresado en Bytes
 
 /*
 $_FILES => contendra toda la informacion de los archivos subidos dentro del metodo POST 
-por cada archivo ocntendra un array asociativo 
+por cada archivo obtendra un array asociativo 
 */
 $_FILES["archivo"]['error']; //indica si la imagen se subio correctamente
 if ($FILES["archivo"]['error'] === UPLOAD_ERR_OK) { //UPLOAD_ERR_OK, detalla que no hubo errores
@@ -88,6 +88,14 @@ $archivoTemporal = $FILES["archivo"]['tmp_name']; // Ubicacion real en el servid
 move_uploaded_file($archivoTemporal, 'URL'); // move_uploaded_file guardamos el archivo
 
 
+
+/*
+$nombreAleatorio = date(“Ymdhmsi”); //2021010420453710
+$archivo_tmp = $_FILES["archivo"]["tmp_name"];
+$extension = pathinfo($_FILES["archivo"]["name"], PATHINFO_EXTENSION);
+if($extension == "doc" || $extension == "docx" || $extension == "pdf"){
+move_uploaded_file($archivo_tmp, “files/$nombreAleatorio.$extension”);
+*/
 
 /*
 JSON => Es un formato de texto sencillo para el intercambio de datos
