@@ -95,7 +95,7 @@ if($extension == "doc" || $extension == "docx" || $extension == "pdf"){
 move_uploaded_file($archivo_tmp, “files/$nombreAleatorio.$extension”);
 */
 
-/*
+/*s
 JSON => Es un formato de texto sencillo para el intercambio de datos
 */
 $jsonPersona = json_encode($aPersonas);
