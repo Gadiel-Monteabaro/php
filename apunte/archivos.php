@@ -87,9 +87,7 @@ $extension = pathinfo($FILES["archivo"]['name'], PATHINFO_EXTENSION); // extensi
 $archivoTemporal = $FILES["archivo"]['tmp_name']; // Ubicacion real en el servido del archivo
 move_uploaded_file($archivoTemporal, 'URL'); // move_uploaded_file guardamos el archivo
 
-
-
-/*
+/*  !IMPORTANTE! informacion necesaria para el correcto funcionamiento de la pagina web
 $nombreAleatorio = date(“Ymdhmsi”); //2021010420453710
 $archivo_tmp = $_FILES["archivo"]["tmp_name"];
 $extension = pathinfo($_FILES["archivo"]["name"], PATHINFO_EXTENSION);
