@@ -18,7 +18,7 @@ Operador Ternario
 Se usa como atajo para la intruccion if .
 */
 //Syntaxis
-'sentencia' ? $condicion == true : $condicon == false;
+'sentencia' ? $condicion == true : $condicon == false;  // escribimos codigo mas pequeño, en una sola linea
 
 /*
 Bucles
