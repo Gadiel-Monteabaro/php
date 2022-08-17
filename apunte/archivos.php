@@ -88,7 +88,7 @@ $archivoTemporal = $FILES["archivo"]['tmp_name']; // Ubicacion real en el servid
 move_uploaded_file($archivoTemporal, 'URL'); // move_uploaded_file guardamos el archivo
 
 /*
-JSON = Es un formato de textyo sencillo para el intercambio de datos
+JSON = Es un formato de texto sencillo para el intercambio de datos
 */
 $jsonPersona = json_encode($aPersonas);
 $aPersonas = json_decode($jsonPersona, true);
