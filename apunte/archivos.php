@@ -112,7 +112,7 @@ multipart/form-data
 <!--Esto es html, donde le permitimos al usuario subir imagenes o documentos importantes a nuestro sitioF-->
 <form action="" method="POST" enctype="multipart/form-data">
     Archivo adjunto:
-    <input type="file" name="archivo" id="archivo" accept=".doc, .docx, .pdf">
+    <input type="file" name="archivo" id="archivo" accept=".doc, .docx, .pdf" multiple> <!-- Si queremos subir varios archivos, utilizamos la propiedad multiple dentro de nuestro input  (UTILIZAR SOLO CUANDO QUEREMOS QUE EL USUARIO SUBA UNO O MAS ARCHIVOS!!!!!!!)-->
 </form>
 
 <?php
