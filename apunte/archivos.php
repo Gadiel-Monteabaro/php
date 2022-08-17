@@ -88,7 +88,7 @@ $archivoTemporal = $FILES["archivo"]['tmp_name']; // Ubicacion real en el servid
 move_uploaded_file($archivoTemporal, 'URL'); // move_uploaded_file guardamos el archivo
 
 /*
-JSON = Es un formato de texto sencillo para el intercambio de datos
+JSON => Es un formato de texto sencillo para el intercambio de datos
 */
 $jsonPersona = json_encode($aPersonas);
 $aPersonas = json_decode($jsonPersona, true);
@@ -96,8 +96,18 @@ $aPersonas = json_decode($jsonPersona, true);
 
 /*
 Estructura de subida de archivos html
+
+enctype => Especifica como deben codificarse los datos del formulario al enviarse al servidor
+
+Valores que puede recibir => :  // Son tres las distintas formas de poder enviar esta especificacion
+application/x-www-form-urlencoded
+text/plain
+multipart/form-data
+
 */
 ?>
+
+<!--Esto es html, donde le permitimos al usuario subir imagenes o documentos importantes a nuestro sitioF-->
 <form action="" method="POST" enctype="multipart/form-data">
     Archivo adjunto:
     <input type="file" name="archivo" id="archivo" accept=".doc, .docx, .pdf">
