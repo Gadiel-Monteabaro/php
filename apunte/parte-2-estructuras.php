@@ -66,9 +66,4 @@ foreach => proporciona un modo sencillo de iterar sobre arrays. foreach funciona
 foreach ($array as $valor) {
     //sentencia ;
 }
-
-
-
-
-
  
