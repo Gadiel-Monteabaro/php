@@ -1,5 +1,19 @@
 <?php
 /*
+Funciones => Permiten separar en partes nuestro programa en fin de:
+1 => Organizar e identificar secciones en nuestro codigo
+2 => Reutilizar el codigo 
+3 => corregir, cambiar y refactorizar nuestro codigo, sin afectar el resto
+*/
+//Syntaxis 
+function name($parametro) // => el parametros son los valores que deseamos analizar dentro de nuestra funcion.
+{
+    //sentencia ; 
+    echo $parametro;
+}
+
+
+/*
 PHP - brinda funcionmes predeterminadas que nos permite agilizar nuestro codigo.
 */
 
