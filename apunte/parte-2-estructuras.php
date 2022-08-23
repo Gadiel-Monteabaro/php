@@ -66,4 +66,16 @@ foreach => proporciona un modo sencillo de iterar sobre arrays. foreach funciona
 foreach ($array as $valor) {
     //sentencia ;
 }
+
+foreach ($array as $clave => $valor) {
+    //sentencia ;
+}
  
+/*
+Palabras Reservadas
+
+break => interrumpe el bucle
+continue => salta una condicion
+exit => corta la ejecucion de codigo
+return => devuelve un valor o sale del codigo
+*/
