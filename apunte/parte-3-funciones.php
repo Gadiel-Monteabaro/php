@@ -13,6 +13,8 @@ function name($parametro) // => el parametros son los valores que deseamos anali
 }
 
 
+
+
 /*
 PHP - brinda funcionmes predeterminadas que nos permite agilizar nuestro codigo.
 */
@@ -24,9 +26,9 @@ $a[2] = 5;
 var_dump(count($a)); // var_dump => muestra informacion sobre una variable
 
 // number_format => Formatea una expresion numerica en el formato que deseamos.
-$importe = 1050.95;
+$importe = 1000050.95;
 
-echo "$" . number_format($importe, 2, ',', '.'); // imprime el valor de la variable importe = $ 1.050,95
+echo "$" . number_format($importe, 2, ',', '.'); // imprime el valor de la variable importe = $ 1.000.050,95
 
 // date_format => convierte un string de fecha y lo pasa a formato español.
 $strFecha = "2020-06-18";
