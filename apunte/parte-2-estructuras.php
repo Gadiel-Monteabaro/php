@@ -1,4 +1,16 @@
 <?php
+/*
+Incremento  y decremento => nos permite incrementar o decrementar una variable numerica en una unidad o varias dependiendo las especificacioness del desarrollador.
+*/
+$r = 8; // creamos las variables que queremos incrementar o decrementar.
+$s = 3;
+
+$r++; // equivale a decir $r = $r + 1, lo cual incrementamos el valor "8" a "9"
+$s--; // equvale a decir $s = $s - 1, lo cual decrementamos el valor "3" a "2"
+
+// tambien podemos asignar y despues incrementar o decrementar
+++$r; // primero incrementa luego asigna el valor
+$r++; // primero asigna el valor luego lo incrementa
 
 /*
 Control de flujo
@@ -54,3 +66,9 @@ foreach => proporciona un modo sencillo de iterar sobre arrays. foreach funciona
 foreach ($array as $valor) {
     //sentencia ;
 }
+
+
+
+
+
+ 
