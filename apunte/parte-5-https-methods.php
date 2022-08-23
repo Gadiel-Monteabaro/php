@@ -1,5 +1,16 @@
 <?php
 /*
+http => al contactar al servidor, el protocolo http envia y recibe informacion a traves de headers 
+
+Status Codes
+200 => ok
+301 => moved permanently
+307 => temporary redirect
+403 => forbidden
+404 => not found 
+500 => internal server error
+503 => service unavailable
+
 https => este protocolo es la version segura de http (hyper text protocol) que todos utilizamos habitualmente. Basicamente, lo que ocurre es que el servidor web codifica la sesion con un certificado digital (SSL).
 De este modo el ususario tiene garanmtia que su informacion no va a poder ser utilizada por terceros o ser interceptada.
 
