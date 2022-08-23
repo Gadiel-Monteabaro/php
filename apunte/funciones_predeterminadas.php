@@ -28,7 +28,7 @@ Cuando se incluye un archivo, el código que contiene hereda el ámbito de las v
 include_once => incluye y evalua el fichero especificado ejecutadd durante el script. La diferencia con 'include', el fichero solamente sera incluido una sola vez.
 */
 
-include_once("header.php"); // incluyte el codigo que se encuetera escrito dentro del archivo 'header.php'
+include_once("header.php"); // incluye el codigo que se encuetera escrito dentro del archivo 'header.php'
 
 /*
 require => 'require' es idéntico a 'include' excepto que en caso de fallo producirá un error fatal de nivel E_COMPILE_ERROR. En otras palabras, éste detiene el script mientras que include sólo emitirá una advertencia (E_WARNING) lo cual permite continuar el script.
