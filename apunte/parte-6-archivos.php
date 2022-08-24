@@ -93,6 +93,9 @@ $archivo_tmp = $_FILES["archivo"]["tmp_name"];
 $extension = pathinfo($_FILES["archivo"]["name"], PATHINFO_EXTENSION);
 if($extension == "doc" || $extension == "docx" || $extension == "pdf"){
 move_uploaded_file($archivo_tmp, “files/$nombreAleatorio.$extension”);
+
+
+unlink => elimina un archivo
 */
 
 /*s
@@ -100,8 +103,7 @@ JSON => Es un formato de texto sencillo para el intercambio de datos
 */
 $jsonPersona = json_encode($aPersonas);
 $aPersonas = json_decode($jsonPersona, true);
-
-
+unlink("nombreDelArchivo") // nombre del archivo que queremos eliminar
 /*
 Estructura de subida de archivos html
 
@@ -115,12 +117,19 @@ multipart/form-data
 */
 
 ?>
-<!--Esto es html, donde le permitimos al usuario subir imagenes o documentos importantes a nuestro sitioF-->
+<!--Esto es html, donde le permitimos al usuario subir imagenes o documentos importantes a nuestro sitioF
+Formularios -->
 <form action="" method="POST" enctype="multipart/form-data">
     Archivo adjunto:
     <input type="file" name="archivo" id="archivo" accept=".doc, .docx, .pdf" multiple> <!-- Si queremos subir varios archivos, utilizamos la propiedad multiple dentro de nuestro input  (UTILIZAR SOLO CUANDO QUEREMOS QUE EL USUARIO SUBA UNO O MAS ARCHIVOS!!!!!!!)-->
 </form>
 
 <?php
-
+/*
+MAX_FILE_SIZE => 
+*/
 ?>
+<form action="" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+    <input type="file" name="archivo" id="archivo" accept=".doc, .docx, .pdf" multiple>
+</form>
