@@ -2,6 +2,21 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+//si existe el archivo invitados.txt lo abrimos y lo cargamos en una variable de tipo array
+if (file_exists("invitados.txt")) {
+    //los DNI permitidos.
+    $archivo = fopen("invitados.txt", "r");
+    $aDocumentos = fgetcsv($archivo, 0, ",");
+} else {
+    //sino el array queda vacio
+    $aDocumentos = array();
+}
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,16 +44,16 @@ error_reporting(E_ALL);
 
         <div class="row">
             <div class="col-6 py-3">
-                <form action="">
+                <form action="" method="POST">
                     <div>
                         <label for="documento">Ingrese el DNI:</label>
                         <input type="number" name="documento" id="documento" class="form-control mt-3 shadow">
-                        <button type="submit" name="btnInvitado" class="btn btn-primary my-3 px-3 shadow">Verificar Invitado</button>
+                        <input type="submit" name="btnInvitado" class="btn btn-primary my-3 px-3 shadow" value="Verificar invitado"></input>
                     </div>
                     <div>
                         <label for="codigo">ingresa el codigo secreto para el pase VIP:</label>
                         <input type="password" name="codigo" id="codigo" class="form-control mt-3 shadow">
-                        <button type="submit" name="btnCodigo" class="btn btn-primary my-3 px-3 shadow">Verificar Codigo</button>
+                        <input type="submit" name="btnVip" class="btn btn-primary my-3 px-3 shadow" value="Verificar codigo"></input>
                     </div>
                 </form>
             </div>
