@@ -41,7 +41,7 @@ if ($_POST) {
 if (isset($_GET["pos"])) {
     $pos = $_GET["pos"];
     unset($aCliente[$pos]);
-    //Actualizo l avariable de session con el array actualizado
+    //Actualizo la variable de session con el array actualizado
     $_SESSION["listadoClientes"] = $aCliente;
     header("Location: clientes_session1.php");
 }
@@ -107,6 +107,7 @@ if (isset($_GET["pos"])) {
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- clave -->
                         <?php foreach ($aCliente as $pos => $cliente) : ?>
                             <tr class="fil-datos">
                                 <td><?php echo $cliente["nombreCliente"]; ?></td>
