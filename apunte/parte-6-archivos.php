@@ -4,7 +4,6 @@ PHP - Archivos
     PHP nos permite generar archivos, insertar, eliminar o actualizar datos.
     Para ello PHP, brinda una serie de funciones que nos permitira trabajar con los archivos generados.
  */
-
 // fopen => Abre un archivo y devuelve un puntero al archivo.
 //Syntaxis
 $nameFile = "datos.txt";
@@ -36,7 +35,6 @@ $contenido = file_get_contents($nameFile); // Equivale a hacer un 'fopen', 'frea
 //file_put_contents => Esta funcion sobreescribe los datos del archivo.
 $nombre = "Gadiel Silva";
 file_put_contents($nameFile, $nombre);
-
 /*
 Un archivo de texto pouede ser demasiado grande, entonces lo que hacemos es leerlo linea por linea, ya que puede provocar de memoria.
 */
@@ -61,7 +59,6 @@ if (is_array($aArray)) {
 } else {
     echo "Esto no es un array, es otro tipo de dato.";
 }
-
 /*
 Tamaño de archivos
 
