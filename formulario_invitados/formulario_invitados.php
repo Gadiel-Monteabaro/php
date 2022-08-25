@@ -61,6 +61,13 @@ if ($_POST) {
             <div class="col-12 py-5">
                 <h1>Lista de Invitados</h1>
             </div>
+            <?php if (isset($mensaje)) : ?>
+                <div class="col-12">
+                    <div class="alert alert-info" role="alert">
+                        <?php echo $mensaje; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
             <div class="col-12">
                 <h6>Complete el siguiente formulario:</h6>
             </div>
