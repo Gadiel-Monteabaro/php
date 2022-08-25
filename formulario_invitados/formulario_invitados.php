@@ -32,7 +32,7 @@ if ($_POST) {
             $mensaje = "su codigo de acceso es " . rand(1000, 9999);
         } else {
             //sino un mensaje de no se encuentra en la lista de invitados.
-            $mensaje = "Sino Ud. no tiene pase VIP";
+            $mensaje = "no tiene pase VIP";
         }
     }
 }
