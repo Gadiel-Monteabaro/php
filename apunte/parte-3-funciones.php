@@ -75,4 +75,4 @@ in_array() => Comprueba si un valor existe en un array.
 Como primer parametro recibe $valor, que es el valor que queremos comprobar que existe dentro de un array.
 Como segundo valor recibe $aArray, que es el array donde se almacenan los valores que hay que comparar.
 */
-in_array($valor, $aArray);
+in_array($valor, $aArray); //con esto comprobamos que el $valor, este en el $aArray.
