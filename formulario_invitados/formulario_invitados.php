@@ -28,18 +28,14 @@ if ($_POST) {
     if (isset($_POST["btnVip"])) {
         $codigo = $_POST["txtCodigo"];
         //Si el codigo es "verde" le mostrara cual es su codigo de acceso...
-        if ($codigo = "verde") {
+        if ($codigo == "verde") {
             $mensaje = "su codigo de acceso es " . rand(1000, 9999);
         } else {
             //sino un mensaje de no se encuentra en la lista de invitados.
-            $mensaje = "No se encuentra en la lista de invitados";
+            $mensaje = "Sino Ud. no tiene pase VIP";
         }
     }
 }
-
-
-
-
 
 ?>
 <!DOCTYPE html>
@@ -61,13 +57,15 @@ if ($_POST) {
             <div class="col-12 py-5">
                 <h1>Lista de Invitados</h1>
             </div>
-            <?php if (isset($mensaje)) : ?>
-                <div class="col-12">
-                    <div class="alert alert-info" role="alert">
-                        <?php echo $mensaje; ?>
+            <div class="col-6">
+                <?php if (isset($mensaje)) : ?>
+                    <div class="col-12">
+                        <div class="alert alert-info" role="alert">
+                            <?php echo $mensaje; ?>
+                        </div>
                     </div>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
             <div class="col-12">
                 <h6>Complete el siguiente formulario:</h6>
             </div>
