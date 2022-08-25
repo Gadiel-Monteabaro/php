@@ -13,6 +13,30 @@ if (file_exists("invitados.txt")) {
     $aDocumentos = array();
 }
 
+if ($_POST) {
+    if (isset($_POST["btnInvitado"])) {
+        $documento = $_POST["txtDocumento"];
+        if (in_array($documento, $aDocumentos)) {
+            //Si el DNi ingresado se encuentra el la lista se mostrara un mensaje de bienvenida.
+            $mensaje = "Bienvenid@ a la Fiesta.";
+        } else {
+            //sino un mensaje de no se encuentra en la lista de invitados.
+            $mensaje = "No se encuentra en la lista de invitados.";
+        }
+    }
+
+    if (isset($_POST["btnVip"])) {
+        $codigo = $_POST["txtCodigo"];
+        //Si el codigo es "verde" le mostrara cual es su codigo de acceso...
+        if ($codigo = "verde") {
+            $mensaje = "su codigo de acceso es " . rand(1000, 9999);
+        } else {
+            //sino un mensaje de no se encuentra en la lista de invitados.
+            $mensaje = "No se encuentra en la lista de invitados";
+        }
+    }
+}
+
 
 
 
@@ -46,13 +70,13 @@ if (file_exists("invitados.txt")) {
             <div class="col-6 py-3">
                 <form action="" method="POST">
                     <div>
-                        <label for="documento">Ingrese el DNI:</label>
-                        <input type="number" name="documento" id="documento" class="form-control mt-3 shadow">
+                        <label for="txtDocumento">Ingrese el DNI:</label>
+                        <input type="number" name="txtDocumento" id="txtDocumento" class="form-control mt-3 shadow">
                         <input type="submit" name="btnInvitado" class="btn btn-primary my-3 px-3 shadow" value="Verificar invitado"></input>
                     </div>
                     <div>
-                        <label for="codigo">ingresa el codigo secreto para el pase VIP:</label>
-                        <input type="password" name="codigo" id="codigo" class="form-control mt-3 shadow">
+                        <label for="txtCodigo">ingresa el codigo secreto para el pase VIP:</label>
+                        <input type="password" name="txtCodigo" id="txtCodigo" class="form-control mt-3 shadow">
                         <input type="submit" name="btnVip" class="btn btn-primary my-3 px-3 shadow" value="Verificar codigo"></input>
                     </div>
                 </form>
