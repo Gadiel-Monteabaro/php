@@ -27,4 +27,20 @@ class Cliente //las clases se escriben comenzando en mayusculas.
     //public function insertar(); // Puede tener funciones incorporadas, para establecesr funcionalidades asociadas.
 }
 
+//Mucho contenido esta en la parte N°11, del Apunte. Donde se ven ejercicios, junto con la catividades correspondientes dentro de todos los ejercicios.
 
+/*
+class Metodos
+$this => el uso de $this dentro de un metodo hace referencia a la instancia puntual en donde sera ejecutada el metodo.
+//En los ejercicios esta demostrado con mayor claridad.
+new => iniciamos la intancia correspondiente a nuestro objeto.
+*/
+/*
+Constructures por Defecto.
+los constructores son funciones en una clase que son invocadas automaticamente cuando se crea una nueva instancia de una clase con el "new"
+La definimos como. public function __construct();
+*/
+/*
+Constructor Parametrizado.
+donde el constructor simplemente recibe un parametro, donde obtendra un valor de entrada.
+*/
