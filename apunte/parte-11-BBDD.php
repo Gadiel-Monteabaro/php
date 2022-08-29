@@ -22,7 +22,7 @@ IBM-DB2
 
 Un sistema de base de datos nos permite interactuar con los datos almacenados en el disco rigido de una manera eficiente.
 
--Los sistemas de base de datos que vamos a utilizar son MySQL/MariaDB.
+Los sistemas de base de datos que vamos a utilizar son MySQL/MariaDB.
 -Es un SGBD (Sistemas de Gestion de Base de Datos.)
 -Mas popular para entornos de paginas Web.
 -Eficiente.
@@ -35,4 +35,18 @@ Caracteristicas
 -Relacional => Normalizacion. integridad referencial.
 -Velocidad => rapidez en transacciones.
 -Multiconexiones => Seguridad, ,Multi-Hilos, multiple usuarios.
+
+
+Conectarnos a MySQL desde PHP.
+
+<--IMPORTANTE-->
+
+$mysqli = new mysqli('127.0.0.1', 'root', 'tu_contraseña0', 'nombre_bbdd');
+
+if ($mysqli->connect_errno) {
+    //La conexion fallo. ¿Que vamos a hacer?
+    echo 'Error: Fallo al conectarse a MySQL devido a: \n';
+    echo "Errno: " . $mysqli->connect_errno . "\n";
+    exit;
+}
 */
