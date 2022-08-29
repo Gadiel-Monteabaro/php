@@ -40,9 +40,35 @@ $alumno2->documento = "40525265";
 print_r($alumno2);
 
 $alumno3 = new Alumno(); //se instancia la variable Alumno.
-$alumno3->promedio= "8";
-$alumno3->legajo= "74171";
-$alumno3->asistencia= "Sin Faltas";
+$alumno3->promedio = "8";
+$alumno3->legajo = "74171";
+$alumno3->asistencia = "Sin Faltas";
 
 print_r($alumno3);
 
+//Otro Ejemplo.
+class Auto
+{
+    public $modelo;
+    public $color;
+    public $marca;
+    public $precio;
+    public $patente;
+    public function __construct() // Es una funcion que se ejecuta automaticamente.
+    {
+        $this->color = "Negro";
+        $this->marca = "Ford";
+        $this->precio = "0.0";
+    }
+    public function imprimirEnPantalla()
+    {
+    }
+}
+
+//Programa
+$obj1 = new Auto();
+$obj1->modelo = "T";
+$obj1->patente = "ABC 123";
+$obj1->imprimirEnPantalla();
+
+print_r($obj1);
