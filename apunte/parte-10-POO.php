@@ -44,3 +44,9 @@ La definimos como. public function __construct();
 Constructor Parametrizado.
 donde el constructor simplemente recibe un parametro, donde obtendra un valor de entrada.
 */
+$obj1 = new Auto("", "", ""); //donde cada parametro respetara el orden de entrada correspondiente.
+
+/*
+Con destruct => libera el espacio almacenado en la memoria ram, de una determinada propiedad.
+Es un metodo que se llama al finalizar la vida de la instancia de la clase, para liberar recursos.
+*/
