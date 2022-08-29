@@ -1,6 +1,7 @@
 <?php
 
 use Alumno as GlobalAlumno;
+use Mpdf\Tag\Br;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -31,9 +32,17 @@ class Alumno extends Persona
     }
     public function imprimir()
     {
+        echo "Nombre: " . $this->nombre . "<br>";
+        echo "Legajo: " . $this->legajo . "<br>";
+        echo "Nota Portfolio: " . $this->notaPortfolio . "<br>";
+        echo "Nota PHP: " . $this->notaPhp . "<br>";
+        echo "Nota proyecto: " . $this->notaProyecto . "<br>";
+        echo "Promedio: " . $this->calcularPromedio() . "<br>";
     }
     public function calcularPromedio()
     {
+        $promedio = ($this->notaPortfolio + $this->notaPhp + $this->notaProyecto) / 3;
+        return number_format($promedio, "2", ",", ".");
     }
 }
 
@@ -42,6 +51,7 @@ class docente extends Persona
     public $especialidad;
     public function imprimir()
     {
+        echo "Nombre: " . $this->nombre . "<br>";
     }
     public function imprimirEspecialidadesHabilitadas()
     {
@@ -56,9 +66,12 @@ $alumno1->nacionalidad = "Argentina";
 $alumno1->nombre = "Gadiel Silva";
 $alumno1->dni = "39622616";
 $alumno1->edad = "26";
+$alumno1->notaPortfolio = 8;
+$alumno1->notaPhp = 9;
+$alumno1->notaProyecto = 6;
 $alumno1->imprimir();
 $alumno1->calcularPromedio();
-print_r($alumno1);
+
 
 $docente1 = new Docente; //Inicializamos al primer docente.
 $docente1->dni = "35252514";
@@ -68,5 +81,3 @@ $docente1->nacionalidad = "Argentina";
 $docente1->especialidad = "Programacion";
 $docente1->imprimir();
 $docente1->imprimirEspecialidadesHabilitadas();
-
-print_r($docente1);
