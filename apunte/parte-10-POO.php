@@ -43,11 +43,27 @@ Constructures por Defecto.
 los constructores son funciones en una clase que son invocadas automaticamente cuando se crea una nueva instancia de una clase con el "new"
 La definimos como. public function __construct();
 */
+/* 
+El operador "->" nos permite acceder a las poropiedades o metodos dentro del objeto. 
+*/
 /*
 Constructor Parametrizado.
 donde el constructor simplemente recibe un parametro, donde obtendra un valor de entrada.
 */
 $obj1 = new Auto("", "", ""); //donde cada parametro respetara el orden de entrada correspondiente.
 /*
+Destructor => Toda clase tiene de manera implicita dos metodos, el contructor y el destructor.
+
+El contructor => Es llamado cuando la clase comienza a ocupar un lugar en la memoria, es decir, cuando comienza a ser utilizada, al ser instanciada, se encarga de inicializar variables, que luego si uno quiere puede modificar. tambien podemos llamar a otros contructores de otras clases.
+
+El destructor => Es un metodo que se llama al finalizar la vida de la instancia de la clase, para liberar recursos.
+*/
+/*
+¿Que es un Objeto?
+Es una instancia de una clase.
+Un objeto posee: 
+-Identidad => propiedad unica que lo caracteriza.
+-Comportamiento => resuelve un conjunto de problemas atraves de sus funciones.
+-Estado => Almacena informacion.
 
 */
