@@ -24,7 +24,10 @@ class Cliente //las clases se escriben comenzando en mayusculas.
     public $nombre;
     public $correo;
     public $telefono;
-    //public function insertar(); // Puede tener funciones incorporadas, para establecesr funcionalidades asociadas.
+    public function insertar()
+    {
+        echo "Hola";
+    } // Puede tener funciones incorporadas, para establecesr funcionalidades asociadas.
 }
 
 //Mucho contenido esta en la parte N°11, del Apunte. Donde se ven ejercicios, junto con la catividades correspondientes dentro de todos los ejercicios.
@@ -45,8 +48,6 @@ Constructor Parametrizado.
 donde el constructor simplemente recibe un parametro, donde obtendra un valor de entrada.
 */
 $obj1 = new Auto("", "", ""); //donde cada parametro respetara el orden de entrada correspondiente.
-
 /*
-Con destruct => libera el espacio almacenado en la memoria ram, de una determinada propiedad.
-Es un metodo que se llama al finalizar la vida de la instancia de la clase, para liberar recursos.
+
 */
