@@ -49,6 +49,11 @@ class Alumno extends Persona
 class docente extends Persona
 {
     public $especialidad;
+
+    const ESPECIALIDAD_WP="Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
+    const ESPECIALIDAD_ECO="Economia Aplicada";
+    const ESPECIALIDAD_BBDD="Base de Datos";
+
     public function imprimir()
     {
         echo "Nombre: " . $this->nombre . "<br>";
@@ -78,6 +83,6 @@ $docente1->dni = "35252514";
 $docente1->nombre = "Ezequiel Monteabaro";
 $docente1->edad = "33";
 $docente1->nacionalidad = "Argentina";
-$docente1->especialidad = "Programacion";
+$docente1->especialidad = Docente::ESPECIALIDAD_ECO;
 $docente1->imprimir();
 $docente1->imprimirEspecialidadesHabilitadas();

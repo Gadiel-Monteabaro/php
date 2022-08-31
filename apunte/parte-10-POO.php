@@ -52,11 +52,15 @@ donde el constructor simplemente recibe un parametro, donde obtendra un valor de
 */
 $obj1 = new Auto("", "", ""); //donde cada parametro respetara el orden de entrada correspondiente.
 /*
-Destructor => Toda clase tiene de manera implicita dos metodos, el contructor y el destructor.
+Toda clase tiene de manera implicita dos metodos, el contructor y el destructor.
 
 El contructor => Es llamado cuando la clase comienza a ocupar un lugar en la memoria, es decir, cuando comienza a ser utilizada, al ser instanciada, se encarga de inicializar variables, que luego si uno quiere puede modificar. tambien podemos llamar a otros contructores de otras clases.
 
 El destructor => Es un metodo que se llama al finalizar la vida de la instancia de la clase, para liberar recursos.
+
+public function __destruct (){
+    echo "Destruyendo el objeto ". this->nombre ."<br>" ;
+}
 */
 /*
 ¿Que es un Objeto?
@@ -65,5 +69,12 @@ Un objeto posee:
 -Identidad => propiedad unica que lo caracteriza.
 -Comportamiento => resuelve un conjunto de problemas atraves de sus funciones.
 -Estado => Almacena informacion.
-
 */
+/*
+Constantes en una clase
+*/
+class docente {
+    const ESPECIALIDAD_WP="Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
+    const ESPECIALIDAD_ECO="Economia Aplicada";
+    const ESPECIALIDAD_BBDD="Base de Datos";
+}
