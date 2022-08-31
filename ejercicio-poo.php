@@ -85,6 +85,10 @@ class Alumno extends Persona
 class docente extends Persona
 {
     private $especialidad;
+    public function setEspecialidad($especialidad)
+    {
+        $this->especialidad = $especialidad;
+    }
 
     const ESPECIALIDAD_WP = "Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
     const ESPECIALIDAD_ECO = "Economia Aplicada";
@@ -119,10 +123,10 @@ $alumno1->calcularPromedio();
 
 
 $docente1 = new Docente; //Inicializamos al primer docente.
-$docente1->dni = "35252514";
-$docente1->nombre = "Ezequiel Monteabaro";
-$docente1->edad = "33";
-$docente1->nacionalidad = "Argentina";
-$docente1->especialidad = Docente::ESPECIALIDAD_ECO;
+$docente1->setDni("35252514");
+$docente1->setNombre("Ezequiel Monteabaro");
+$docente1->setEdad("33");
+$docente1->setNacionalidad("Argentina");
+$docente1->setEspecialidad(Docente::ESPECIALIDAD_ECO);
 $docente1->imprimir();
 $docente1->imprimirEspecialidadesHabilitadas();
