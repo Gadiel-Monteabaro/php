@@ -42,6 +42,24 @@ class Alumno extends Persona
     private $notaPortfolio;
     private $notaPhp;
     private $notaProyecto;
+
+    public function setLegajo($legajo)
+    {
+        $this->legajo = $legajo;
+    }
+    public function setNotaPortfolio($notaPortfolio)
+    {
+        $this->notaPortfolio = $notaPortfolio;
+    }
+    public function setNotaPhp($notaPhp)
+    {
+        $this->notaPhp = $notaPhp;
+    }
+    public function setNotaProyecto($notaProyecto)
+    {
+        $this->notaProyecto = $notaProyecto;
+    }
+
     public function __construct()
     {
         $this->notaPortfolio = 0.0;
@@ -88,17 +106,16 @@ class docente extends Persona
 // Programa
 
 $alumno1 = new Alumno(); //Inicializamos al primer alumno 
-$alumno1->legajo = "74171";
+$alumno1->setLegajo("74171");
 $alumno1->setNacionalidad("Argentina");
 $alumno1->setNombre("Gadiel Silva");
 $alumno1->setDni("39622616");
 $alumno1->setEdad("26");
-$alumno1->notaPortfolio = 8;
-$alumno1->notaPhp = 9;
-$alumno1->notaProyecto = 6;
+$alumno1->setNotaPortfolio(8);
+$alumno1->setNotaPhp(9);
+$alumno1->setNotaProyecto(6);
 $alumno1->imprimir();
 $alumno1->calcularPromedio();
-
 
 
 $docente1 = new Docente; //Inicializamos al primer docente.
