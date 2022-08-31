@@ -84,8 +84,6 @@ class docente extends Persona
     const ESPECIALIDAD_BBDD = "Base de Datos";
 
     //Estas dos funciones son proporcionadas por PHP. __set y __get, nos permite seguir usando "->", para llamar a las propiedades y sus respectivos valores.
-
-
     public function __set($name, $value)
     {
         return $this->$name = $value;
