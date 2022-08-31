@@ -14,38 +14,17 @@ class Persona
     protected $edad;
     protected $nacionalidad;
 
-    public function setDni($dni)
-    {
-        $this->dni = $dni;
-    }
-    public function getDni()
-    {
-        return $this->dni;
-    }
-    public function setNombre($nombre)
-    {
-        $this->nombre = $nombre;
-    }
-    public function getNombre()
-    {
-        return $this->nombre;
-    }
-    public function setEdad($edad)
-    {
-        $this->edad = $edad;
-    }
-    public function getEdad()
-    {
-        return $this->edad;
-    }
-    public function setNacionalidad($nacionalidad)
-    {
-        $this->nacionalidad = $nacionalidad;
-    }
-    public function getNacionalidad()
-    {
-        return $this->nacionalidad;
-    }
+    public function setDni($dni){$this->dni = $dni;}
+    public function getDni(){return $this->dni;}
+
+    public function setNombre($nombre){$this->nombre = $nombre;}
+    public function getNombre(){return $this->nombre;}
+
+    public function setEdad($edad){$this->edad = $edad;}
+    public function getEdad(){return $this->edad;}
+
+    public function setNacionalidad($nacionalidad){$this->nacionalidad = $nacionalidad;}
+    public function getNacionalidad(){return $this->nacionalidad;}
 
     public function imprimir()
     {
@@ -59,22 +38,6 @@ class Alumno extends Persona
     private $notaPhp;
     private $notaProyecto;
 
-    public function setLegajo($legajo)
-    {
-        $this->legajo = $legajo;
-    }
-    public function setNotaPortfolio($notaPortfolio)
-    {
-        $this->notaPortfolio = $notaPortfolio;
-    }
-    public function setNotaPhp($notaPhp)
-    {
-        $this->notaPhp = $notaPhp;
-    }
-    public function setNotaProyecto($notaProyecto)
-    {
-        $this->notaProyecto = $notaProyecto;
-    }
 
     public function __construct()
     {
@@ -82,6 +45,17 @@ class Alumno extends Persona
         $this->notaPhp = 0.0;
         $this->notaProyecto = 0.0;
     }
+
+    public function __set($name, $value)
+    {
+        return $this->$name = $value;
+    }
+
+    public function __get($name)
+    {
+        return $this->$name;
+    }
+
     public function imprimir()
     {
         echo "Nombre: " . $this->nombre . "<br>";
@@ -91,6 +65,7 @@ class Alumno extends Persona
         echo "Nota proyecto: " . $this->notaProyecto . "<br>";
         echo "Promedio: " . $this->calcularPromedio() . "<br>";
     }
+
     public function calcularPromedio()
     {
         $promedio = ($this->notaPortfolio + $this->notaPhp + $this->notaProyecto) / 3;
@@ -104,6 +79,10 @@ class docente extends Persona
     public function setEspecialidad($especialidad)
     {
         $this->especialidad = $especialidad;
+    }
+    public function getEspecialidad()
+    {
+        return $this->especialidad;
     }
 
     const ESPECIALIDAD_WP = "Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
@@ -126,14 +105,14 @@ class docente extends Persona
 // Programa
 
 $alumno1 = new Alumno(); //Inicializamos al primer alumno 
-$alumno1->setLegajo("74171");
+$alumno1->legajo = "74171";
 $alumno1->setNacionalidad("Argentina");
 $alumno1->setNombre("Gadiel Silva");
 $alumno1->setDni("39622616");
 $alumno1->setEdad("26");
-$alumno1->setNotaPortfolio(8);
-$alumno1->setNotaPhp(9);
-$alumno1->setNotaProyecto(6);
+$alumno1->notaPortfolio = 8;
+$alumno1->notaPhp = 9;
+$alumno1->notaProyecto = 6;
 $alumno1->imprimir();
 $alumno1->calcularPromedio();
 
