@@ -79,4 +79,4 @@ class docente {
     const ESPECIALIDAD_BBDD="Base de Datos";
 }
 //En el ejercicio de docentes se ve aplicado esta funcionalidad.
-//Ejemplo de utilidad de constanetes "const" son apra ya nombrar numeros con prefijos, como puede ser los numeros de telefono de un pais
+//Ejemplo de utilidad de constanetes "const" son apra ya nombrar numeros con prefijos, como puede ser los numeros de telefono de un pais.
