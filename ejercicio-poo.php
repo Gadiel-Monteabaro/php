@@ -42,7 +42,7 @@ class Alumno extends Persona
     public function calcularPromedio()
     {
         $promedio = ($this->notaPortfolio + $this->notaPhp + $this->notaProyecto) / 3;
-        return number_format($promedio, "2", ",", ".");
+        return number_format($promedio, "2", ",", ".") . "<br>";
     }
 }
 
@@ -50,9 +50,9 @@ class docente extends Persona
 {
     public $especialidad;
 
-    const ESPECIALIDAD_WP="Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
-    const ESPECIALIDAD_ECO="Economia Aplicada";
-    const ESPECIALIDAD_BBDD="Base de Datos";
+    const ESPECIALIDAD_WP = "Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
+    const ESPECIALIDAD_ECO = "Economia Aplicada";
+    const ESPECIALIDAD_BBDD = "Base de Datos";
 
     public function imprimir()
     {
@@ -60,6 +60,10 @@ class docente extends Persona
     }
     public function imprimirEspecialidadesHabilitadas()
     {
+        echo "Un docente puede tener las siguientes especialidades:<br>";
+        echo  "Especialidad 1:" . self::ESPECIALIDAD_BBDD . "." . "<br>";
+        echo  "Especialidad 2:" . self::ESPECIALIDAD_ECO . "." . "<br>";
+        echo  "Especialidad 3:" . self::ESPECIALIDAD_WP . "." . "<br>";
     }
 }
 
@@ -76,6 +80,7 @@ $alumno1->notaPhp = 9;
 $alumno1->notaProyecto = 6;
 $alumno1->imprimir();
 $alumno1->calcularPromedio();
+
 
 
 $docente1 = new Docente; //Inicializamos al primer docente.
