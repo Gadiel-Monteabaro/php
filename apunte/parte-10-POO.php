@@ -73,10 +73,17 @@ Un objeto posee:
 /*
 Constantes en una clase
 */
-class docente {
-    const ESPECIALIDAD_WP="Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
-    const ESPECIALIDAD_ECO="Economia Aplicada";
-    const ESPECIALIDAD_BBDD="Base de Datos";
+class docente
+{
+    const ESPECIALIDAD_WP = "Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
+    const ESPECIALIDAD_ECO = "Economia Aplicada";
+    const ESPECIALIDAD_BBDD = "Base de Datos";
 }
-//En el ejercicio de docentes se ve aplicado esta funcionalidad.
-//Ejemplo de utilidad de constanetes "const" son apra ya nombrar numeros con prefijos, como puede ser los numeros de telefono de un pais.
+/* 
+En el ejercicio de docentes se ve aplicado esta funcionalidad.
+Ejemplo de utilidad de constanetes "const" son apra ya nombrar numeros con prefijos, como puede ser los numeros de telefono de un pais.
+*/
+/*
+Modificadores de propiedades y metodos.
+public => hace que esa propiedad o entorno, sea accesible para cualquier entorno en PHP, desde fuera de la clase, es decir, en el programa, como en la clase misma.
+*/
