@@ -85,5 +85,8 @@ Ejemplo de utilidad de constanetes "const" son apra ya nombrar numeros con prefi
 */
 /*
 Modificadores de propiedades y metodos.
+
 public => hace que esa propiedad o entorno, sea accesible para cualquier entorno en PHP, desde fuera de la clase, es decir, en el programa, como en la clase misma.
+private => Hace que esa propiedad sea solamente visible desde la clase que pertenece y no puede ser utilizada desde el programa.
+protected => Hace que la porpiedad sea visible desde la clase que pertenece y sus clases hijas
 */

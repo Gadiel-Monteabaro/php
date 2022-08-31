@@ -9,10 +9,28 @@ error_reporting(E_ALL);
 
 class Persona
 {
-    public $dni;
-    public $nombre;
-    public $edad;
-    public $nacionalidad;
+    protected $dni;
+    protected $nombre;
+    protected $edad;
+    protected $nacionalidad;
+
+    public function setDni($dni)
+    {
+        $this->dni = $dni;
+    }
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+    public function setEdad($edad)
+    {
+        $this->edad = $edad;
+    }
+    public function setNacionalidad($nacionalidad)
+    {
+        $this->nacionalidad = $nacionalidad;
+    }
+
     public function imprimir()
     {
     }
@@ -20,10 +38,10 @@ class Persona
 
 class Alumno extends Persona
 {
-    public $legajo;
-    public $notaPortfolio;
-    public $notaPhp;
-    public $notaProyecto;
+    private $legajo;
+    private $notaPortfolio;
+    private $notaPhp;
+    private $notaProyecto;
     public function __construct()
     {
         $this->notaPortfolio = 0.0;
@@ -48,7 +66,7 @@ class Alumno extends Persona
 
 class docente extends Persona
 {
-    public $especialidad;
+    private $especialidad;
 
     const ESPECIALIDAD_WP = "Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
     const ESPECIALIDAD_ECO = "Economia Aplicada";
@@ -71,10 +89,10 @@ class docente extends Persona
 
 $alumno1 = new Alumno(); //Inicializamos al primer alumno 
 $alumno1->legajo = "74171";
-$alumno1->nacionalidad = "Argentina";
-$alumno1->nombre = "Gadiel Silva";
-$alumno1->dni = "39622616";
-$alumno1->edad = "26";
+$alumno1->setNacionalidad("Argentina");
+$alumno1->setNombre("Gadiel Silva");
+$alumno1->setDni("39622616");
+$alumno1->setEdad("26");
 $alumno1->notaPortfolio = 8;
 $alumno1->notaPhp = 9;
 $alumno1->notaProyecto = 6;
