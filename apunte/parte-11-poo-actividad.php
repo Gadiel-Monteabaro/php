@@ -72,3 +72,5 @@ $obj1->patente = "ABC 123";
 $obj1->imprimirEnPantalla();
 
 print_r($obj1);
+
+//En los ejercicios carrito.php y ejercicio-poo.php
