@@ -18,17 +18,33 @@ class Persona
     {
         $this->dni = $dni;
     }
+    public function getDni()
+    {
+        return $this->dni;
+    }
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
+    }
+    public function getNombre()
+    {
+        return $this->nombre;
     }
     public function setEdad($edad)
     {
         $this->edad = $edad;
     }
+    public function getEdad()
+    {
+        return $this->edad;
+    }
     public function setNacionalidad($nacionalidad)
     {
         $this->nacionalidad = $nacionalidad;
+    }
+    public function getNacionalidad()
+    {
+        return $this->nacionalidad;
     }
 
     public function imprimir()
