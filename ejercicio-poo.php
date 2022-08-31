@@ -14,6 +14,7 @@ class Persona
     protected $edad;
     protected $nacionalidad;
 
+    //Esta es una forma de hacer el set y el get, pero PHP, nos brinda otra forma, mucho mas comoda y aceptada. Otros lenguajes no nos posibilitan de estos metodos.
     public function setDni($dni){$this->dni = $dni;}
     public function getDni(){return $this->dni;}
 
@@ -46,6 +47,7 @@ class Alumno extends Persona
         $this->notaProyecto = 0.0;
     }
 
+    //Estas dos funciones son proporcionadas por PHP. __set y __get, nos permite seguir usando "->", para llamar a las propiedades y sus respectivos valores.
     public function __set($name, $value)
     {
         return $this->$name = $value;
@@ -75,11 +77,14 @@ class Alumno extends Persona
 
 class docente extends Persona
 {
-    private $especialidad;   
+    private $especialidad;
 
     const ESPECIALIDAD_WP = "Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
     const ESPECIALIDAD_ECO = "Economia Aplicada";
     const ESPECIALIDAD_BBDD = "Base de Datos";
+
+    //Estas dos funciones son proporcionadas por PHP. __set y __get, nos permite seguir usando "->", para llamar a las propiedades y sus respectivos valores.
+
 
     public function __set($name, $value)
     {
