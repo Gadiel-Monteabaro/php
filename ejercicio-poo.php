@@ -14,17 +14,41 @@ class Persona
     protected $edad;
     protected $nacionalidad;
 
-    public function setDni($dni){$this->dni = $dni;}
-    public function getDni(){return $this->dni;}
+    public function setDni($dni)
+    {
+        $this->dni = $dni;
+    }
+    public function getDni()
+    {
+        return $this->dni;
+    }
 
-    public function setNombre($nombre){$this->nombre = $nombre;}
-    public function getNombre(){return $this->nombre;}
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
 
-    public function setEdad($edad){$this->edad = $edad;}
-    public function getEdad(){return $this->edad;}
+    public function setEdad($edad)
+    {
+        $this->edad = $edad;
+    }
+    public function getEdad()
+    {
+        return $this->edad;
+    }
 
-    public function setNacionalidad($nacionalidad){$this->nacionalidad = $nacionalidad;}
-    public function getNacionalidad(){return $this->nacionalidad;}
+    public function setNacionalidad($nacionalidad)
+    {
+        $this->nacionalidad = $nacionalidad;
+    }
+    public function getNacionalidad()
+    {
+        return $this->nacionalidad;
+    }
 
     public function imprimir()
     {
@@ -75,19 +99,21 @@ class Alumno extends Persona
 
 class docente extends Persona
 {
-    private $especialidad;
-    public function setEspecialidad($especialidad)
-    {
-        $this->especialidad = $especialidad;
-    }
-    public function getEspecialidad()
-    {
-        return $this->especialidad;
-    }
+    private $especialidad;   
 
     const ESPECIALIDAD_WP = "Wordpress"; // una constante no recibe el simbolo "$" y van en mayusculas.
     const ESPECIALIDAD_ECO = "Economia Aplicada";
     const ESPECIALIDAD_BBDD = "Base de Datos";
+
+    public function __set($name, $value)
+    {
+        return $this->$name = $value;
+    }
+
+    public function __get($name)
+    {
+        return $this->$name;
+    }
 
     public function imprimir()
     {
@@ -122,6 +148,6 @@ $docente1->setDni("35252514");
 $docente1->setNombre("Ezequiel Monteabaro");
 $docente1->setEdad("33");
 $docente1->setNacionalidad("Argentina");
-$docente1->setEspecialidad(Docente::ESPECIALIDAD_ECO);
+$docente1->especialidad = Docente::ESPECIALIDAD_ECO;
 $docente1->imprimir();
 $docente1->imprimirEspecialidadesHabilitadas();
