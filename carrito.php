@@ -5,11 +5,11 @@ error_reporting(E_ALL);
 
 class Cliente
 {
-    protected $dni;
-    protected $nombre;
-    protected $correo;
-    protected $telefono;
-    protected $descuento;
+    private $dni;
+    private $nombre;
+    private $correo;
+    private $telefono;
+    private $descuento;
 
     public function __set($name, $value)
     {
@@ -33,11 +33,11 @@ class Cliente
 
 class Producto
 {
-    protected $cod;
-    protected $nombre;
-    protected $descripcion;
-    protected $iva;
-    protected $precio;
+    private $cod;
+    private $nombre;
+    private $descripcion;
+    private $iva;
+    private $precio;
 
     public function __set($name, $value)
     {
@@ -60,13 +60,15 @@ class Producto
     }
 }
 
-class Carrito extends Cliente
+class Carrito
 {
-    protected $aProductos =  array();
-    protected $subtotal;
-    protected $total;
+    private $cliente;
+    private $aProductos;
+    private $subtotal;
+    private $total;
     public function __construct()
     {
+        $this->aProductos = array();
         $this->subtotal = 0;
         $this->total = 0;
     }
