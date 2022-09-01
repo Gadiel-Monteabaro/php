@@ -100,7 +100,7 @@ class Carrito
 
     public function imprimirTicket()
     {
-        echo "<table class='table table-hover border' style='width:400px'>";
+        echo "<table class='table table-hover border' style='width:500px'>";
         echo "<tr><th colspan='2' class='text-center'>ECO MARKET</th></tr>
               <tr>
                 <th>Fecha</th>
@@ -188,7 +188,7 @@ $carrito->cargarProducto($producto2);
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-6 mt-5">
+                <div class="col-12 mt-5">
                     <?php $carrito->imprimirTicket(); ?>
                 </div>
             </div>
