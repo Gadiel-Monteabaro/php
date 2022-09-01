@@ -29,6 +29,14 @@ class Alumno extends Persona
     private $aptoFisico;
     private $presentismo;
 
+    public function __construct()
+    {
+        $this->peso = 0.0;
+        $this->altura = 0.0;
+        $this->presentismo = 0.0;
+        $this->aptoFisico = false;
+    }
+
     public function __set($name, $value)
     {
         return $this->$name = $value;
@@ -39,13 +47,7 @@ class Alumno extends Persona
         return $this->$name;
     }
 
-    public function __construct()
-    {
-        $this->peso = 0.0;
-        $this->altura = 0.0;
-        $this->presentismo = 0.0;
-        $this->aptoFisico = false;
-    }
+
 
     public function setFichaMedica()
     {
@@ -56,6 +58,11 @@ class Entrenador extends Persona
 {
     private $aClases;
 
+    public function __construct()
+    {
+        $this->aClases = array();
+    }
+
     public function __set($name, $value)
     {
         return $this->$name = $value;
@@ -66,12 +73,42 @@ class Entrenador extends Persona
         return $this->$name;
     }
 
+    public function asignarClase()
+    {
+    }
+}
+
+class Clase
+{
+    private $nombre;
+    private $entrenador;
+    private $aAlumnos;
+
     public function __construct()
     {
-        $this->aClases = array();
+        $this->aAlumnos = array();
     }
 
-    public function asignarClase()
+    public function __set($name, $value)
+    {
+        return $this->$name = $value;
+    }
+
+    public function __get($name)
+    {
+        return $this->$name;
+    }
+
+    public function asignarEntrenador()
+    {
+    }
+
+
+    public function inscribirAlumno()
+    {
+    }
+
+    public function imprimirListado()
     {
     }
 }
