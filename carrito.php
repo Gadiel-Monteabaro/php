@@ -100,7 +100,7 @@ class Carrito
 
     public function imprimirTicket()
     {
-        echo "<table class='table table-hover border' style='width:500px'>";
+        echo "<table class='table table-hover border' style='width:400px'>";
         echo "<tr><th colspan='2' class='text-center'>ECO MARKET</th></tr>
               <tr>
                 <th>Fecha</th>
