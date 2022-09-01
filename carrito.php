@@ -136,4 +136,5 @@ $carrito = new carrito();
 $carrito->cliente = $cliente1;;
 $carrito->cargarProducto($producto1);
 $carrito->cargarProducto($producto2);
+$carrito->imprimirTicket();
 print_r($carrito);
