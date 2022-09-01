@@ -79,7 +79,7 @@ class Carrito
     public function __construct()
     {
         $this->aProductos = array();
-        $this->subtotal = 0.0;
+        $this->subTotal = 0.0;
         $this->total = 0.0;
     }
 
@@ -95,11 +95,51 @@ class Carrito
 
     public function cargarProducto($producto)
     {
-      return  $this->aProductos[] = $producto;
+        return  $this->aProductos[] = $producto;
     }
 
     public function imprimirTicket()
     {
+        echo "<table class ='table table-hover border'>";
+        echo "
+                <tr> 
+                    <th colspan='2'> Eco Market </th>
+                </tr>
+                <tr>
+                    <th>Fecha<th>
+                    <td>" . date('d/m/y h:i:s') . "
+                </tr>
+                <tr>
+                    <th>DNI<th>
+                    <td>" . $this->cliente->dni . "
+                </tr>
+                <tr>
+                    <th>Nombre<th>
+                    <td>" . $this->cliente->nombre . "
+                </tr>
+                <tr>
+                    <th colspan='2'>Productos<th>                    
+                </tr>";
+        foreach ($this->aProductos as $producto) {
+            echo "<tr>
+                    <td>" . $producto->nombre . "</td>
+                    <td>$" . number_format($producto->precio, "2", ",", ".") . "</td>                                    
+                  </tr> ";
+            $this->subTotal += $producto->precio;
+            $this->total += $producto->precio * (($producto->iva / 100) + 1);
+        }
+
+        echo "<tr>
+                <th>Subtotal s/IVA</th>
+                <td>$" . number_format($this->subTotal, "2", ",", ".") . "</td>
+              </tr>
+        ";
+        echo "<tr>
+                <th>Total</th>
+                <td>$" . number_format($this->total, "2", ",", ".") . "</td>
+              </tr>
+        ";
+        echo "</table>";
     }
 }
 
@@ -112,7 +152,7 @@ $cliente1->correo = "gadielsilva96@gmail.com";
 $cliente1->telefono = "+54 3518053537";
 $cliente1->descuento = 0.05;
 //print_r($cliente1);
-$cliente1->imprimir();
+//$cliente1->imprimir();
 
 //Programa 2 
 $producto1 = new Producto();
@@ -121,20 +161,42 @@ $producto1->nombre = "Notebook 15\" HP";
 $producto1->descripcion = "Esta es una computadora HP";
 $producto1->precio = 30800;
 $producto1->iva = 21;
-$producto1->imprimir();
+//$producto1->imprimir();
 
 $producto2 = new Producto();
 $producto2->cod = "QWR579";
 $producto2->nombre = "Heladera whirlpool";
 $producto2->descripcion = "Esta es una heladera no froze";
-$producto2->precio = 76000;
-$producto2->iva = 10.5;
-$producto2->imprimir();
+$producto2->precio = 60800;
+$producto2->iva = 21;
+//$producto2->imprimir();
 
 //Programa 3
 $carrito = new carrito();
 $carrito->cliente = $cliente1;;
 $carrito->cargarProducto($producto1);
 $carrito->cargarProducto($producto2);
-$carrito->imprimirTicket();
-print_r($carrito);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO MARKET</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <main class="container">
+        <div class="row">
+            <div class="col-4 text-center">
+                <?php $carrito->imprimirTicket(); ?>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
