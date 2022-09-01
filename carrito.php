@@ -100,14 +100,14 @@ class Carrito
 
     public function imprimirTicket()
     {
-        echo "<table class ='table table-hover border'>";
+        echo "<table class ='table table-hover border'";
         echo "
                 <tr> 
-                    <th colspan='2'> Eco Market </th>
+                    <th colspan='4' class='text-center'> Eco Market </th>
                 </tr>
                 <tr>
                     <th>Fecha<th>
-                    <td>" . date('d/m/y h:i:s') . "
+                    <td>" . date('d/m/y H:i:s') . "
                 </tr>
                 <tr>
                     <th>DNI<th>
@@ -118,28 +118,26 @@ class Carrito
                     <td>" . $this->cliente->nombre . "
                 </tr>
                 <tr>
-                    <th colspan='2'>Productos<th>                    
+                    <th colspan='2'>Productos:<th>                    
                 </tr>";
         foreach ($this->aProductos as $producto) {
             echo "<tr>
-                    <td>" . $producto->nombre . "</td>
-                    <td>$" . number_format($producto->precio, "2", ",", ".") . "</td>                                    
-                  </tr> ";
+                                <td>" . $producto->nombre . "</td>
+                                <td>$ " . number_format($producto->precio, 2, ",", ".") . "</td>
+                            </tr>";
             $this->subTotal += $producto->precio;
             $this->total += $producto->precio * (($producto->iva / 100) + 1);
         }
 
         echo "<tr>
-                <th>Subtotal s/IVA</th>
-                <td>$" . number_format($this->subTotal, "2", ",", ".") . "</td>
-              </tr>
-        ";
-        echo "<tr>
-                <th>Total</th>
-                <td>$" . number_format($this->total, "2", ",", ".") . "</td>
-              </tr>
-        ";
-        echo "</table>";
+                    <th>Subtotal s/IVA:</th>
+                    <td>$ " . number_format($this->subTotal, 2, ",", ".") . "</td>
+                  </tr>
+                <tr>
+                    <th>TOTAL:</th>
+                    <td>$ " . number_format($this->total, 2, ",", ".") . "</td>
+                  </tr>
+            </table>";
     }
 }
 
@@ -192,7 +190,7 @@ $carrito->cargarProducto($producto2);
 <body>
     <main class="container">
         <div class="row">
-            <div class="col-4 text-center">
+            <div class="col-12 mt-5">
                 <?php $carrito->imprimirTicket(); ?>
             </div>
         </div>
