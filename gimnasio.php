@@ -99,13 +99,15 @@ class Clase
         return $this->$name;
     }
 
-    public function asignarEntrenador()
+    public function asignarEntrenador($entrenador)
     {
+        $this->entrenador = $entrenador;
     }
 
 
-    public function inscribirAlumno()
+    public function inscribirAlumno($alumno)
     {
+        $this->aAlumnos = $alumno;
     }
 
     public function imprimirListado()
@@ -134,7 +136,7 @@ $alumno4 = new Alumno("41687536", "Gaston Aguilar", "gaston@email.com", "1145632
 $alumno4->setFichaMedica(70, 169, false);
 $alumno4->presentismo = 98;
 
-$clase1=new clase();
+$clase1 = new clase();
 $clase1->nombre = "funcional";
 $clase1->asignarEntrenador($entrenador1);
 $clase1->inscribirAlumno($alumno1);
@@ -142,10 +144,11 @@ $clase1->inscribirAlumno($alumno3);
 $clase1->inscribirAlumno($alumno4);
 $clase1->imprimirListado();
 
-$clase2=new clase();
+$clase2 = new clase();
 $clase2->nombre = "zumba";
 $clase2->asignarEntrenador($entrenador2);
 $clase2->inscribirAlumno($alumno1);
 $clase2->inscribirAlumno($alumno2);
 $clase2->inscribirAlumno($alumno3);
 $clase2->imprimirListado();
+print_r($clase1);
