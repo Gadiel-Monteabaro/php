@@ -161,14 +161,14 @@ $alumno4->setFichaMedica(70, 169, false);
 $alumno4->presentismo = 98;
 
 $clase1 = new clase();
-$clase1->nombre = "funcional";
+$clase1->nombre = "Funcional";
 $clase1->asignarEntrenador($entrenador1);
 $clase1->inscribirAlumno($alumno1);
 $clase1->inscribirAlumno($alumno3);
 $clase1->inscribirAlumno($alumno4);
 
 $clase2 = new clase();
-$clase2->nombre = "zumba";
+$clase2->nombre = "Zumba";
 $clase2->asignarEntrenador($entrenador2);
 $clase2->inscribirAlumno($alumno1);
 $clase2->inscribirAlumno($alumno2);
