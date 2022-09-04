@@ -90,3 +90,39 @@ public => hace que esa propiedad o entorno, sea accesible para cualquier entorno
 private => Hace que esa propiedad sea solamente visible desde la clase que pertenece y no puede ser utilizada desde el programa.
 protected => Hace que la porpiedad sea visible desde la clase que pertenece y sus clases hijas
 */
+/*
+Abstraccion => La abstraccion de datos nos permite nos preocuparnos de los elementos no importantes o esenciales.
+Las estructuras de datos y tipos de datos son un tipo de abstraccion. Junto con los procedimientos y funciones.
+*/
+/*
+Encapsulamiento (ocultamiento de la informacion) => Esta caracteristica es la que denota la capcidad del objeto de responder a peticiones a traves de sus metodos, sin la necesidad de exponer los medios utilizados para llegar a brindar estos metodos
+¿Por que utilizar encapsulamiento?
+Control
+Cambio
+La utilidad de utilizar encapsulamiento va por la facilidad de manejar la complejidad.
+Donde las clases funcionan como cajas negras, donde solo se conoce el comportamiento, pero no sus detalles internos
+*/
+/*
+Herencia (extends) => consiste en que una clase puede hederar sus variables y metodos a varias subclases(clases padre o superclase)
+Lo cual una subclase aparte de los metodos y variables porpias, tambien hereda, las variables y metodos de la superclase o clase padre. Lo cual se crea una herencia de jerarquia.
+*/
+/*
+Clases abastractas
+la clases abstractas no se pueden instanciar.
+Si heredamos de una clases abstracta todos sus metodos abstractos deberan ser definidos.
+Si el metodo abstractoesta definido como protegido, la implementacion debe ser definidacomo protegida o publica pero nunca como privada.
+*/
+/*
+parent => podemos utilizar el __construct de una clase padre sin necesidad de cargar los parametros nuevamente, simplemente utilizando el construc de la clase padre. // En el ejercicio de gimnasio, lo estuvimos utilizando.
+*/
+/*
+instanceof => Es una funcion de PHP que nos permite preguntar si un objeto es de un tipo en particular,es decir, cual es su clase
+*/
+class Fruta
+{
+}
+if ($manzana instanceof Fruta) { // manzana es una instancia de la clase Fruta?
+    echo "La manzana es una fruta";
+}
+
+
