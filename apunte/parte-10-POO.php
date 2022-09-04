@@ -124,5 +124,15 @@ class Fruta
 if ($manzana instanceof Fruta) { // manzana es una instancia de la clase Fruta?
     echo "La manzana es una fruta";
 }
+/*
+Static => Declarar propiedades o metodos de clases como estaticos los hacen accesibles sin necesidad de instanciar la clase.
+*/
+class Calculadora
+{
+    public static function sumar($num1, $num2)
+    {
+        return $num1 + $num2;
+    }
+}
 
-
+Calculadora::sumar(9, 8);
