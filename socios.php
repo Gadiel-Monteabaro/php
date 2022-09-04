@@ -13,9 +13,14 @@ class Tarjeta
     private $tipo;
     private $cvv;
 
-    const VISA = "visa";
-    const AMEX = "amex";
-    const MASTERCARD = "mastercard";
+    public function __construct($tipo, $numero, $fechaEmision, $fechaVto, $cvv)
+    {
+    }
+
+
+    const VISA = "VISA";
+    const AMEX = "American Express";
+    const MASTERCARD = "MASTERCARD";
 
     public function __set($name, $value)
     {
@@ -27,7 +32,6 @@ class Tarjeta
         return $this->$name;
     }
 }
-
 
 class Persona
 {
@@ -58,7 +62,7 @@ class Cliente extends Persona
     {
         $this->aTarjetas = array();
         $this->bActivo = true;
-        $this->fechaAlta = date("d/m/Y H:i:s");
+        $this->fechaAlta = date("d/m/Y");
     }
     public function __set($name, $value)
     {
@@ -70,12 +74,15 @@ class Cliente extends Persona
         return $this->$name;
     }
 
-    public function  agregarTarjeta()
+    public function  agregarTarjeta($tarjeta)
     {
+        $this->aTarjetas = $tarjeta;
     }
 
-    public function darDeBaja()
+    public function darDeBaja($fecha)
     {
+        $this->fechaBaja = date_format(date_create($fecha), "d/m/a");
+        $this->bActivo = false; //Baja Logica.
     }
 
     public function  imprimir()
