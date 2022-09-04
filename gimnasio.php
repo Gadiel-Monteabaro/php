@@ -10,6 +10,14 @@ class Persona
     protected $correo;
     protected $celular;
 
+    public function __construct($dni, $nombre, $correo, $celular)
+    {
+        $this->dni = $dni;
+        $this->nombre = $nombre;
+        $this->correo = $correo;
+        $this->celular = $celular;
+    }
+
     public function __set($name, $value)
     {
         return $this->$name = $value;
@@ -29,12 +37,14 @@ class Alumno extends Persona
     private $aptoFisico;
     private $presentismo;
 
-    public function __construct()
+    public function __construct($dni, $nombre, $correo, $celular, $fechaNac)
     {
+        parent::__construct($dni, $nombre, $correo, $celular);
+        $this->fechaNac = $fechaNac;
         $this->peso = 0.0;
         $this->altura = 0.0;
-        $this->presentismo = 0.0;
         $this->aptoFisico = false;
+        $this->presentismo = 0.0;
     }
 
     public function __set($name, $value)
@@ -49,8 +59,11 @@ class Alumno extends Persona
 
 
 
-    public function setFichaMedica()
+    public function setFichaMedica($peso, $altura, $aptoFisico)
     {
+        $this->peso = $peso;
+        $this->altura = $altura;
+        $this->aptoFisico = $aptoFisico;
     }
 }
 
@@ -58,8 +71,9 @@ class Entrenador extends Persona
 {
     private $aClases;
 
-    public function __construct()
+    public function __construct($dni, $nombre, $correo, $celular)
     {
+        parent::__construct($dni, $nombre, $correo, $celular); //este es el constructor de la clase persona
         $this->aClases = array();
     }
 
@@ -73,8 +87,9 @@ class Entrenador extends Persona
         return $this->$name;
     }
 
-    public function asignarClase()
+    public function asignarClase($clase)
     {
+        $this->clase = $clase;
     }
 }
 
@@ -107,11 +122,20 @@ class Clase
 
     public function inscribirAlumno($alumno)
     {
-        $this->aAlumnos = $alumno;
+        $this->aAlumnos[] = $alumno;
     }
 
     public function imprimirListado()
     {
+        echo "<table class='table table-bordered table-striped table-hover'>";
+        echo "<tr><th class='table-dark text-center' colspan='4'>Clase: " . $this->nombre . "</th></tr>";
+        echo "<tr><th colspan='2'>Entrenador:</th><td colspan='2'>" . $this->entrenador->nombre . "</td></tr>";
+        echo "<tr><th colspan='4'>Alumnos inscritos:</th></tr>";
+        echo "<tr><th>DNI</th><th>Nombre</th><th>Correo</th><th>Celular</th>";
+        foreach ($this->aAlumnos as $alumno) {
+            echo "<tr><td>" . number_format($alumno->dni, 0, ",", ".") . "</td><td>" . $alumno->nombre . "</td><td>" . $alumno->correo . "</td><td>" . $alumno->celular . "</td></tr>";
+        }
+        echo "</table>";
     }
 }
 
@@ -142,7 +166,6 @@ $clase1->asignarEntrenador($entrenador1);
 $clase1->inscribirAlumno($alumno1);
 $clase1->inscribirAlumno($alumno3);
 $clase1->inscribirAlumno($alumno4);
-$clase1->imprimirListado();
 
 $clase2 = new clase();
 $clase2->nombre = "zumba";
@@ -150,5 +173,35 @@ $clase2->asignarEntrenador($entrenador2);
 $clase2->inscribirAlumno($alumno1);
 $clase2->inscribirAlumno($alumno2);
 $clase2->inscribirAlumno($alumno3);
-$clase2->imprimirListado();
-print_r($clase1);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimnasio</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mt-5">
+                    <?php $clase1->imprimirListado(); ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-5">
+                    <?php $clase2->imprimirListado(); ?>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
