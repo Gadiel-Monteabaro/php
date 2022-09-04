@@ -102,12 +102,10 @@ $cliente1->dni = "35123789";
 $cliente1->nombre = "Ana Valle";
 $cliente1->correo = "ana@correo.com";
 $cliente1->celular = "+54 3518053537";
-$cliente1->darDeBaja("04/09/2022");
-
+$cliente1->darDeBaja("05/09/2022");
 $tarjeta1 = new Tarjeta(Tarjeta::VISA, "4223750778806383", "03/2022", "01/2023", "275");
 $tarjeta2 = new Tarjeta(Tarjeta::AMEX, "347572886751981", "05/2020", "07/2027", "136");
 $tarjeta3 = new Tarjeta(Tarjeta::MASTERCARD, "5415620495970009", "06/2021", "12/2024", "742");
-
 $cliente1->agregarTarjeta($tarjeta1);
 $cliente1->agregarTarjeta($tarjeta2);
 $cliente1->agregarTarjeta($tarjeta3);
@@ -120,6 +118,8 @@ $cliente2->correo = "bernabe@correo.com";
 $cliente2->celular = "1145326787";
 $cliente2->agregarTarjeta(new Tarjeta(Tarjeta::VISA, "4969508071710316", "08/2025", "865"));
 $cliente2->agregarTarjeta(new Tarjeta(Tarjeta::MASTERCARD, "5149107669552238", "04/2025", "554"));
+$cliente2->darDeBaja("05/09/2022");
+
 
 print_r($cliente1);
 print_r($cliente2);
