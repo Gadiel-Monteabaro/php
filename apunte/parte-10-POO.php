@@ -53,3 +53,5 @@ class Cliente
         $this->nombre = $nombreCliente;
     }
 }
+
+$cliente1 = new Cliente("Gadiel"); // instanciamos el constructor parametrizado, dandole el valor de "Gadiel" a la propiedad "nombre". 
