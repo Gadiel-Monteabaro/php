@@ -127,6 +127,7 @@ Clases Abstractas
 */
 abstract class Fruta
 {
+    public $manzana;
     abstract public function comer();
 }
 // En algun punto deberia existir una restriccion en la implementacion de propiedades y funciones, para esto utilizamos las clases abstractas. 
@@ -139,4 +140,10 @@ class Usuario extends Persona
     {
         parent::__construct($documento); // utilizamos la funcion establecida en la clase Padre "Persona" 
     }
+}
+/*
+instaceof -> Es una funcion PHP, que nos permite preguntar, si un objeto es de un tipo en particular, es decir, cual es su clase.
+*/
+if ($manzana instanceof Fruta) {
+    echo "la manzana es una fruta"; // pregutamos si la propiedad "manzana" pertenece a la clase fruta // linea 130.
 }
