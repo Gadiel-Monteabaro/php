@@ -8,6 +8,9 @@ Clases ->
 -Los objetos son "instancias" de esa clase.
 -Definen un conjunto de propiedades, estados y el comportamiento de dicha entidad, atraves de los metodos.
 */
+
+use setasign\Fpdi\PdfParser\CrossReference\AbstractReader;
+
 class Persona //El objet se crea con la primera letra en mayuscula.
 {
     public $dni;
@@ -15,8 +18,9 @@ class Persona //El objet se crea con la primera letra en mayuscula.
     public $correo;
     public $telefono;
 
-    public function __construct()
+    public function __construct($documento)
     {
+        $this->dni = $documento;
     }
 
     public function imprimir()
@@ -36,8 +40,8 @@ class Docente extends Persona
     //Con extends las propiedades, estados y metodos de la clase Persona, tambien son utilizadas en la clase Docente.
 }
 
-$docente1 = new Persona(); // De esta forma instanciamos la clase Persona.
-$docente1->dni = "39622616"; // De esta forma le damos valores a las propiedades de la clase Persona.
+$docente1 = new Persona("39622616"); // De esta forma instanciamos la clase Persona.
+$docente1->nombre = "Gadiel Silva"; // De esta forma le damos valores a las propiedades de la clase Persona.
 $docente1->imprimir(); //De esta forma llamamos a los metodos de la clase Persona.
 
 /*
@@ -110,4 +114,29 @@ Es la que denota la capacidad de objeto a responder peticiones atreves de sus me
 -Control
 -Cambio
 Va por la facilidad de manejar la complejidad, ya que las clases son como las cajas negras, solo se conoce el comportamiento pero no los detalles internos.
+Solamente los metedos internos del objeto puede acceder a su estado.
+
+Herencia (extends)  "Es un"
+Consiste en que una clase (clase padre o superclase) puede hederar sus variables y sus metodos a varias subclases. lo cual significa que una sobclase, aparte de las propiedades y metodos propios tambien obtiene los valores y metodos de la clase padre o superclase. De esta manera se crea una jerarquia de herencia
 */
+/* 
+Clases Abstractas
+-Las clases abstractas no se pueden instanciar.
+-Todos los metodos abstractos deberan ser definidos.
+-Si el metodo esta definido como protegido. la implementacion de la funcion debe ser definida como protegida o publica, nunca como privada.
+*/
+abstract class Fruta
+{
+    abstract public function comer();
+}
+// En algun punto deberia existir una restriccion en la implementacion de propiedades y funciones, para esto utilizamos las clases abstractas. 
+/*
+parent -> Al utilizar parenti estamos haciendo referencia al objeto padre de nuestra instancia, Esto permite llamar a metodos de esa clase para ejecutar su comportamiento.
+*/
+class Usuario extends Persona
+{
+    public function __construct($documento)
+    {
+        parent::__construct($documento); // utilizamos la funcion establecida en la clase Padre "Persona" 
+    }
+}
