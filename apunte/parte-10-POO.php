@@ -52,10 +52,38 @@ class Cliente
     {
         $this->nombre = $nombreCliente;
     }
+
+    public function __destruct() // De esta forma creamos un destructor.
+    {
+        echo "destruyendo objeto" . $this->nombre . "<br>";
+    }
 }
 
 $cliente1 = new Cliente("Gadiel"); // instanciamos el constructor parametrizado, dandole el valor de "Gadiel" a la propiedad "nombre". 
 
 /*
 El constructor es llamado cuando la clase comienza a ocupar un lugar en la memoria, al ser instanciada. Se encarga de inicializar valores, incluso llamar contructores de otras clases.
+*/
+/*
+Tenemos otra function implicita que la de destructor.
+El destructor se llama cuando queremos finalizar la vida de la instancia de la clase, para liberar recursos.
+*/
+
+/*
+Constantes en una clase.
+*/
+class Tarjetas
+{
+    const MASTERCARD = "Mastercard";
+    const VISA = "VISA";
+    const AMEX = "American Express";
+}
+
+/*
+Modificadores -> Dentro de una clase los distintos atributos y metodos tienen distintos alcances.
+
+-public -> hace es propiedad o metodo accesible desde cualquier punto de PHP, es decir, en el programa, como en la clase misma.
+-private -> la propiedad o metodo solamente puede ser visible desde la clase en la que pertenece, y no desde el programa.
+-protected -> hace que es propieda o metodo solo sea visible desde la clase en la que pertenece, y las clases hijas (extends).
+
 */
