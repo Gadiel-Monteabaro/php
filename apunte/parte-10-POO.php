@@ -55,3 +55,7 @@ class Cliente
 }
 
 $cliente1 = new Cliente("Gadiel"); // instanciamos el constructor parametrizado, dandole el valor de "Gadiel" a la propiedad "nombre". 
+
+/*
+El constructor es llamado cuando la clase comienza a ocupar un lugar en la memoria, al ser instanciada. Se encarga de inicializar valores, incluso llamar contructores de otras clases.
+*/
