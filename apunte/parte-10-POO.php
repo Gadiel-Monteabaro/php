@@ -150,8 +150,7 @@ if ($manzana instanceof Fruta) {
 /*
 static -> declarar propiedades o metodos de clases como estaticos los hacen accesibles sin instanciar su clase
 */
-
-class Calculadora 
+class Calculadora
 {
     public static function sumar($num1, $num2)
     {
@@ -160,3 +159,12 @@ class Calculadora
 }
 
 Calculadora::sumar(9, 5);
+/*
+Metodos Abstractos 
+-Son declarados, pero no implementados
+-Si existe un metodo abstracto, entonces deberemos declarar la clase como abstracta.
+-y al declararla como tal no podemos crear instancias de ellas.
+*/
+/*
+Sobrecarga (preguntar);
+*/
