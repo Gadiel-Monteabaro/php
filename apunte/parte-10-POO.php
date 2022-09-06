@@ -88,11 +88,26 @@ class Tarjetas
         return $this->$name = $value;
     }
 }
-
 /*
 Modificadores -> Dentro de una clase los distintos atributos y metodos tienen distintos alcances.
 
 -public -> hace es propiedad o metodo accesible desde cualquier punto de PHP, es decir, en el programa, como en la clase misma.
 -private -> la propiedad o metodo solamente puede ser visible desde la clase en la que pertenece, y no desde el programa.
 -protected -> hace que es propieda o metodo solo sea visible desde la clase en la que pertenece, y las clases hijas (extends).
+*/
+/* 
+Pilares De POO.
+
+Abstraccion 
+La abstraccion de datos permite no preocuparse de los datos que no son esenciales.
+Existe en casi todos los lenguajes de programacion. Las estructuras de datos, los tipos de datos, las funciones, los procedimientos son un ejemplo de abstraccion.
+-ignorancia selectiva.
+-decide que es lo importante y que no lo es. 
+-utiliza la encapsulacion para reforzar la abstraccion.
+
+Encapsulamiento (Ocultamiento de la informacion)
+Es la que denota la capacidad de objeto a responder peticiones atreves de sus metodos sin la necesidad de exponer los medios utilizados para llegar a brindar estos resultados.
+-Control
+-Cambio
+Va por la facilidad de manejar la complejidad, ya que las clases son como las cajas negras, solo se conoce el comportamiento pero no los detalles internos.
 */
