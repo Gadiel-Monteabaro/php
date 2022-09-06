@@ -77,6 +77,16 @@ class Tarjetas
     const MASTERCARD = "Mastercard";
     const VISA = "VISA";
     const AMEX = "American Express";
+
+    public function __get($name)     // Getters y Setters, PHP nos brinda estas funciones predeterminadas para obtener los valores de las propiedades y poder utilizarlas o cambiarlas, en cualquier momento.
+    {
+        return $this->$name;
+    }
+
+    public function __set($name, $value)
+    {
+        return $this->$name = $value;
+    }
 }
 
 /*
@@ -85,5 +95,4 @@ Modificadores -> Dentro de una clase los distintos atributos y metodos tienen di
 -public -> hace es propiedad o metodo accesible desde cualquier punto de PHP, es decir, en el programa, como en la clase misma.
 -private -> la propiedad o metodo solamente puede ser visible desde la clase en la que pertenece, y no desde el programa.
 -protected -> hace que es propieda o metodo solo sea visible desde la clase en la que pertenece, y las clases hijas (extends).
-
 */
