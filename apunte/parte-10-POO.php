@@ -26,9 +26,30 @@ class Persona //El objet se crea con la primera letra en mayuscula.
 }
 class Docente extends Persona
 {
+    public $salario;
+    public $asignatura;
+
+    public function __construct() //Con "construct", podemos darle valor predeterminado a la propiedad de una clase. Son convocadas automaticamente.
+    {
+        $this->salario = 10000; // Con el operador "->", accedemos a las propiedades de las clases
+    }
     //Con extends las propiedades, estados y metodos de la clase Persona, tambien son utilizadas en la clase Docente.
 }
 
 $docente1 = new Persona(); // De esta forma instanciamos la clase Persona.
 $docente1->dni = "39622616"; // De esta forma le damos valores a las propiedades de la clase Persona.
-$docente1->imprimir();//De esta forma llamamos a los metodos de la clase Persona.
+$docente1->imprimir(); //De esta forma llamamos a los metodos de la clase Persona.
+
+/*
+Constructor Parametrizado.
+*/
+
+class Cliente
+{
+    public $nombre;
+
+    public function __construct($nombreCliente) // De esta forma creamos una contructor parametrizado.
+    {
+        $this->nombre = $nombreCliente;
+    }
+}
