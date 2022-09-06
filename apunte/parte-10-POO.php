@@ -147,3 +147,16 @@ instaceof -> Es una funcion PHP, que nos permite preguntar, si un objeto es de u
 if ($manzana instanceof Fruta) {
     echo "la manzana es una fruta"; // pregutamos si la propiedad "manzana" pertenece a la clase fruta // linea 130.
 }
+/*
+static -> declarar propiedades o metodos de clases como estaticos los hacen accesibles sin instanciar su clase
+*/
+
+class Calculadora 
+{
+    public static function sumar($num1, $num2)
+    {
+        return $num1 + $num2;
+    }
+}
+
+Calculadora::sumar(9, 5);
