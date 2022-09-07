@@ -35,7 +35,6 @@ SQL->Lenguaje de Consultas Estructurado, donde podemos manipular, estructurar, a
 -DDL-> Lenguaje de definicion de datos
 */
 //Conectarnos a MySQL desde PHP 
-
 $mySqli = new mysqli('127.0.0.1', 'root', 'tu_contraseña', 'nombre_BBDD');
 if ($mySqli->connect_errno) {
     //La conexion fallo, que hacemos ?
