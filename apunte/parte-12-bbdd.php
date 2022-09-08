@@ -70,4 +70,30 @@ Actividad
 
 2- Obtener el nombre y correo de todos los clientes que cumplan en Marzo (Julio), ordenado de manera ascendente.
 -> SELECT * FROM clientes WHERE MONTH(fecha_nac)= 07 ORDER BY nombre ASC;
+
+Operaciones en la BBDD.
+-Insert
+-Select 
+-Delete
+-Update
 */
+/*
+ACID -> Un SGBD es transaccional cuando respeta el ACID.
+-A -> Atomicidad, Se ejecuta todo o ninguna, transacciones completas
+-C -> Consistencia, integridad, la BBDD parte de un estado valido y termina igual.
+-I -> Isolated, Esto asegura que dos transacciones sobre la misma informacion sean totalmente independientes y no generen ningun tipo de error.
+-D -> Durabilidad, Persistencia.
+
+Transacciones - Sintaxis. 
+
+Start transaction
+
+Consulta1
+Consulta2...
+
+Commit;
+
+Rollback;
+
+*/
+
