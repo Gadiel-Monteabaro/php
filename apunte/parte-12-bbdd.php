@@ -57,5 +57,5 @@ BETWEEN -> entre los valores
 IN -> lista de valores
 LIKE -> se ajusta a otro valor
 
-Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%';
+Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%'; // Todos los nombre que comienze con 'A' seran solicitados.
 */
