@@ -94,7 +94,7 @@ Consultas Avanzadas
 IS NULL -> Es nu lo
 BETWEEN -> entre los valores 
 IN -> lista de valores
-LIKE -> se ajusta a otro valor
+LIKE -> se ajusta a otro valor -> LIKE '%Heladera%'
 ORDER BY -> Ordenamos alfabeticamente
 LIMIT -> asignamos un limite de busqueda
 NOT -> Junto con sus variaciones
