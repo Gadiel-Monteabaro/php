@@ -56,10 +56,18 @@ IS NULL -> Es nu lo
 BETWEEN -> entre los valores 
 IN -> lista de valores
 LIKE -> se ajusta a otro valor
+
 ORDER BY -> Ordenamos alfabeticamente
 LIMIT -> asignamos un limite de busqueda
 
 Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%'; // Todos los nombre que comienze con 'A' seran solicitados.
 Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%' ORDER BY nombre ASC; // ASC, significa 'ascendente' y DESC 'descendente'
 Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%' LIMIT 0,3;
+
+Actividad
+1- Obtener todos los productos con stock critico
+-> SELECT * FROM productos WHERE cantidad<=10;
+
+2- Obtener el nombre y correo de todos los clientes que cumplan en Marzo (Julio), ordenado de manera ascendente.
+-> SELECT * FROM clientes WHERE MONTH(fecha_nac)= 07 ORDER BY nombre ASC;
 */
