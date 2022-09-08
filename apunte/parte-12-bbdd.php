@@ -101,3 +101,12 @@ NOT -> Junto con sus variaciones
 AND -> ('y')
 OR -> ('o')
 */
+/*
+Diagrama Entidad Relacion (DER)
+Herramienta para el modelado de datos que permite representar la entidades relevantes de un sistema de informacion asi como sus interrelaciones y propiedades.
+-Entidad (Tablas) -> Representa una "cosa" del mundo real. Se representa como un rectangulo. (Persona, Animal, Materia, Casa, Pelicula)
+-Atributos (Columnas) -> Propiedades de esa "cosa" (id, nombre, edad, tamaño, precio, titulo, estado)
+-Claves (id)
+-Relaciones
+
+*/
