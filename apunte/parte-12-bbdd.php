@@ -93,8 +93,8 @@ Rollback;
 Consultas Avanzadas
 IS NULL -> Es nu lo
 BETWEEN -> entre los valores 
-IN -> lista de valores
-LIKE -> se ajusta a otro valor -> LIKE '%Heladera%' // devolvera todos los valores que almenos contengan la palabra 'Nissan'
+IN -> lista de valores -> WHERE color IN ('red', 'blue' , 'yellow');
+LIKE -> se ajusta a otro valor -> LIKE '%Heladera%'; // devolvera todos los valores que almenos contengan la palabra 'Nissan'
 ORDER BY -> Ordenamos alfabeticamente
 LIMIT -> asignamos un limite de busqueda
 NOT -> Junto con sus variaciones
