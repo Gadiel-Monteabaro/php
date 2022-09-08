@@ -51,14 +51,9 @@ SELECT - ALL -> SELECT * FROM clientes;    //El '*', funciona como comodin.
 SELECT - WHERE -> SELECT columna1, columna2... FROM 'nombreTabla' WHERE condicion1 AND condicion2...;
 SELECT - WHERE - Ejemplo -> SELECT cuit, nombre, correo FROM clientes WHERW localidad = 'CABA' AND sexo = 'F';
 
-Opereadores 
-IS NULL -> Es nu lo
-BETWEEN -> entre los valores 
-IN -> lista de valores
-LIKE -> se ajusta a otro valor
 
-ORDER BY -> Ordenamos alfabeticamente
-LIMIT -> asignamos un limite de busqueda
+
+
 
 Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%'; // Todos los nombre que comienze con 'A' seran solicitados.
 Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%' ORDER BY nombre ASC; // ASC, significa 'ascendente' y DESC 'descendente'
@@ -95,5 +90,15 @@ Commit;
 
 Rollback;
 
+Consultas Avanzadas
+IS NULL -> Es nu lo
+BETWEEN -> entre los valores 
+IN -> lista de valores
+LIKE -> se ajusta a otro valor
+ORDER BY -> Ordenamos alfabeticamente
+LIMIT -> asignamos un limite de busqueda
+NOT -> Junto con sus variaciones
+AND -> ('y')
+OR -> ('o')
 */
 
