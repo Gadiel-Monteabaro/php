@@ -56,6 +56,10 @@ IS NULL -> Es nu lo
 BETWEEN -> entre los valores 
 IN -> lista de valores
 LIKE -> se ajusta a otro valor
+ORDER BY -> Ordenamos alfabeticamente
+LIMIT -> asignamos un limite de busqueda
 
 Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%'; // Todos los nombre que comienze con 'A' seran solicitados.
+Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%' ORDER BY nombre ASC; // ASC, significa 'ascendente' y DESC 'descendente'
+Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%' LIMIT 0,3;
 */
