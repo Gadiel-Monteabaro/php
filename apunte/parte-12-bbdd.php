@@ -42,3 +42,20 @@ if ($mySqli->connect_errno) {
     echo "Errno: " . $mySqli->connect_errno . "\n";
     exit;
 }
+/*
+Sentencias SQL 
+
+SELECT - Sintaxis -> SELECT columna1, columna2, columna4 FROM 'nombreTabla';
+SELECT - Ejemplo -> SELECT cuit, nombre, correo FROM clientes;
+SELECT - ALL -> SELECT * FROM clientes;    //El '*', funciona como comodin.
+SELECT - WHERE -> SELECT columna1, columna2... FROM 'nombreTabla' WHERE condicion1 AND condicion2...;
+SELECT - WHERE - Ejemplo -> SELECT cuit, nombre, correo FROM clientes WHERW localidad = 'CABA' AND sexo = 'F';
+
+Opereadores 
+IS NULL -> Es nu lo
+BETWEEN -> entre los valores 
+IN -> lista de valores
+LIKE -> se ajusta a otro valor
+
+Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%';
+*/
