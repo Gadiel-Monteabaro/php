@@ -43,29 +43,6 @@ if ($mySqli->connect_errno) {
     exit;
 }
 /*
-Sentencias SQL 
-
-SELECT - Sintaxis -> SELECT columna1, columna2, columna4 FROM 'nombreTabla';
-SELECT - Ejemplo -> SELECT cuit, nombre, correo FROM clientes;
-SELECT - ALL -> SELECT * FROM clientes;    //El '*', funciona como comodin.
-SELECT - WHERE -> SELECT columna1, columna2... FROM 'nombreTabla' WHERE condicion1 AND condicion2...;
-SELECT - WHERE - Ejemplo -> SELECT cuit, nombre, correo FROM clientes WHERW localidad = 'CABA' AND sexo = 'F';
-
-
-
-
-
-Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%'; // Todos los nombre que comienze con 'A' seran solicitados.
-Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%' ORDER BY nombre ASC; // ASC, significa 'ascendente' y DESC 'descendente'
-Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%' LIMIT 0,3;
-
-Actividad
-1- Obtener todos los productos con stock critico
--> SELECT * FROM productos WHERE cantidad<=10;
-
-2- Obtener el nombre y correo de todos los clientes que cumplan en Marzo (Julio), ordenado de manera ascendente.
--> SELECT * FROM clientes WHERE MONTH(fecha_nac)= 07 ORDER BY nombre ASC;
-
 Operaciones en la BBDD.
 -Insert
 -Select 
@@ -108,5 +85,46 @@ Herramienta para el modelado de datos que permite representar la entidades relev
 -Atributos (Columnas) -> Propiedades de esa "cosa" (id, nombre, edad, tamaño, precio, titulo, estado)
 -Claves (id)
 -Relaciones
+*/
 
+//Sentencias SQL (DML)
+/*
+SELECT -> Nos permite obtener informacion almacenadas en las tablas de una base de datos.
+
+SELECT - Sintaxis -> SELECT columna1, columna2, columna4 FROM 'nombreTabla';
+SELECT - Ejemplo -> SELECT cuit, nombre, correo FROM clientes;
+SELECT - ALL -> SELECT * FROM clientes;    //El '*', funciona como comodin.
+SELECT - WHERE -> SELECT columna1, columna2... FROM 'nombreTabla' WHERE condicion1 AND condicion2...;
+SELECT - WHERE - Ejemplo -> SELECT cuit, nombre, correo FROM clientes WHERW localidad = 'CABA' AND sexo = 'F';
+
+Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%'; // Todos los nombre que comienze con 'A' seran solicitados.
+Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%' ORDER BY nombre ASC; // ASC, significa 'ascendente' y DESC 'descendente'
+Ejemplo -> SELECT * FROM clientes WHERE nombre LIKE 'A%' LIMIT 0,3;
+
+Actividad
+1- Obtener todos los productos con stock critico
+-> SELECT * FROM productos WHERE cantidad<=10;
+
+2- Obtener el nombre y correo de todos los clientes que cumplan en Marzo (Julio), ordenado de manera ascendente.
+-> SELECT * FROM clientes WHERE MONTH(fecha_nac)= 07 ORDER BY nombre ASC;
+*/
+/*
+INSERT -> Añade datos a una tabla de base de datos.
+
+INSERT - Sintaxis -> INSERT INTO nombre_de_tabla(campo1,campo2,campo3)
+                     VALUES (valor_campo_1,valor_campo_2,valor_campo_3);
+*/
+/*
+UPDATE -> Actualiza datos de una tabla de base de datos.
+
+UPDATE - Sintaxis -> UPDATE nombre_de_tabla
+                       SET 
+                       campo_1 = nuevo_valor_1
+                       WHERE condicion1;
+*/
+/*
+DELETE -> Elimina datos de una tabla de base de datos.
+
+DELETE - Sintaxis -> DELETE FROM nombre_de_tabla 
+                      WHERE condicion1;
 */
