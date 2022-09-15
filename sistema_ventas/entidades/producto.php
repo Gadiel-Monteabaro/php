@@ -68,5 +68,16 @@ class Producto
         if (!$mysqli->query($sql)) {
             printf("Error en query: %s\n", $mysqli->error . " " . $sql);
         }
+        $mysqli->close();
+    }
+
+    public function eliminar()
+    {
+        $mysqli = new mysqli(Config::BBDD_HOST, Config::BBDD_USUARIO, Config::BBDD_CLAVE, Config::BBDD_NOMBRE, Config::BBDD_PORT);
+        $sql = "DELETE FROM productos WHERE idcliente = " . $this->idcliente;
+        if (!$mysqli->query($sql)) {
+            printf("Error en query: %s\n", $mysqli->error . " " . $sql);
+        }
+        $mysqli->close();
     }
 }
