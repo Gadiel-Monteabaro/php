@@ -14,7 +14,6 @@ class Cliente
 
     public function __construct()
     {
-
     }
 
     public function __get($atributo)
@@ -135,7 +134,7 @@ class Cliente
             $this->cuit = $fila["cuit"];
             $this->telefono = $fila["telefono"];
             $this->correo = $fila["correo"];
-            if(isset($fila["fecha_nac"])){
+            if (isset($fila["fecha_nac"])) {
                 $this->fecha_nac = $fila["fecha_nac"];
             } else {
                 $this->fecha_nac = "";
@@ -145,10 +144,10 @@ class Cliente
             $this->domicilio = $fila["domicilio"];
         }
         $mysqli->close();
-
     }
 
-     public function obtenerTodos(){
+    public function obtenerTodos()
+    {
         $mysqli = new mysqli(Config::BBDD_HOST, Config::BBDD_USUARIO, Config::BBDD_CLAVE, Config::BBDD_NOMBRE, Config::BBDD_PORT);
         $sql = "SELECT 
                     idcliente,
@@ -166,17 +165,17 @@ class Cliente
         }
 
         $aResultado = array();
-        if($resultado){
+        if ($resultado) {
             //Convierte el resultado en un array asociativo
 
-            while($fila = $resultado->fetch_assoc()){
+            while ($fila = $resultado->fetch_assoc()) {
                 $entidadAux = new Cliente();
                 $entidadAux->idcliente = $fila["idcliente"];
                 $entidadAux->nombre = $fila["nombre"];
                 $entidadAux->cuit = $fila["cuit"];
                 $entidadAux->telefono = $fila["telefono"];
                 $entidadAux->correo = $fila["correo"];
-                if(isset($fila["fecha_nac"])){
+                if (isset($fila["fecha_nac"])) {
                     $entidadAux->fecha_nac = $fila["fecha_nac"];
                 } else {
                     $entidadAux->fecha_nac = "";
@@ -189,5 +188,4 @@ class Cliente
         }
         return $aResultado;
     }
-
 }
