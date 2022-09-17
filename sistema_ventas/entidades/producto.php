@@ -129,15 +129,18 @@ class Producto
         if ($resultado) {
             //convertir el resultado en un array asociativo.
             while ($fila = $resultado->fetch_assoc()) { //obtiene una fila de un resultado como array asociativo.
-                $entidades = new producto();
-                $entidades->idproducto = $fila["idproducto"];
-                $entidades->nombre = $fila["nombre"];
-                $entidades->cantidad = $fila["cantidad"];
-                $entidades->precio = $fila["precio"];
-                $entidades->descripcion = $fila["descripcion"];
-                $entidades->imagen = $fila["imagen"];
-                $entidades->fk_idtipoproducto = $fila["fk_idtipoproducto"];
+                $entidadAux = new producto();
+                $entidadAux->idproducto = $fila["idproducto"];
+                $entidadAux->nombre = $fila["nombre"];
+                $entidadAux->cantidad = $fila["cantidad"];
+                $entidadAux->precio = $fila["precio"];
+                $entidadAux->descripcion = $fila["descripcion"];
+                $entidadAux->imagen = $fila["imagen"];
+                $entidadAux->fk_idtipoproducto = $fila["fk_idtipoproducto"];
+                $aResultado[] = $entidadAux;
             }
         }
+
+        return $aResultado;
     }
 }
