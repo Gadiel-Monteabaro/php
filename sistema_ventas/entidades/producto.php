@@ -37,12 +37,12 @@ class Producto
             imagen,
             fk_idtipoproducto
         ) VALUES (            
-            '$this -> nombre',
-             $this -> cantidad,
-             $this -> precio,
-            '$this -> descripcion',
-            '$this -> imagen',
-             $this -> fk_idtipoproducto
+            '$this->nombre',
+             $this->cantidad,
+             $this->precio,
+            '$this->descripcion',
+            '$this->imagen',
+             $this->fk_idtipoproducto
         )";
         //Ejecuta la query
         if (!$mysqli->query($sql)) {
