@@ -62,4 +62,9 @@ include_once("header.php");
 
 </div>
 
+<script>
+
+
+</script>
+
 <?php include_once("footer.php"); ?>

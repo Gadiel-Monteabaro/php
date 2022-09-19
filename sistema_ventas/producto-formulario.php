@@ -65,3 +65,5 @@ include_once("header.php");
             console.error(error);
         });
 </script>
+
+<?php include_once "footer.php"; ?>
