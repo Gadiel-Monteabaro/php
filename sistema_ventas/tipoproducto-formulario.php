@@ -4,12 +4,18 @@ include_once("config.php");
 include_once("./entidades/tipoproducto.php");
 include_once("header.php");
 
+$tipoProducto = new TipoProducto();
+
 if ($_POST) {
     if (isset($_POST["btnGuardar"])) {
-        $tipoProducto = new TipoProducto();
         $tipoProducto->cargarFormulario($_REQUEST);
         $tipoProducto->insertar();
     }
+}
+
+if (isset($_GET["id"]) && $_GET["id"] > 0) {
+    $tipoProducto->cargarFormulario($_REQUEST);
+    $tipoProducto->insertar();
 }
 
 
