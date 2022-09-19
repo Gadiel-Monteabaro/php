@@ -26,12 +26,23 @@ include_once("header.php");
             <button type="submit" class="btn btn-danger" id="btnBorrar" name="btnBorrar">Borrar</button>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-6 form-group">
-            <label for="txtFecha">Fecha y Hora:</label>
-            <input type="date" required class="form-control" name="txtFecha" id="txtFecha" value="">
+        <div class="col-12 form-group">
+            <label for="txtFechaNac" class="d-block">Fecha y hora:</label>
+            <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
+                <option selected="" disabled="">DD</option>
+            </select>
+            <select class="form-control d-inline" name="txtMes" id="txtMes" style="width: 80px">
+                <option selected="" disabled="">MM</option>
+            </select>
+            <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
+                <option selected="" disabled="">YYYY</option>
+            </select>
+            <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="00:00">
         </div>
     </div>
+    
     <div class="row">
         <div class="col-6 form-group">
             <label for="lstCliente">Cliente:</label>
@@ -47,7 +58,7 @@ include_once("header.php");
         </div>
         <div class="col-6 form-group">
             <label for="txtPrecioUnitario">Precio Unitario:</label>
-            <input type="text" class="form-control" name="txtPrecioUnitario" id="txtPrecioUnitario" value="" required>
+            <input type="text" class="form-control" name="txtPrecioUnitario" id="txtPrecioUnitario" value="" placeholder="$0" required>
         </div>
         <div class="col-6 form-group">
             <label for="txtCantidad">Cantidad:</label>
@@ -55,9 +66,8 @@ include_once("header.php");
         </div>
         <div class="col-6 form-group">
             <label for="txtTotal">Total:</label>
-            <input type="text" class="form-control" name="txtTotal" id="txtTotal" value="" required>
+            <input type="text" class="form-control" name="txtTotal" id="txtTotal" value="" placeholder="0" required>
         </div>
-
     </div>
 
 </div>
