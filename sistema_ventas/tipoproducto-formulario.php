@@ -2,22 +2,26 @@
 
 include_once("config.php");
 include_once("./entidades/tipoproducto.php");
-include_once("header.php");
 
 $tipoProducto = new TipoProducto();
 
 if ($_POST) {
     if (isset($_POST["btnGuardar"])) {
         $tipoProducto->cargarFormulario($_REQUEST);
-        $tipoProducto->insertar();
+        if (isset($_GET["id"]) && $_GET["id"] > 0) {
+            $tipoProducto->actualizar();
+        } else {
+            $tipoProducto->insertar();
+        }
     }
 }
 
 if (isset($_GET["id"]) && $_GET["id"] > 0) {
     $tipoProducto->cargarFormulario($_REQUEST);
-    $tipoProducto->insertar();
+    $tipoProducto->obtenerPorId();
 }
 
+include_once("header.php");
 
 ?>
 <div class="container-fluid">
@@ -43,7 +47,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
     <div class="row">
         <div class="col-6 form-group">
             <label for="txtNombre">Nombre:</label>
-            <input type="text" required class="form-control" name="txtNombre" id="txtNombre" value="">
+            <input type="text" required class="form-control" name="txtNombre" id="txtNombre" value="<?php echo $tipoProducto->nombre; ?>">
         </div>
     </div>
 </div>
