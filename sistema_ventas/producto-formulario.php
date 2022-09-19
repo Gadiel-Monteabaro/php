@@ -49,8 +49,19 @@ include_once("header.php");
         </div>
         <div class="col-12 form-group">
             <label for="txtCorreo">Descripción:</label>
-            <textarea type="text" name="txtDescripcion" id="txtDescripcion"></textarea>
+            <textarea id="editor" type="text" name="txtDescripcion" id="txtDescripcion"></textarea>
+        </div>
+        <div class="col-6 form-group">
+            <label for="fileImagen">Imagen:</label>
+            <input type="file" class="form-control-file" name="archivo" id="imagen">
         </div>
     </div>
 </div>
 
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
