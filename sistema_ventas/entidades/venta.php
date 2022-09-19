@@ -118,7 +118,8 @@ class Venta
         }
         $mysqli->close();
     }
-    public function obtenerTodos(){
+    public function obtenerTodos()
+    {
         $mysqli = new mysqli(Config::BBDD_HOST, Config::BBDD_USUARIO, Config::BBDD_CLAVE, Config::BBDD_NOMBRE, Config::BBDD_PORT);
         $sql = "SELECT idventa, 
                         fk_idcliente, 
@@ -133,14 +134,18 @@ class Venta
         }
 
         $aResultado = array();
-        if($resultado){
+        if ($resultado) {
             //Convierte el resultado en un array asociativo
-            while($fila = $resultado->fetch_assoc()){
+            while ($fila = $resultado->fetch_assoc()) {
                 $entidadAux = new Venta();
                 $entidadAux->idventa = $fila["idventa"];
                 $entidadAux->fk_idcliente = $fila["fk_idcliente"];
                 $entidadAux->fk_idproducto = $fila["fk_idproducto"];
-                $entidadAux->fecha = $fila["fecha"];
+                if (isset($fila["fecha"])) {
+                    $entidadAux->fecha = $fila["fecha"];
+                } else {
+                    $entidadAux->fecha = "";
+                }
                 $entidadAux->cantidad = $fila["cantidad"];
                 $entidadAux->preciounitario = $fila["preciounitario"];
                 $entidadAux->total = $fila["total"];
@@ -150,6 +155,4 @@ class Venta
         $mysqli->close();
         return $aResultado;
     }
-
-    
 }
