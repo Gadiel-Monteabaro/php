@@ -4,6 +4,14 @@ include_once("config.php");
 include_once("./entidades/tipoproducto.php");
 include_once("header.php");
 
+if ($_POST) {
+    if (isset($_POST["btnGuardar"])) {
+        $tipoProducto = new TipoProducto();
+        $tipoProducto->cargarFormulario($_REQUEST);
+        $tipoProducto->insertar();
+    }
+}
+
 
 ?>
 <div class="container-fluid">
