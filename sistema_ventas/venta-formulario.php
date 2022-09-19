@@ -28,6 +28,14 @@ include_once("header.php");
     </div>
 
     <div class="row">
+
+        <div class="col-12 form-control">
+            <?php if (isset($msg) && !$msg = "") : ?> {
+                <div class="alert alert-danger" role="alert">
+                    <?php echo $msg; ?>
+                </div>
+                } <?php endif; ?>
+        </div>
         <div class="col-12 form-group">
             <label for="txtFechaNac" class="d-block">Fecha y hora:</label>
             <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
@@ -42,17 +50,17 @@ include_once("header.php");
             <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="00:00">
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-6 form-group">
             <label for="lstCliente">Cliente:</label>
-            <select name="lstCliente" id="lstCliente" class="form-control" data-live-search="true" required>
+            <select name="lstCliente" id="lstCliente" class="form-control selectpicker" data-live-search="true" required>
                 <option value="" disabled selected>Seleccionar</option>
             </select>
         </div>
         <div class="col-6 form-group">
             <label for="lstProducto">Producto:</label>
-            <select name="lstProducto" id="lstProducto" class="form-control" data-live-search="true" required>
+            <select name="lstProducto" id="lstProducto" class="form-control selectpicker" data-live-search="true" required>
                 <option value="" disabled selected>Seleccionar</option>
             </select>
         </div>
