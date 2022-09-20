@@ -24,6 +24,15 @@ class Producto
         return $this->$name = $value;
     }
 
+    public function cargarFormulario($request)
+    {
+        $this->idproducto = isset($request["id"]) ? $request["id"] : "";
+        $this->nombre = isset($request["nombre"]) ? $request["nombre"] : "";
+        $this->cantidad = isset($request["cantidad"]) ? $request["cantidad"] : "";
+        $this->precio = isset($request["precio"]) ? $request["precio"] : "";
+        $this->descripcion = isset($request["descripcion"]) ? $request["descripcion"] : "";
+    }
+
     public function insertar()
     {
         //Instancia la clase mysqli con el constructor parametrizado
