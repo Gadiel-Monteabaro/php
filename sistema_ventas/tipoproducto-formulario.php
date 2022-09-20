@@ -10,9 +10,19 @@ if ($_POST) {
         $tipoProducto->cargarFormulario($_REQUEST);
         if (isset($_GET["id"]) && $_GET["id"] > 0) {
             $tipoProducto->actualizar();
+            $msg["texto"] = "Actualizado Correctamente.";
+            $msg["codigo"] = "alert-info";
         } else {
             $tipoProducto->insertar();
+            $msg["texto"] = "Insertado Correctamente.";
+            $msg["codigo"] = "alert-success";
         }
+    }
+
+    if (isset($_POST["btnBorrar"])) {
+        $tipoProducto->cargarFormulario($_REQUEST);
+        $tipoProducto->eliminar();
+        header("Location: tipoproducto-formulario.php");
     }
 }
 
