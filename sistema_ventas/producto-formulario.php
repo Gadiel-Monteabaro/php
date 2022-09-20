@@ -8,8 +8,17 @@ $producto = new Producto();
 if ($_POST) {
     if (isset($_POST["btnGuardar"])) {
         $producto->cargarFormulario($_REQUEST);
-        $producto->insertar();
+        if (isset($_GET["id"]) && $_GET["id"] > 0) {
+            $producto->actualizar();
+        } else {
+            $producto->insertar();
+        }
     }
+}
+
+if (isset($_GET["id"]) && $_GET["id"] > 0) {
+    $producto->cargarFormulario($_REQUEST);
+    $producto->obtenerPorId();
 }
 
 include_once("header.php");
@@ -39,7 +48,7 @@ include_once("header.php");
     <div class="row">
         <div class="col-6 form-group">
             <label for="txtNombre">Nombre:</label>
-            <input type="text" required="" class="form-control" name="txtNombre" id="txtNombre" value="">
+            <input type="text" required="" class="form-control" name="txtNombre" id="txtNombre" value="<?php echo $producto->nombre; ?>">
         </div>
         <div class="col-6 form-group">
             <label for="lstTipoProducto">Tipo de producto:</label>
@@ -49,15 +58,15 @@ include_once("header.php");
         </div>
         <div class="col-6 form-group">
             <label for="txtCantidad">Cantidad:</label>
-            <input type="text" required="" class="form-control" name="txtCantidad" id="txtCantidad" value="">
+            <input type="text" required="" class="form-control" name="txtCantidad" id="txtCantidad" value="<?php echo $producto->cantidad; ?>">
         </div>
         <div class="col-6 form-group">
             <label for="txtPrecio">Precio:</label>
-            <input type="text" required="" class="form-control" name="txtPrecio" id="txtPrecio" value="">
+            <input type="text" required="" class="form-control" name="txtPrecio" id="txtPrecio" value="<?php echo $producto->precio > 0 ? number_format($producto->precio, 2, ",", ".") : ""; ?>">
         </div>
         <div class="col-12 form-group">
             <label for="txtCorreo">Descripción:</label>
-            <textarea id="editor" type="text" name="txtDescripcion" id="txtDescripcion"></textarea>
+            <textarea id="editor" type="text" name="txtDescripcion" id="txtDescripcion"><?php echo $producto->descripcion; ?></textarea>
         </div>
         <div class="col-6 form-group">
             <label for="fileImagen">Imagen:</label>
