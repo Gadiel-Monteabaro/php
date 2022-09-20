@@ -2,12 +2,19 @@
 
 include_once("config.php");
 include_once("./entidades/producto.php");
+
+$producto = new Producto();
+
+if ($_POST) {
+    if (isset($_POST["btnGuardar"])) {
+        $producto->cargarFormulario($_REQUEST);
+        $producto->insertar();
+    }
+}
+
 include_once("header.php");
 
-
-
 ?>
-
 
 <div class="container-fluid">
 
@@ -21,7 +28,6 @@ include_once("header.php");
             </div>
         </div>
     <?php endif; ?>
-
     <div class="row">
         <div class="col-12 mb-3">
             <a href="producto-listado.php" class="btn btn-primary mr-2">Listado</a>
