@@ -1,7 +1,62 @@
 <?php
 
-include_once("config.php");
-include_once("./entidades/venta.php");
+include_once "config.php";
+include_once "entidades/venta.php";
+include_once "entidades/cliente.php";
+include_once "entidades/producto.php";
+
+$venta = new Venta();
+$venta->cargarFormulario($_REQUEST);
+
+if ($_POST) {
+    if (isset($_POST["btnGuardar"])) {
+        if (isset($_GET["id"]) && $_GET["id"] > 0) {
+            //Actualizo un cliente existente
+            $venta->actualizar();
+        } else {
+            //Es nuevo
+            $producto = new Producto();
+            $producto->idproducto = $venta->fk_idproducto;
+            $producto->obtenerPorId();
+            if ($venta->cantidad <= $producto->cantidad) {
+                $total = $venta->cantidad * $producto->precio;
+                $venta->total = $total;
+                $venta->insertar();
+
+                $producto->cantidad -= $venta->cantidad;
+                $producto->actualizar();
+            } else {
+                $msg = "No hay stock suficiente";
+            }
+        }
+    } else if (isset($_POST["btnBorrar"])) {
+        $venta->eliminar();
+        header("Location: venta-listado.php");
+    }
+}
+
+if (isset($_GET["do"]) && $_GET["do"] == "buscarProducto") {
+    $aResultado = array();
+    $idProducto = $_GET["id"];
+    $producto = new Producto();
+    $producto->idproducto = $idProducto;
+    $producto->obtenerPorId();
+    $aResultado["precio"] = $producto->precio;
+    $aResultado["cantidad"] = $producto->cantidad;
+    echo json_encode($aResultado);
+    exit;
+}
+
+if (isset($_GET["id"]) && $_GET["id"] > 0) {
+    $venta->obtenerPorId();
+}
+
+$cliente = new Cliente();
+$aClientes = $cliente->obtenerTodos();
+
+$producto = new Producto();
+$aProductos = $producto->obtenerTodos();
+
 include_once("header.php");
 
 ?>
