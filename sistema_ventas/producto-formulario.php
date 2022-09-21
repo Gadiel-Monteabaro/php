@@ -71,7 +71,6 @@ include_once "header.php";
 
 ?>
 
-
 <div class="container-fluid">
     <h1 class="h3 mb-4 text-gray-800">Productos</h1>
     <?php if (isset($msg)) : ?>
