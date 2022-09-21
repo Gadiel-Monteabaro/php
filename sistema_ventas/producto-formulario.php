@@ -5,21 +5,6 @@ include_once("./entidades/producto.php");
 
 $producto = new Producto();
 
-if ($_POST) {
-    if (isset($_POST["btnGuardar"])) {
-        $producto->cargarFormulario($_REQUEST);
-        if (isset($_GET["id"]) && $_GET["id"] > 0) {
-            $producto->actualizar();
-        } else {
-            $producto->insertar();
-        }
-    }
-}
-
-if (isset($_GET["id"]) && $_GET["id"] > 0) {
-    $producto->cargarFormulario($_REQUEST);
-    $producto->obtenerPorId();
-}
 
 include_once("header.php");
 
@@ -52,7 +37,7 @@ include_once("header.php");
         </div>
         <div class="col-6 form-group">
             <label for="lstTipoProducto">Tipo de producto:</label>
-            <select name="lstTipoProducto" id="lstTipoProducto" class="form-control" data-live-search="true" required>
+            <select name="lstTipoProducto" id="lstTipoProducto" class="form-control" data-live-search="true">
                 <option value="" disabled selected>Seleccionar</option>
             </select>
         </div>

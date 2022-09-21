@@ -27,10 +27,11 @@ class Producto
     public function cargarFormulario($request)
     {
         $this->idproducto = isset($request["id"]) ? $request["id"] : "";
-        $this->nombre = isset($request["nombre"]) ? $request["nombre"] : "";
-        $this->cantidad = isset($request["cantidad"]) ? $request["cantidad"] : "";
-        $this->precio = isset($request["precio"]) ? $request["precio"] : "";
-        $this->descripcion = isset($request["descripcion"]) ? $request["descripcion"] : "";
+        $this->nombre = isset($request["txtNombre"]) ? $request["txtNombre"] : "";
+        $this->fk_idtipoproducto = isset($request["lstTipoProducto"]) ? $request["lstTipoProducto"] : "";
+        $this->cantidad = isset($request["txtCantidad"]) ? $request["txtCantidad"] : 0;
+        $this->precio = isset($request["txtPrecio"]) ? $request["txtPrecio"] : 0;
+        $this->descripcion = isset($request["txtDescripcion"]) ? $request["txtDescripcion"] : "";
     }
 
     public function insertar()
@@ -58,7 +59,7 @@ class Producto
             printf("Error en query: %s\n", $mysqli->error . " " . $sql);
         }
         //Obtiene el id generado por la inserción
-        $this->idcliente = $mysqli->insert_id;
+        $this->idproducto = $mysqli->insert_id;
         //Cierra la conexión
         $mysqli->close();
     }
@@ -83,7 +84,7 @@ class Producto
     public function eliminar()
     {
         $mysqli = new mysqli(Config::BBDD_HOST, Config::BBDD_USUARIO, Config::BBDD_CLAVE, Config::BBDD_NOMBRE, Config::BBDD_PORT);
-        $sql = "DELETE FROM productos WHERE idcliente = " . $this->idcliente;
+        $sql = "DELETE FROM productos WHERE idproducto = " . $this->idproducto;
         if (!$mysqli->query($sql)) {
             printf("Error en query: %s\n", $mysqli->error . " " . $sql);
         }
