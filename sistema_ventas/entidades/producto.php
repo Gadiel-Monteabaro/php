@@ -72,7 +72,9 @@ class Producto
                 precio = $this->precio,        
                 descripcion = '$this->descripcion',        
                 imagen = '$this->imagen',        
-                fk_idtipoproducto = $this->fk_idtipoproducto";
+                fk_idtipoproducto = $this->fk_idtipoproducto
+                WHERE idproducto = $this->idproducto                 
+                ";
 
         if (!$mysqli->query($sql)) {
             printf("Error en query: %s\n", $mysqli->error . " " . $sql);
