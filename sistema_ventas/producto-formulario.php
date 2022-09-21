@@ -2,11 +2,42 @@
 
 include_once("config.php");
 include_once("./entidades/producto.php");
+include_once("./entidades/tipoproducto.php");
 
 $producto = new Producto();
 
+if ($_POST) {
+    if (isset($_POST["btnGuardar"])) {
+        $producto->cargarFormulario($_REQUEST);
+        if (isset($_GET["id"]) && $_GET["id"] > 0) {
+            $producto->actualizar();
+            $msg["texto"] = "Actualizado Correctamente.";
+            $msg["codigo"] = "alert-info";
+        } else {
+            $producto->insertar();
+            $msg["texto"] = "Insertado Correctamente.";
+            $msg["codigo"] = "alert-success";
+        }
+    }
+
+    if (isset($_POST["btnBorrar"])) {
+        $producto->cargarFormulario($_REQUEST);
+        $producto->eliminar();
+        header("Location: producto-formulario.php");
+    }
+}
+
+if (isset($_GET["id"]) && $_GET["id"] > 0) {
+    $producto->cargarFormulario($_REQUEST);
+    $producto->obtenerPorId();
+}
+
 
 include_once("header.php");
+
+$tipoProducto = new TipoProducto();
+$aTipoProductos = $tipoProducto->obtenerTodos();
+
 
 ?>
 
@@ -36,9 +67,12 @@ include_once("header.php");
             <input type="text" required="" class="form-control" name="txtNombre" id="txtNombre" value="<?php echo $producto->nombre; ?>">
         </div>
         <div class="col-6 form-group">
-            <label for="lstTipoProducto">Tipo de producto:</label>
+            <label for="txtNombre">Tipo de producto:</label>
             <select name="lstTipoProducto" id="lstTipoProducto" class="form-control" data-live-search="true">
                 <option value="" disabled selected>Seleccionar</option>
+                <?php foreach ($aTipoProductos as $tipoProducto) : ?>
+                    <option value="<?php echo $tipoProducto->idtipoproducto; ?>"><?php echo $tipoProducto->nombre; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="col-6 form-group">
