@@ -6,6 +6,7 @@ include_once "entidades/tipoproducto.php";
 $producto = new Producto();
 
 if ($_POST) {
+
     if (isset($_POST["btnGuardar"])) {
         $producto->cargarFormulario($_REQUEST);
 
@@ -33,6 +34,7 @@ if ($_POST) {
             $msg["texto"] = "Actualizado correctamente";
             $msg["codigo"] = "alert-success";
         } else {
+
             if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
                 $nombreAleatorio = date("Ymdhmsi");
                 $archivo_tmp = $_FILES["archivo"]["tmp_name"];
@@ -61,7 +63,6 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
     $producto->cargarFormulario($_REQUEST);
     $producto->obtenerPorId();
 }
-
 $tipoProducto = new TipoProducto();
 $aTipoProductos = $tipoProducto->obtenerTodos();
 
@@ -70,10 +71,8 @@ include_once "header.php";
 
 ?>
 
-<!-- Begin Page Content -->
-<div class="container-fluid">
 
-    <!-- Page Heading -->
+<div class="container-fluid">
     <h1 class="h3 mb-4 text-gray-800">Productos</h1>
     <?php if (isset($msg)) : ?>
         <div class="row">
@@ -132,10 +131,7 @@ include_once "header.php";
     </div>
 
 </div>
-<!-- /.container-fluid -->
 
-</div>
-<!-- End of Main Content -->
 <script>
     ClassicEditor
         .create(document.querySelector('#txtDescripcion'))
