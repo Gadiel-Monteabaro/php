@@ -14,6 +14,17 @@ if ($_POST) {
             $msg["texto"] = "Actualizado Correctamente.";
             $msg["codigo"] = "alert-info";
         } else {
+
+            $nombreAleatorio = date("Ymdhmsi"); //2021010420453710
+            $archivo_tmp = $_FILES["archivo"]["tmp_name"];
+            $extension = pathinfo($_FILES["archivo"]["name"], PATHINFO_EXTENSION);
+            $nombreImagen = "$nombreAleatorio.$extension";
+
+            if ($extension == "jpg" || $extension == "jpeg" || $extension == "png") {
+                move_uploaded_file($archivo_tmp, "img/$nombreImagen");
+            }
+
+            $producto->imagen = $nombreImagen;
             $producto->insertar();
             $msg["texto"] = "Insertado Correctamente.";
             $msg["codigo"] = "alert-success";
@@ -71,7 +82,11 @@ $aTipoProductos = $tipoProducto->obtenerTodos();
             <select name="lstTipoProducto" id="lstTipoProducto" class="form-control" data-live-search="true">
                 <option value="" disabled selected>Seleccionar</option>
                 <?php foreach ($aTipoProductos as $tipoProducto) : ?>
-                    <option value="<?php echo $tipoProducto->idtipoproducto; ?>"><?php echo $tipoProducto->nombre; ?></option>
+                    <?php if ($producto->fk_idtipoproducto == $tipoProducto->idtipoproducto) : ?>
+                        <option selected value="<?php echo $tipoProducto->idtipoproducto; ?>"><?php echo $tipoProducto->nombre; ?></option>
+                    <?php else : ?>
+                        <option value="<?php echo $tipoProducto->idtipoproducto; ?>"><?php echo $tipoProducto->nombre; ?></option>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -84,12 +99,13 @@ $aTipoProductos = $tipoProducto->obtenerTodos();
             <input type="text" required="" class="form-control" name="txtPrecio" id="txtPrecio" value="<?php echo $producto->precio > 0 ? number_format($producto->precio, 2, ",", ".") : ""; ?>">
         </div>
         <div class="col-12 form-group">
-            <label for="txtCorreo">Descripción:</label>
+            <label for="txtNombre">Descripción:</label>
             <textarea id="editor" type="text" name="txtDescripcion" id="txtDescripcion"><?php echo $producto->descripcion; ?></textarea>
         </div>
         <div class="col-6 form-group">
             <label for="fileImagen">Imagen:</label>
             <input type="file" class="form-control-file" name="archivo" id="imagen">
+            <img src="img/" class="img-thumbnail">
         </div>
     </div>
 </div>

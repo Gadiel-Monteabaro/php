@@ -33,7 +33,6 @@ class Producto
         $this->precio = isset($request["txtPrecio"]) ? $request["txtPrecio"] : 0;
         $this->descripcion = isset($request["txtDescripcion"]) ? $request["txtDescripcion"] : "";
     }
-
     public function insertar()
     {
         //Instancia la clase mysqli con el constructor parametrizado

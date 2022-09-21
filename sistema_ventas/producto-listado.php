@@ -28,7 +28,7 @@ include_once("header.php");
         </tr>
         <?php foreach ($aProducto as $producto) : ?>
             <tr>
-                <td><?php echo ""; ?></td>
+                <td><img src="img/<?php echo $producto->imagen; ?>" class="img-thumbnail"></td>
                 <td><?php echo $producto->nombre; ?></td>
                 <td><?php echo $producto->cantidad; ?></td>
                 <td><?php echo number_format($producto->precio, 2, ",", "."); ?></td>
