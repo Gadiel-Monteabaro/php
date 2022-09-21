@@ -20,6 +20,13 @@ if ($_POST) {
                 $nombreImagen = "$nombreAleatorio.$extension";
 
                 if ($extension == "png" || $extension == "jpg" || $extension == "jpeg") {
+                    $productoAnt = new Producto();
+                    $productoAnt->idproducto = $_GET["id"];
+                    $productoAnt->obtenerPorId();
+
+                    if (file_exists("img/$productoAnt->imagen")) {
+                        unlink("img/$productoAnt->imagen");
+                    }
                     move_uploaded_file($archivo_tmp, "img/$nombreImagen");
                 }
                 $producto->imagen = $nombreImagen;
@@ -34,7 +41,6 @@ if ($_POST) {
             $msg["texto"] = "Actualizado correctamente";
             $msg["codigo"] = "alert-success";
         } else {
-
             if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
                 $nombreAleatorio = date("Ymdhmsi");
                 $archivo_tmp = $_FILES["archivo"]["tmp_name"];
@@ -53,7 +59,12 @@ if ($_POST) {
             $msg["codigo"] = "alert-success";
         }
     } else if (isset($_POST["btnBorrar"])) {
+        $producto = new Producto();
         $producto->cargarFormulario($_REQUEST);
+        $producto->obtenerPorId();
+        if (file_exists("img/$producto->imagen")) {
+            unlink("img/$producto->imagen");
+        }
         $producto->eliminar();
         header("Location: producto-listado.php");
     }
