@@ -7,7 +7,7 @@ Los valores guardados en $_SESSION, persisten a traves de distintos pedios. incl
 
 //Inicializar la session.
 */
-session_start(); // lo pirmero que debemos hacer es inicializar la session.
+session_start(); // lo primero que debemos hacer es inicializar la session.
 /*
 Luego de iniciar la session $_SESSION se puede escribir o modificar variables de session utilizando.
 */

@@ -1,8 +1,8 @@
 <?php
 /* 
 Cookies => es informacion que envia el servidor web al cliente,
-Con informacion que queda guardad en la pc de cada usuario  
-El browser almacena esta informacion en texto plano de no mas de 2kb
+Con informacion que queda guardada en la pc de cada usuario  
+El browser almacena esta informacion en texto plano de no mas de 2kb.
 
 
 // ¿Para que utilizamos Cookies?
