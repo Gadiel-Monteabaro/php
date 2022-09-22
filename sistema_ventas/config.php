@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 session_start();
 
-date_default_timezone_set('America/Argentina/Bueno_Aires');
+date_default_timezone_set('America/Argentina/Buenos_Aires');
 class Config
 {
     const BBDD_HOST = "127.0.0.1";

@@ -77,22 +77,34 @@ include_once "header.php";
             <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
                 <option selected="" disabled="">DD</option>
                 <?php for ($i = 1; $i <= 31; $i++) : ?>
-                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php if (date("d") == $i) : ?>
+                        <option selected value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php else : ?>
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php endif; ?>
                 <?php endfor; ?>
             </select>
             <select class="form-control d-inline" name="txtMes" id="txtMes" style="width: 80px">
                 <option selected="" disabled="">MM</option>
                 <?php for ($i = 1; $i <= 12; $i++) : ?>
-                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php if (date("m") == $i) : ?>
+                        <option selected value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php else : ?>
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php endif; ?>
                 <?php endfor; ?>
             </select>
             <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
                 <option selected="" disabled="">YYYY</option>
                 <?php for ($i = 2020; $i <= date("Y"); $i++) : ?>
-                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php if (date("Y") == $i) : ?>
+                        <option selected value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php else : ?>
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php endif; ?>
                 <?php endfor; ?>
             </select>
-            <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="00:00">
+            <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="<?php echo date("H:i"); ?>">
         </div>
     </div>
     <div class="row">
@@ -124,7 +136,7 @@ include_once "header.php";
         </div>
         <div class="col-6 form-group">
             <label for="txtPrecioUnitario">Precio Unitario:</label>
-            <input type="text" class="form-control" name="txtPrecioUni" id="txtPrecioUni" value="<?php echo $venta->preciounitario ?>" placeholder="$0" required>
+            <input type="text" class="form-control" name="txtPrecioUni" id="txtPrecioUni" value="<?php echo $venta->preciounitario ?>" required>
         </div>
         <div class="col-6 form-group">
             <label for="txtCantidad">Cantidad:</label>
@@ -132,7 +144,7 @@ include_once "header.php";
         </div>
         <div class="col-6 form-group">
             <label for="txtTotal">Total:</label>
-            <input type="text" class="form-control" name="txtTotal" id="txtTotal" value="<?php echo $venta->total ?>" placeholder="0" required>
+            <input type="text" class="form-control" name="txtTotal" id="txtTotal" value="<?php echo $venta->total ?>" required>
         </div>
     </div>
 

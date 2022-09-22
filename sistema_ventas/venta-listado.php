@@ -30,12 +30,14 @@ include_once "header.php";
 
         <?php foreach ($aVentas as $venta) : ?>
             <tr>
-                <td><?php echo $venta->fecha; ?></td>
+                <td><?php echo date_format(date_create($venta->fecha), "d/m/Y H:m"); ?></td>
                 <td><?php echo $venta->cantidad; ?></td>
-                <td><?php echo $venta->producto; ?></td>
-                <td><?php echo $venta->cliente; ?></td>
-                <td><?php echo $venta->total; ?></td>
-                <td><a class="btn btn-info" href="./tipoproducto-formulario.php?id=<?php echo $venta->idventa; ?>">Editar</a></td>
+                <td><a href="producto-formulario.php?id=<?php echo $venta->fk_idproducto; ?>"><?php echo $venta->nombre_producto; ?></a></td>
+                <td><a href="cliente-formulario.php?id=<?php echo $venta->fk_idcliente; ?>"><?php echo $venta->nombre_cliente; ?></a></td>
+                <td>$ <?php echo number_format($venta->total, 2, ',', '.'); ?></td>
+                <td>
+                <td><a class="btn btn-info" href="./venta-formulario.php?id=<?php echo $venta->idventa; ?>">Editar</a></td>
+                </td>
             </tr>
         <?php endforeach ?>
     </table>
