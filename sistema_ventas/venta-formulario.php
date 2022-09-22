@@ -5,10 +5,31 @@ include_once "entidades/venta.php";
 include_once "entidades/cliente.php";
 include_once "entidades/producto.php";
 
-if($_POST){
-    if(isset($_POST["bntGuardar"])){
-
+$venta = new Venta;
+if ($_POST) {
+    if (isset($_POST["bntGuardar"])) {
+        $venta->cargarFormulario($_REQUEST);
+        if (isset($_GET["id"]) && $_GET["id"] > 0) {
+            $venta->actualizar();
+            $msg["texto"] = "Actualizado Correctamente.";
+            $msg["codigo"] = "alert-info";
+        } else {
+            $venta->insertar();
+            $msg["texto"] = "Insertado Correctamente.";
+            $msg["codigo"] = "alert-success";
+        }
     }
+
+    if (isset($_POST["btnBorrar"])) {
+        $venta->cargarFormulario($_REQUEST);
+        $venta->eliminar();
+        header("Location: venta-formulario.php");
+    }
+}
+
+if (isset($_GET["id"]) && $_GET["id"] > 0) {
+    $venta->cargarFormulario($_REQUEST);
+    $venta->obtenerPorId();
 }
 
 $cliente = new Cliente();
@@ -55,12 +76,21 @@ include_once "header.php";
             <label for="txtFechaNac" class="d-block">Fecha y hora:</label>
             <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
                 <option selected="" disabled="">DD</option>
+                <?php for ($i = 1; $i <= 31; $i++) : ?>
+                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php endfor; ?>
             </select>
             <select class="form-control d-inline" name="txtMes" id="txtMes" style="width: 80px">
                 <option selected="" disabled="">MM</option>
+                <?php for ($i = 1; $i <= 12; $i++) : ?>
+                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php endfor; ?>
             </select>
             <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
                 <option selected="" disabled="">YYYY</option>
+                <?php for ($i = 2020; $i <= date("Y"); $i++) : ?>
+                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php endfor; ?>
             </select>
             <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="00:00">
         </div>
@@ -94,15 +124,15 @@ include_once "header.php";
         </div>
         <div class="col-6 form-group">
             <label for="txtPrecioUnitario">Precio Unitario:</label>
-            <input type="text" class="form-control" name="txtPrecioUni" id="txtPrecioUni" value="" placeholder="$0" required>
+            <input type="text" class="form-control" name="txtPrecioUni" id="txtPrecioUni" value="<?php echo $venta->preciounitario ?>" placeholder="$0" required>
         </div>
         <div class="col-6 form-group">
             <label for="txtCantidad">Cantidad:</label>
-            <input type="text" class="form-control" name="txtCantidad" id="txtCantidad" value="" required>
+            <input type="text" class="form-control" name="txtCantidad" id="txtCantidad" value="<?php echo $venta->cantidad ?>" required>
         </div>
         <div class="col-6 form-group">
             <label for="txtTotal">Total:</label>
-            <input type="text" class="form-control" name="txtTotal" id="txtTotal" value="" placeholder="0" required>
+            <input type="text" class="form-control" name="txtTotal" id="txtTotal" value="<?php echo $venta->total ?>" placeholder="0" required>
         </div>
     </div>
 

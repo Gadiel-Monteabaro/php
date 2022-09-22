@@ -3,7 +3,7 @@ include_once "config.php";
 include_once "entidades/venta.php";
 
 $venta = new Venta;
-$aVenta = $venta->obtenerTodos();
+$aVentas = $venta->obtenerTodos();
 
 include_once "header.php";
 ?>
@@ -27,6 +27,17 @@ include_once "header.php";
             <th>Total</th>
             <th>Acciones</th>
         </tr>
+
+        <?php foreach ($aVentas as $venta) : ?>
+            <tr>
+                <td><?php echo $venta->fecha; ?></td>
+                <td><?php echo $venta->cantidad; ?></td>
+                <td><?php echo $venta->producto; ?></td>
+                <td><?php echo $venta->cliente; ?></td>
+                <td><?php echo $venta->total; ?></td>
+                <td><a class="btn btn-info" href="./tipoproducto-formulario.php?id=<?php echo $venta->idventa; ?>">Editar</a></td>
+            </tr>
+        <?php endforeach ?>
     </table>
 
 </div>
