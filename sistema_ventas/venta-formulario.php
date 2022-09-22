@@ -70,7 +70,7 @@ include_once "header.php";
         </div>
         <div class="col-6 form-group">
             <label for="txtPrecioUnitario">Precio Unitario:</label>
-            <input type="text" class="form-control" name="txtPrecioUnitario" id="txtPrecioUnitario" value="" placeholder="$0" required>
+            <input type="text" class="form-control" name="txtPrecioUni" id="txtPrecioUni" value="" placeholder="$0" required>
         </div>
         <div class="col-6 form-group">
             <label for="txtCantidad">Cantidad:</label>
