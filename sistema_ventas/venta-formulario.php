@@ -5,6 +5,10 @@ include_once "entidades/venta.php";
 include_once "entidades/cliente.php";
 include_once "entidades/producto.php";
 
+
+
+include_once "header.php";
+
 ?>
 
 <div class="container-fluid">
