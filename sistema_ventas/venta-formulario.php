@@ -35,11 +35,11 @@ include_once "header.php";
     <div class="row">
 
         <div class="col-12 form-control">
-            <?php if (isset($msg) && !$msg = "") : ?> {
+            <?php if (isset($msg) && !$msg = "") : ?>
                 <div class="alert alert-danger" role="alert">
                     <?php echo $msg; ?>
                 </div>
-                } <?php endif; ?>
+            <?php endif; ?>
         </div>
         <div class="col-12 form-group">
             <label for="txtFechaNac" class="d-block">Fecha y hora:</label>
@@ -55,7 +55,6 @@ include_once "header.php";
             <input type="time" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="00:00">
         </div>
     </div>
-
     <div class="row">
         <div class="col-6 form-group">
             <label for="lstCliente">Cliente:</label>

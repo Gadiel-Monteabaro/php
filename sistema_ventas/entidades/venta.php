@@ -30,8 +30,14 @@ class Venta
         return $this;
     }
 
-    public function cargarFormulario($request){
-
+    public function cargarFormulario($request)
+    {
+        $this->idventa = isset($request["id"]) ? $request["id"] : "";
+        $this->fk_idcliente = isset($request["lstCliente"]) ? $request["lstCliente"] : "";
+        $this->fk_idproducto = isset($request["lstProducto"]) ? $request["lstProducto"] : "";
+        if (isset($request["txtAnio"]) && isset($request["txtMes"]) && isset($request["txtDia"])) {
+            $this->fecha = $request["txtAnio"] . "-" . $request["txtMes"] . "-" . $request["txtDia"] . " " . $request["txtHora"];
+        }
     }
 
     public function insertar()
