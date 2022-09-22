@@ -36,7 +36,6 @@ include_once "header.php";
                 <td><a href="cliente-formulario.php?id=<?php echo $venta->fk_idcliente; ?>"><?php echo $venta->nombre_cliente; ?></a></td>
                 <td>$<?php echo number_format($venta->total, 2, ',', '.'); ?></td>
                 <td><a class="btn btn-info" href="./venta-formulario.php?id=<?php echo $venta->idventa; ?>">Editar</a></td>
-
             </tr>
         <?php endforeach ?>
     </table>
