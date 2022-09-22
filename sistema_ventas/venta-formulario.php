@@ -6,8 +6,9 @@ include_once "entidades/cliente.php";
 include_once "entidades/producto.php";
 
 $venta = new Venta;
+
 if ($_POST) {
-    if (isset($_POST["bntGuardar"])) {
+    if (isset($_POST["btnGuardar"])) {
         $venta->cargarFormulario($_REQUEST);
         if (isset($_GET["id"]) && $_GET["id"] > 0) {
             $venta->actualizar();
@@ -23,7 +24,7 @@ if ($_POST) {
     if (isset($_POST["btnBorrar"])) {
         $venta->cargarFormulario($_REQUEST);
         $venta->eliminar();
-        header("Location: venta-formulario.php");
+        header("Location: venta-listado.php");
     }
 }
 
@@ -113,7 +114,7 @@ include_once "header.php";
             <select name="lstCliente" id="lstCliente" class="form-control selectpicker" data-live-search="true" required>
                 <option value="" disabled selected>Seleccionar</option>
                 <?php foreach ($aClientes as $cliente) : ?>
-                    <?php if ($venta->fk_idcliente == $cliente->idcliente) : ?>
+                    <?php if ($cliente->idcliente == $venta->fk_idcliente) : ?>
                         <option selected value="<?php echo $cliente->idcliente; ?>"><?php echo $cliente->nombre; ?></option>
                     <?php else : ?>
                         <option value="<?php echo $cliente->idcliente; ?>"><?php echo $cliente->nombre; ?></option>
