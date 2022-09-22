@@ -30,6 +30,10 @@ class Venta
         return $this;
     }
 
+    public function cargarFormulario($request){
+
+    }
+
     public function insertar()
     {
         //Instancia la clase mysqli con el constructor parametrizado

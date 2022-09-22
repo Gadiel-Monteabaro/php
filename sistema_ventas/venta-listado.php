@@ -2,7 +2,8 @@
 include_once "config.php";
 include_once "entidades/venta.php";
 
-
+$venta = new Venta;
+$aVenta = $venta->obtenerTodos();
 
 include_once "header.php";
 ?>
@@ -15,6 +16,7 @@ include_once "header.php";
             <a href="./producto-formulario.php" class="btn btn-primary">Nuevo</a>
         </div>
     </div>
+
 
     <table class="table table-hover border">
         <tr>

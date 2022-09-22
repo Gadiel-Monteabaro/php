@@ -12,6 +12,8 @@ class Producto
 
     public function __construct()
     {
+        $this->cantidad = 0;
+        $this->preciounitario = 0.0;      
     }
 
     public function __get($name)
