@@ -77,7 +77,6 @@ $aAlumnos[] = array(
                                 <td><?php echo promediar($alumno["notas"]);  ?></td>
                             </tr>
                         <?php endforeach; ?>
-
                     </tbody>
                 </table>
             </div>
