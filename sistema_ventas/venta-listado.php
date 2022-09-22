@@ -13,7 +13,7 @@ include_once "header.php";
 
     <div class="row">
         <div class="col-12 mb-3">
-            <a href="./producto-formulario.php" class="btn btn-primary">Nuevo</a>
+            <a href="./venta-formulario.php" class="btn btn-primary">Nuevo</a>
         </div>
     </div>
 
