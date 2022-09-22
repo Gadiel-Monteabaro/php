@@ -68,8 +68,7 @@ $aAlumnos[] = array(
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        foreach ($aAlumnos as $alumno) { ?>
+                        <?php foreach ($aAlumnos as $alumno) : ?>
                             <tr class="fil-datos">
                                 <td><?php echo $alumno["id"]; ?></td>
                                 <td><?php echo $alumno["nombre"]; ?></td>
@@ -77,9 +76,8 @@ $aAlumnos[] = array(
                                 <td><?php echo $alumno["notas"][1]; ?></td>
                                 <td><?php echo promediar($alumno["notas"]);  ?></td>
                             </tr>
-                        <?php
-                        }
-                        ?>
+                        <?php endforeach; ?>
+
                     </tbody>
                 </table>
             </div>
