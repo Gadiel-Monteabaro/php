@@ -39,5 +39,4 @@ include_once "header.php";
             </tr>
         <?php endforeach ?>
     </table>
-
 </div>
