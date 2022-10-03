@@ -4,6 +4,7 @@ include_once "entidades/venta.php";
 
 $venta = new Venta;
 $aVentas = $venta->obtenerTodos();
+$aVentas = $venta->cargarGrilla();
 
 include_once "header.php";
 ?>
