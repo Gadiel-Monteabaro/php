@@ -3,16 +3,22 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+
+include_once "config.php";
+include_once "./entidades/usuario.php";
 session_start();
 
 if ($_POST) {
-  $usuario = trim($_REQUEST["txtUsuario"]);
+  $nombreUsuario = trim($_REQUEST["txtUsuario"]);
   $clave = trim($_REQUEST["txtClave"]);
 
+  $entidadUsuario = new Usuario();
+  $entidadUsuario->obtenerPorUsuario($nombreUsuario);
+
   //Si el usuario es admin y la clave es admin123
-  if ($usuario == "admin" && $clave == "admin123") {
+  if ($entidadUsuario->usuario == $nombreUsuario && password_verify($clave, $entidadUsuario->clave)) {
     //Crear una variable de session con tu nombre
-    $_SESSION["nombre"] = "Gadiel";
+    $_SESSION["nombre"] = $entidadUsuario->nombre;
     //Redireccionar a index.php
     header("Location: index.php");
   } else {
