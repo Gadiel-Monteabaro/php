@@ -11,9 +11,6 @@ include_once "entidades/venta.php";
 $ventaEntidad = new Venta();
 $aVentas = $ventaEntidad->cargarGrilla();
 
-print_r($aVentas);
-exit;
-
 $fp = fopen('php://output', 'w');
 fputs($fp, $bom =( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
 $aTitulos = array("Fecha", "Cliente", "Producto", "Cantidad", "Total");
