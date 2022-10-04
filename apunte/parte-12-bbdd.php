@@ -153,6 +153,14 @@ NULL -> es una caso particular del valor DEFAULT, significa que el valor no exis
 */
 
 /*
+Ejemplo complejo
+SELECT A.idventa, A.fecha, A.cantidad, A.preciounitario, A.total, A.fk_idcliente, B.nombre
+ FROM ventas A
+ INNER JOIN clientes B ON A.fk_idcliente = B.idcliente
+
+*/
+
+/*
 Creacion de Tablas
 Sintaxys
 CREATE TABLE nombre_tabla (
