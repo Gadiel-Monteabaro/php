@@ -170,12 +170,16 @@ Eliminacion de Tablas
 Sintaxys 
 DROP TABLE peliculas
 
-Actualizar una tabla
+Actualizar una tabla y Modificar datos de una tabla
 ejemplo 
 ALTER TABLE peliculas 
 ADD rating DECIMAL(3,1) UNSIGNED NOT NULL;
 
-Modificar datos de una tabla
 ALTER TABLE peliculas 
 MODIFY rating DECIMAL(4,2) UNSIGNED NOT NULL;
+
+o eliminar 
+
+ALTER TABLE peliculas 
+DROP rating; 
 */
