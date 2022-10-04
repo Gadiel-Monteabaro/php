@@ -22,3 +22,45 @@ SELECT COUNT(*) FROM productos;
 SELECT COUNT(idproducto) FROM productos;
 SELECT COUNT(idproducto) AS cantidad  FROM productos WHERE fk_idtipoproducto = 1;
 */
+
+/*
+mas FUNCIONES
+
+SELECT CONCAT("Esto es ", "Un tutorial") AS cadena;
+
+SELECT CONCAT(nombre, "" , apellido) AS nomyape
+FROM usuarios
+WHERE apellido LIKE '%v%';
+
+COALESCE -> Devuelve el primer valor no NULL
+SELECT COALESCE (NULL, NULL, Gadiel, NULL,NULL); // Devuelve Gadiel.
+
+DATEDIFF ->  Devuelve el numero de dias entre dos fechas. 
+SELECT DATEDIFF("2017-06-25", "2017-06-15") AS cantidad; // Devuelve 10.
+
+EXTRACE -> Extrae el mes de una fecha.
+SELECT EXTRACT(MONTH FROM "2017-06-15 14:23:59");
+
+REPLACE -> Reemplaza una palabra por otra.
+SELECT REPLACE("Curso de SQL","SQL", "HMTL"); // En el primer string cambia SQL por HTML.
+
+DATE FORMAT
+SELECT DATE FORMAT(fecha, '%d/%m/%Y') AS fecha,
+total,
+fk_idcliente,
+fk_idproducto
+FROM ventas
+
+CASE -> Permite generar casos, funciona como un condicional
+SELECT 
+idproducto,
+nombre,
+cantidad,
+CASE
+  WHEN cantidad = 0 THEN 'Sin Stock'
+  ELSE 'sin especificar'
+  END AS stock
+FROM productos
+ORDER BY nombre ASC  
+
+*/
