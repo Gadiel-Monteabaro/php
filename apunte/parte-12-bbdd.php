@@ -128,3 +128,54 @@ DELETE -> Elimina datos de una tabla de base de datos.
 DELETE - Sintaxis -> DELETE FROM nombre_de_tabla 
                       WHERE condicion1;
 */
+/*
+Tipos de Datos.
+INT -> -2,147,483,648 a 2,147,483,647 (Si los negativos no estan definidos el valor positivo se duplica; 0 a 4,294,967,295)
+TINYINT -> -218 a 217 (Si los negativos no estan definidos el valor positivo se duplica; 0 a 255)
+CHAR -> siempre va a ocupar en la memoria, 100 caracteres.-
+VARCHAR -> va a tener un maximo de 100 caracteres.
+TEXT -> texto libre
+ENUM -> ('mal','regular','bien','muy bien','sobresaliente') dato elegido por nosotros.
+
+Primary key, es una UNIQUE KEY 
+Una PK es una campo que identifica a cada fila de una tabla de forma unica.
+No puede haber  dos filas en una tabla que tengan la misma clave primaria.
+No es obligatorio , pero es Recomendable que cada tabla tenga su PK.
+
+Unique key, es una restriccion que solo permite valores unicos para uno o multiples campos.
+Ejemplos 
+DNI
+ISBN (libros)
+Numero de Avion + FechaHora
+
+DEFAULT -> Se asgina dicho valor cuando no se especifica ninguno en el INSERT 
+NULL -> es una caso particular del valor DEFAULT, significa que el valor no existe o se desconoce ese dato, no significa que este vacio , ni tampoco que su valor es cero (0).
+*/
+
+/*
+Creacion de Tablas
+Sintaxys
+CREATE TABLE nombre_tabla (
+    columna1 tipo_dato
+    columna2 tipo_dato
+)
+
+ejemplo 
+CREATE TABLE peliculas (
+    id INT UNSIGNED PRIMARY KEY AUTO_INVREMENT,
+    titulo VARCHAR(200) NOT NULL
+);
+
+Eliminacion de Tablas
+Sintaxys 
+DROP TABLE peliculas
+
+Actualizar una tabla
+ejemplo 
+ALTER TABLE peliculas 
+ADD rating DECIMAL(3,1) UNSIGNED NOT NULL;
+
+Modificar datos de una tabla
+ALTER TABLE peliculas 
+MODIFY rating DECIMAL(4,2) UNSIGNED NOT NULL;
+*/
