@@ -2,8 +2,9 @@
 $dia = date("d");
 $mes = date("m");
 $anio = date("y");
-//header("Content-Type: text/csv; charset=utf-8");
-//header("Content-Disposition: attachment; filename=reporte-$anio-$mes-$dia.csv");
+
+header("Content-Type: text/csv; charset=utf-8");
+header("Content-Disposition: attachment; filename=reporte-$anio-$mes-$dia.csv");
 
 include_once "config.php";
 include_once "entidades/venta.php";
