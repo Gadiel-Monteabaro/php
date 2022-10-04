@@ -1,7 +1,6 @@
 <?php
 
 include_once("config.php");
-include_once("header.php");
 include_once("./entidades/venta.php");
 
 $venta = new Venta;
@@ -9,6 +8,8 @@ $facturacionMensual = $venta->obtenerFacturacionMensual(date('m'));
 $facturacionAnual = $venta->obtenerFacturacionAnual(date('Y'));
 
 $pg = "Inicio";
+include_once("header.php");
+
 ?>
 
 <!-- Begin Page Content -->

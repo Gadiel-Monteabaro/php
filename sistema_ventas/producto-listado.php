@@ -2,6 +2,8 @@
 include_once("config.php");
 include_once("./entidades/producto.php");
 
+$pg = "Listado de Productos";
+
 $producto = new Producto;
 $aProducto = $producto->obtenerTodos();
 
