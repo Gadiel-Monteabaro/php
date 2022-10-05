@@ -17,8 +17,8 @@ nos permite instalar y mantener actualizados los paquete de software necesarios 
 Para instalar - Git bash here
 -> $ composer global require laravel/installer
 -> $ laravel new proyecto //creamos un nuevo proyect
--> $ php artisan serv //en al carpeta que hayamos creado,  
 -> $ composer update
+-> $ php artisan serv //en al carpeta que hayamos creado,  
 */
 
 /*

@@ -191,3 +191,4 @@ o eliminar
 ALTER TABLE peliculas 
 DROP rating; 
 */
+
