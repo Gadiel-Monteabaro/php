@@ -63,4 +63,21 @@ CASE
 FROM productos
 ORDER BY nombre ASC  
 
+DISTINC -> Obtener clientes no repetidos de una misma tabla.
+SELECT DISTINC 
+CONCAT(B.nombre, 'CUIT:', B.cuit) AS cliente
+FROM ventas A
+INNER JOIN clientes B ON A.fk_idcliente = B.idcliente
+
+GROUP BY -> Sirve para agrupar duplicados
+SELECT marca 
+FROM autos
+GROUP BY marca
+
+EXIST
+SELECT columna1
+FROM tabla1
+WHERE
+EXIST (SELECT * FROM tabla2) // esto es uuna subquery
+
 */
