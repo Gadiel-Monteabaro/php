@@ -21,7 +21,3 @@ Para instalar - Git bash here
 */
 
 
-/*
-Archivos de Laravel
-
-*/
