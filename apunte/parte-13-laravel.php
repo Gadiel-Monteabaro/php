@@ -18,6 +18,14 @@ Para instalar - Git bash here
 -> $ composer global require laravel/installer
 -> $ laravel new proyecto //creamos un nuevo proyect
 -> $ php artisan serv //en al carpeta que hayamos creado,  
+-> $ composer update
 */
 
-
+/*
+Estructura de directorios Laravel
+app/http/controllers (controladores)
+app/entidades (entidades-modelo)
+routes/web.php (hoja de ruta)
+resources/views (Vistas)
+public (css, img, js, files)
+*/
