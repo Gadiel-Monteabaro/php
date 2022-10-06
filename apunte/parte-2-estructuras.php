@@ -89,4 +89,9 @@ lst -> Combo Desplegable
 chk -> CheckBox
 opt -> Option
 btn -> Button
+a -> array
+b -> booleano
+c -> char
+d -> double
+f -> function de eventos 
 */
