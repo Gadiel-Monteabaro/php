@@ -79,3 +79,14 @@ continue => salta una condicion
 exit => corta la ejecucion de codigo
 return => devuelve un valor o sale del codigo
 */
+
+/*
+Prefijos para Formularios.
+p -> puntero
+s -> string
+txt -> Caja de texto
+lst -> Combo Desplegable
+chk -> CheckBox
+opt -> Option
+btn -> Button
+*/
